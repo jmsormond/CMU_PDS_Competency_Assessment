@@ -1,12 +1,14 @@
 require 'test_helper'
 
 class IndicatorTest < ActiveSupport::TestCase
-  # Start by using Shoulda's ActiveRecord matchers
-  
-  # TODO: Relationship macros
 
+  # Using Shoulda's ActiveRecord matchers
+  # Relationship macros
+  should belong_to(:competency)
+  should have_many(:indicator_resources)
+  should have_many(:resources).through(:indicator_resources)
 
-  # TODO: Validation macros
+  # Validation macros
 
 
   
