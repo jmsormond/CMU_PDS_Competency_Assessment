@@ -31,7 +31,8 @@ class ActiveSupport::TestCase
     # Create three indicators
     @indicator1 = FactoryGirl.create(:indicator)
     @indicator2 = FactoryGirl.create(:indicator, description: "Able to present written communication in an easy–to-read format.")
-    @indicator3 = FactoryGirl.create(:category, level: "Champion", description: "Engages in difficult conversations with others while maintaining respect."
+    @indicator3 = FactoryGirl.create(:category, level: "Champion", description: "Engages in difficult conversations with others while maintaining respect.")
+  end
   
   def remove_context
     @indicator1.destroy

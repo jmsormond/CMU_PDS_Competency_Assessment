@@ -4,7 +4,7 @@ class Indicator < ActiveRecord::Base
 	# --------------------------------
 	belongs_to :competency
 	has_many :indicator_resources
-	has_many :indicators, through: :indicator_resources
+	has_many :resources, through: :indicator_resources
 
 	# Validations
 	# --------------------------------
