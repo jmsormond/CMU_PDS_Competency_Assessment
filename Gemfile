@@ -66,3 +66,4 @@ group :test do
   gem 'simplecov'
   gem 'turn'
   gem 'single_test'
+end
