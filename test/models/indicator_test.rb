@@ -5,13 +5,18 @@ class IndicatorTest < ActiveSupport::TestCase
   # Using Shoulda's ActiveRecord matchers
   # Relationship macros
   should belong_to(:competency)
-  should have_many(:indicator_resources)
   should have_many(:resources).through(:indicator_resources)
+  should have_many(:indicator_resources)
 
   # Validation macros
   should validate_presence_of(:competency_id)
   should validate_presence_of(:level)
   should validate_presence_of(:description)
+
+  # Validation for competency_id
+  # Competency_id field can only be an integer
+  should allow_value(2).for(:competency_id)
+  should_not allow_value("Fred").for(:competency_id)
 
 
 
