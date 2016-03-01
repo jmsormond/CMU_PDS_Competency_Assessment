@@ -5,6 +5,7 @@ require 'simplecov'
 SimpleCov.start 'rails'
 require 'turn/autorun'
 
+
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
 
@@ -16,4 +17,27 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   Turn.config.format = :outline
+
+  # ----------------------------------------------------
+  # THIS HELPER METHOD IS NOT A DEFAULT METHOD IN RAILS
+  def deny(condition)
+    # a simple transformation to increase readability IMO
+    assert !condition
+  end
+
+  # ----------------------------------------------------
+  # CREATE_ & REMOVE_CONTEXT HELPER METHODS NOT DEFAULT METHODS IN RAILS (added in by J.H,)
+  def create_context
+    # Create three indicators
+    @indicator1 = FactoryGirl.create(:indicator)
+    @indicator2 = FactoryGirl.create(:indicator, description: "Able to present written communication in an easy–to-read format.")
+    @indicator3 = FactoryGirl.create(:category, level: "Champion", description: "Engages in difficult conversations with others while maintaining respect."
+  
+  def remove_context
+    @indicator1.destroy
+    @indicator2.destory
+    @indicator3.destroy
+  end
+
+
 end

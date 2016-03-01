@@ -1,0 +1,27 @@
+{
+  "MiniTest": {
+    "coverage": {
+      "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/helpers/competencies_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/helpers/indicator_resources_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/helpers/indicators_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/helpers/resources_helper.rb": [
+        1,
+        null
+      ]
+    },
+    "timestamp": 1456843325
+  }
+}
