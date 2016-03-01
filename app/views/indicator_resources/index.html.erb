@@ -1,0 +1,29 @@
+<h1>Listing indicator_resources</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Indicator</th>
+      <th>Resource</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @indicator_resources.each do |indicator_resource| %>
+      <tr>
+        <td><%= indicator_resource.indicator_id %></td>
+        <td><%= indicator_resource.resource_id %></td>
+        <td><%= link_to 'Show', indicator_resource %></td>
+        <td><%= link_to 'Edit', edit_indicator_resource_path(indicator_resource) %></td>
+        <td><%= link_to 'Destroy', indicator_resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Indicator resource', new_indicator_resource_path %>
