@@ -1,5 +1,6 @@
 PDSAssessment::Application.routes.draw do
   resources :competencies
+  resources :indicators
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
