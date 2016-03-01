@@ -3,5 +3,5 @@ class Competency < ActiveRecord::Base
     has_many :indicators
 
     # validations
-    validate_presence_of :name
+    validates_presence_of :name
 end
