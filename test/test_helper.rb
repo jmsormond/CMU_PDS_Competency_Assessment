@@ -40,7 +40,7 @@ class ActiveSupport::TestCase
   
   def remove_context
     @indicator1.destroy
-    @indicator2.destory
+    @indicator2.destroy
     @indicator3.destroy
     @indicator4.destroy
     @communication.destroy
