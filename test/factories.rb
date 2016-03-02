@@ -8,4 +8,8 @@ FactoryGirl.define do
     description "Able to identify common nonverbal cues."
   end
 
+  factory :competency do
+    name "Communication"
+  end
+
 end

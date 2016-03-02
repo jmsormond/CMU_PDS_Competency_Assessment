@@ -34,36 +34,23 @@ class IndicatorTest < ActiveSupport::TestCase
 
     # test each factory object (not necessary, could be done in console)
     should "show that all factory objects are properly created" do
-      # assert_equal "Ruby", @ruby.name
-      # assert_equal "Rails", @rails.name
-      # assert_equal "Testing", @testing.name
-      # assert_equal "Black, David", @dblack.name
-      # assert_equal "Hartl, Michael", @michael.name
-      # assert_equal "Hellesoy, Aslak", @aslak.name
-      # assert_equal "Chelimsky, David", @dchel.name
-      # assert_equal "The Well-Grounded Rubyist", @wgr.title
-      # assert_equal "Rails 3 Tutorial", @r3t.title
-      # assert_equal "Ruby for Masters", @rfm.title
-      # assert_equal "The RSpec Book", @rspec.title
-      # assert_equal "Black, David", @wgr.authors.first.name
-      # assert_equal "Hartl, Michael", @r3t.authors.first.name
-      # assert_equal 2, @rspec.authors.size
-      # assert_equal "Chelimsky, David", @rspec.authors.alphabetical.first.name
-      # assert_equal "Black, David", @rfm.authors.first.name
-      # assert_nil @agt.contract_date
-      # assert_nil @rfm.published_date
+      assert_equal "Able to identify common nonverbal cues.", @indicator1.description
+      assert_equal "Companion", @indicator1.level
+
+      # @TODO add more asserts here
+
     end
 
 
     # TESTING SCOPES
     #
-    # Avaliable Indicator scopes
+    # Available Indicator scopes
     #   - alphabetical
     #   - by_level
     #   - by_competency
     
     should "have all the books listed alphabetically by title" do
-      # test code goes here...
+      # @TODO test code goes here...
     end
     
 

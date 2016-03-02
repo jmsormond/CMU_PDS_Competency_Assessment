@@ -16,7 +16,6 @@ class ActiveSupport::TestCase
   # fixtures :all
 
   # Add more helper methods to be used by all tests here...
-  Turn.config.format = :outline
 
   # ----------------------------------------------------
   # THIS HELPER METHOD IS NOT A DEFAULT METHOD IN RAILS
@@ -28,17 +27,28 @@ class ActiveSupport::TestCase
   # ----------------------------------------------------
   # CREATE_ & REMOVE_CONTEXT HELPER METHODS NOT DEFAULT METHODS IN RAILS (added in by J.H,)
   def create_context
-    # Create three indicators
-    @indicator1 = FactoryGirl.create(:indicator)
-    @indicator2 = FactoryGirl.create(:indicator, description: "Able to present written communication in an easy–to-read format.")
-    @indicator3 = FactoryGirl.create(:indicator, level: "Champion", description: "Engages in difficult conversations with others while maintaining respect.")
+    # Create two competencies
+    @communication = FactoryGirl.create(:competency)
+    @utilizingtechnology = FactoryGirl.create(:competency, name: "Utilizing Technology")
+
+    # Create four indicators
+    @indicator1 = FactoryGirl.create(:indicator, competency: @communication)
+    @indicator2 = FactoryGirl.create(:indicator, competency: @communication, description: "Able to present written communication in an easy–to-read format.")
+    @indicator3 = FactoryGirl.create(:indicator, competency: @communication, level: "Champion", description: "Engages in difficult conversations with others while maintaining respect.")
+    @indicator4 = FactoryGirl.create(:indicator, competency: @utilizingtechnology, level: "Companion", description: "Able to find the power button for electronic devices." )
   end
   
   def remove_context
     @indicator1.destroy
     @indicator2.destory
     @indicator3.destroy
+    @indicator4.destroy
+    @communication.destroy
+    @utilizingtechnology.destroy
   end
 
 
 end
+
+# For formatting the test output a little nicer
+Turn.config.format = :outline
