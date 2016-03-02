@@ -36,6 +36,7 @@ class ActiveSupport::TestCase
     @indicator2 = FactoryGirl.create(:indicator, competency: @communication, description: "Able to present written communication in an easy–to-read format.")
     @indicator3 = FactoryGirl.create(:indicator, competency: @communication, level: "Champion", description: "Engages in difficult conversations with others while maintaining respect.")
     @indicator4 = FactoryGirl.create(:indicator, competency: @utilizingtechnology, level: "Companion", description: "Able to find the power button for electronic devices." )
+    @indicator5 = FactoryGirl.create(:indicator, competency: @utilizingtechnology, level: "Companion", description: "Able to press buttons", active: false)
   end
   
   def remove_context

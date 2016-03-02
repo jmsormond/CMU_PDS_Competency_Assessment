@@ -6,6 +6,7 @@ FactoryGirl.define do
     association :competency
     level "Companion"
     description "Able to identify common nonverbal cues."
+    active true
   end
 
   factory :competency do

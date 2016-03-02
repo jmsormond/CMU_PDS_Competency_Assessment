@@ -48,6 +48,7 @@ class IndicatorTest < ActiveSupport::TestCase
     #   - alphabetical
     #   - by_level
     #   - by_competency
+    #   - active
     
     should "have all the books listed alphabetically by title" do
       # @TODO test code goes here...
