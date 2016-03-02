@@ -6,7 +6,7 @@ class Resource < ActiveRecord::Base
 
     # Validations
     # -----------------------------
-    validates_presence_of :type, :description, :link
+    validates_presence_of :type, :description
     validates_format_of :link, with: /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/, message: "is not a valid format"
 
 end
