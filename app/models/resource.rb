@@ -2,7 +2,11 @@ class Resource < ActiveRecord::Base
 	has_many :indicator_resources
 	has_many :indicator, through: :indicator_resources
 
-	scope :by_competency, -> { joins(:competency).order('competency.name') }
+	# Scopes
+    # -----------------------------
+	scope :alphabetical, -> { order('name') }
+	scope :active, -> { where(active: true) }
+	scope :by_indicator, -> { joins(:indicator_resource.order('indicator_resource.indicator_id') }
 
     # Validations
     # -----------------------------
