@@ -27,18 +27,18 @@ class ActiveSupport::TestCase
 
   # ----------------------------------------------------
   # CREATE_ & REMOVE_CONTEXT HELPER METHODS NOT DEFAULT METHODS IN RAILS (added in by J.H,)
-  # def create_context
-  #   # Create three indicators
-  #   @indicator1 = FactoryGirl.create(:indicator)
-  #   @indicator2 = FactoryGirl.create(:indicator, description: "Able to present written communication in an easy–to-read format.")
-  #   @indicator3 = FactoryGirl.create(:indicator, level: "Champion", description: "Engages in difficult conversations with others while maintaining respect.")
-  # end
+  def create_context
+    # Create three indicators
+    @indicator1 = FactoryGirl.create(:indicator)
+    @indicator2 = FactoryGirl.create(:indicator, description: "Able to present written communication in an easy–to-read format.")
+    @indicator3 = FactoryGirl.create(:indicator, level: "Champion", description: "Engages in difficult conversations with others while maintaining respect.")
+  end
   
-  # def remove_context
-  #   @indicator1.destroy
-  #   @indicator2.destory
-  #   @indicator3.destroy
-  # end
+  def remove_context
+    @indicator1.destroy
+    @indicator2.destory
+    @indicator3.destroy
+  end
 
 
 end
