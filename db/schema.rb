@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160303003928) do
+ActiveRecord::Schema.define(version: 20160303012053) do
 
   create_table "competencies", force: true do |t|
     t.string   "name"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20160303003928) do
   end
 
   create_table "resources", force: true do |t|
+    t.string   "name"
     t.string   "type"
     t.string   "description"
     t.string   "link"
