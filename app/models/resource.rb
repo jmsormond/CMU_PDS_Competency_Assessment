@@ -1,6 +1,6 @@
 class Resource < ActiveRecord::Base
 	has_many :indicator_resources
-	has_many :indicator, through: :indicator_resources
+	has_many :indicators, through: :indicator_resources
 
 	# Scopes
     # -----------------------------
@@ -10,6 +10,6 @@ class Resource < ActiveRecord::Base
     # Validations
     # -----------------------------
     validates_presence_of :name, :type
-    validates_format_of :link, with: /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/, message: "is not a valid format"
+    validates_format_of :link, with: /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/, message: "is not a valid format", :allow_blank => true
 
 end

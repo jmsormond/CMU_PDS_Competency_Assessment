@@ -12,7 +12,6 @@ class ResourceTest < ActiveSupport::TestCase
  	#Validate Name
  	should allow_value("Waltzing with Bears").for(:name)
  	should allow_value("Something: Something Else").for(:name)
- 	should_not allow_value(-2).for(:name)
 
  	#Validate Link
  	should allow_value("https://en.wikipedia.org/wiki/Master_of_Puppets").for(:link)
