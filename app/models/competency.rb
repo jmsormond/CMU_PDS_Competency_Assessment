@@ -4,4 +4,9 @@ class Competency < ActiveRecord::Base
 
     # validations
     validates_presence_of :name
+
+    # scopes
+    scope :active, -> { where("active = ?", true) }
+    scope :inactive, -> { where("active = ?", false) }
+    scope :alphabetical, -> { order("name") }
 end

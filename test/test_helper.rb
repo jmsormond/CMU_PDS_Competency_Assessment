@@ -29,12 +29,18 @@ class ActiveSupport::TestCase
     # examples:
     # @ruby    = FactoryGirl.create(:category)
     # @rails   = FactoryGirl.create(:category, name: "Rails")
+    @communication = FactoryGirl.create(:competency)
+    @decision_making = FactoryGirl.create(:comptency, name: "Decision Making")
+    @problem_solving = FactoryGirl.create(:competency, name: "Problem Solving", active: false)
   end
   
   def remove_context
     # destroy FactoryGirl objects
     # example:
     # @ruby.destroy
+    @communication.destroy
+    @decision_making.destroy
+    @problem_solving.destroy
   end
 
 end
