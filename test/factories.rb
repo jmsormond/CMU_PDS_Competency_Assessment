@@ -1,4 +1,9 @@
 FactoryGirl.define do
+    #competencies
+    factory :competency do
+        name "Communication"
+        active true
+    end
 
 	factory :resource do
 		name "Crocodile Dundee"
@@ -12,5 +17,4 @@ FactoryGirl.define do
 		association :resource
 		association :indicator
 	end
-
 end

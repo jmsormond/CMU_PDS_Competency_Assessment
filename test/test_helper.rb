@@ -1,3 +1,6 @@
+require 'simplecov'
+SimpleCov.start 'rails'
+
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
@@ -29,12 +32,18 @@ class ActiveSupport::TestCase
     # examples:
     # @ruby    = FactoryGirl.create(:category)
     # @rails   = FactoryGirl.create(:category, name: "Rails")
+    @communication = FactoryGirl.create(:competency)
+    @decision_making = FactoryGirl.create(:competency, name: "Decision Making")
+    @problem_solving = FactoryGirl.create(:competency, name: "Problem Solving", active: false)
   end
   
   def remove_context
     # destroy FactoryGirl objects
     # example:
     # @ruby.destroy
+    @communication.destroy
+    @decision_making.destroy
+    @problem_solving.destroy
   end
 
 end
