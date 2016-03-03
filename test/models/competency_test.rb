@@ -8,8 +8,11 @@ class CompetencyTest < ActiveSupport::TestCase
     # Validation tests
     should validate_presence_of(:name)
 
+    should allow_value("Communication").for(:name)
+    should_not allow_value("").for(:name)
+
     # Scope and method tests
-    context "With a proper context", do
+    context "With a proper context, " do
         # I can create the objects I want with factories
         setup do
             create_context
@@ -23,6 +26,7 @@ class CompetencyTest < ActiveSupport::TestCase
         # test one of each factory object (not really required, could be done in console)
         should "show that all factory objects are properly created" do
             # test objects in here
+            assert_equal false, @communication.nil?
             assert_equal "Communication", @communication.name
             assert_equal "Decision Making", @decision_making.name
             assert_equal "Problem Solving", @problem_solving.name

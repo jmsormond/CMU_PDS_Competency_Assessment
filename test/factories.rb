@@ -1,6 +1,6 @@
 FactoryGirl.define do
     #competencies
-    facotry :competency do
+    factory :competency do
         name "Communication"
         active true
     end
