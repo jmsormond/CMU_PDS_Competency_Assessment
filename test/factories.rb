@@ -8,4 +8,9 @@ FactoryGirl.define do
 		active true
 	end
 
+	factory :resource_inicator do
+		association :resource
+		association :indicator
+	end
+
 end
