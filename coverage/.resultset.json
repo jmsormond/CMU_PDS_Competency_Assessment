@@ -52,10 +52,10 @@
         null,
         null,
         null,
+        5,
         2,
-        1,
-        1,
-        1,
+        2,
+        2,
         null,
         null,
         null,
@@ -89,10 +89,6 @@
         null
       ]
     },
-<<<<<<< HEAD
-    "timestamp": 1457795572
-=======
-    "timestamp": 1457795272
->>>>>>> master
+    "timestamp": 1457796304
   }
 }
