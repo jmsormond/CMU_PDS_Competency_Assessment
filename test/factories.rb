@@ -17,7 +17,7 @@ FactoryGirl.define do
 	end
 
   # Resource_Indicator factory set up
-	factory :resource_inicator do
+	factory :indicator_resource do
 		association :resource
 		association :indicator
 	end
