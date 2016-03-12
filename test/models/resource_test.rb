@@ -7,7 +7,7 @@ class ResourceTest < ActiveSupport::TestCase
 
  	#Validation Macros
  	should validate_presence_of(:name)
- 	should validate_presence_of(:type)
+ 	should validate_presence_of(:resource_category)
 
  	#Validate Name
  	should allow_value("Waltzing with Bears").for(:name)
@@ -45,7 +45,7 @@ class ResourceTest < ActiveSupport::TestCase
  		end
 
  		should "have resources in alphabetical order" do
- 			assert_equal ["Crocodile Dundee", "Talking to New Yorkers", "Waltzing With Bears"], Resource.alphabetical.map{|o| o.name}
+ 			assert_equal ["Crocodile Dundee", "Steve Irwin: A Legacy", "Talking to New Yorkers", "Waltzing With Bears"], Resource.alphabetical.map{|o| o.name}
  		end
 
 		should "have a scope for_indicator that works" do
