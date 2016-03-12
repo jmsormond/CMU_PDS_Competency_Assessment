@@ -50,9 +50,11 @@ class IndicatorTest < ActiveSupport::TestCase
     #   - by_competency
     #   - active
     
-    should "have all the books listed alphabetically by title" do
-      # @TODO test code goes here...
+    should "have all the indicators listed alphabetically by description" do
+      assert_equal ["Able to identify apparent causes of a problem.", "Able to identify common nonverbal cues.", "Able to outline a plan to gather data that will aid in the completion of a familiar task.", "Able to present written communication in an easy–to-read format.", "Engages in difficult conversations with others while maintaining respect."], Indicator.alphabetical.map { |i| i.description }
     end
+
+    
     
 
   end

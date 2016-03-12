@@ -47,8 +47,8 @@ Turn.config.format = :outline
     @indicator1 = FactoryGirl.create(:indicator, competency: @communication)
     @indicator2 = FactoryGirl.create(:indicator, competency: @communication, description: "Able to present written communication in an easy–to-read format.")
     @indicator3 = FactoryGirl.create(:indicator, competency: @communication, level: "Champion", description: "Engages in difficult conversations with others while maintaining respect.")
-    @indicator4 = FactoryGirl.create(:indicator, competency: @decision_making, level: "Companion", description: "Able to find the power button for electronic devices." )
-    @indicator5 = FactoryGirl.create(:indicator, competency: @problem_solving, level: "Companion", description: "Able to press buttons", active: false)
+    @indicator4 = FactoryGirl.create(:indicator, competency: @decision_making, level: "Companion", description: "Able to outline a plan to gather data that will aid in the completion of a familiar task.")
+    @indicator5 = FactoryGirl.create(:indicator, competency: @problem_solving, level: "Companion", description: "Able to identify apparent causes of a problem.", active: false)
   end
   
   def remove_context
