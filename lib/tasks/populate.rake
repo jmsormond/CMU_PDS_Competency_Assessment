@@ -191,6 +191,707 @@ namespace :db do
     i24.competency = c
     i24.save!
 
+    # Step 3: add the resoruces
+
+    r1 = Resource.new
+    r1.name = "Basic Concepts of Intercultural Communication: Paradigms, Principles and Practices, Second Edition"
+    r1.type = "Build Understanding"
+    r1.description = ""
+    r1.link = ""
+    r1.save!
+
+    r2 = Resource.new
+    r2.name = "Communication Skills for Dummies"
+    r2.type = "Build Understanding"
+    r2.description = ""
+    r2.link = ""
+    r2.save!
+
+    r3 = Resource.new
+    r3.name = "Crisis Communications: The Definitive Guide to Managing the Message"
+    r3.type = "Build Understanding"
+    r3.description = ""
+    r3.link = ""
+    r3.save!
+
+    r4 = Resource.new
+    r4.name = "How to Read a Client from Across the Room: Win More Business with the Proven Character Code System to Decode Verbal & Nonverbal Communication"
+    r4.type = "Build Understanding"
+    r4.description = ""
+    r4.link = ""
+    r4.save!
+
+    r5 = Resource.new
+    r5.name = "How to Succeed with People: The Remarkable Truth about How to Get the Most Out of Dealing with Others"
+    r5.type = "Build Understanding"
+    r5.description = ""
+    r5.link = ""
+    r5.save!
+
+    r6 = Resource.new
+    r6.name = "How To Talk To Absolutely Anyone: Confident Communication in Every Situation"
+    r6.type = "Build Understanding"
+    r6.description = ""
+    r6.link = ""
+    r6.save!
+
+    r7 = Resource.new
+    r7.name = "I Hear You: Repair Communication Breakdowns; Negotiate Successfully; and Build Consensus . . . in Three Simple Steps"
+    r7.type = "Build Understanding"
+    r7.description = ""
+    r7.link = ""
+    r7.save!
+
+    r8 = Resource.new
+    r8.name = "On Message: Precision Communication for the Digital Age"
+    r8.type = "Build Understanding"
+    r8.description = ""
+    r8.link = ""
+    r8.save!
+
+    r9 = Resource.new
+    r9.name = "The Snowball Effect: Communication Techniques to Make You Unstoppable"
+    r9.type = "Build Understanding"
+    r9.description = ""
+    r9.link = ""
+    r9.save!
+
+    r10 = Resource.new
+    r10.name = "Implosion: What the Internet has Really Done to Culture and Communications"
+    r10.type = "Build Understanding"
+    r10.description = ""
+    r10.link = ""
+    r10.save!
+
+    r11 = Resource.new
+    r11.name = "Whoever Tells the Best Story Wins: How to Use Your Own Stories to Communicate with Power and Impact, Second Edition"
+    r11.type = "Build Understanding"
+    r11.description = ""
+    r11.link = ""
+    r11.save!
+
+    r12 = Resource.new
+    r12.name = "Communicating Across Cultures"
+    r12.type = "Get Connected"
+    r12.description = ""
+    r12.link = ""
+    r12.save!
+
+    r13 = Resource.new
+    r13.name = "Culture and Its Effect on Communication  "
+    r13.type = "Get Connected"
+    r13.description = ""
+    r13.link = ""
+    r13.save!
+
+    r14 = Resource.new
+    r14.name = "Improving Communication in Cross-Cultural Relationships"
+    r14.type = "Get Connected"
+    r14.description = ""
+    r14.link = ""
+    r14.save!
+
+    r15 = Resource.new
+    r15.name = "Interpersonal Communication: Being Approachable"
+    r15.type = "Get Connected"
+    r15.description = ""
+    r15.link = ""
+    r15.save!
+
+    r16 = Resource.new
+    r16.name = "Interpersonal Communication: Communicating Assertively"
+    r16.type = "Get Connected"
+    r16.description = ""
+    r16.link = ""
+    r16.save!
+
+    r17 = Resource.new
+    r17.name = "Interpersonal Communication: Communicating with Confidence"
+    r17.type = "Get Connected"
+    r17.description = ""
+    r17.link = ""
+    r17.save!
+
+    r18 = Resource.new
+    r18.name = "Interpersonal Communication: Listening Essentials"
+    r18.type = "Get Connected"
+    r18.description = ""
+    r18.link = ""
+    r18.save!
+
+    r19 = Resource.new
+    r19.name = "Interpersonal Communication: Targeting Your Message"
+    r19.type = "Get Connected"
+    r19.description = ""
+    r19.link = ""
+    r19.save!
+
+    r20 = Resource.new
+    r20.name = "Preparing to Communicate Effectively at the 'C' Level"
+    r20.type = "Get Connected"
+    r20.description = ""
+    r20.link = ""
+    r20.save!
+
+    r21 = Resource.new
+    r21.name = "Techniques for Communicating Effectively with Senior Executives"
+    r21.type = "Get Connected"
+    r21.description = ""
+    r21.link = ""
+    r21.save!
+
+    r22 = Resource.new
+    r22.name = "Powerless to Powerful: Taking Control"
+    r22.type = "Get Connected"
+    r22.description = ""
+    r22.link = ""
+    r22.save!
+
+    r23 = Resource.new
+    r23.name = "Business Writing Strategies"
+    r23.type = "Get Connected"
+    r23.description = ""
+    r23.link = ""
+    r23.save!
+
+    r24 = Resource.new
+    r24.name = "Note-taking for Business Professionals"
+    r24.type = "Get Connected"
+    r24.description = ""
+    r24.link = ""
+    r24.save!
+
+    r25 = Resource.new
+    r25.name = "Learning to Say No"
+    r25.type = "Get Connected"
+    r25.description = ""
+    r25.link = ""
+    r25.save!
+
+    r26 = Resource.new
+    r26.name = "Volunteer to write an agenda for your team’s next meeting."
+    r26.type = "Do Something"
+    r26.description = ""
+    r26.link = ""
+    r26.save!
+
+    r27 = Resource.new
+    r27.name = "Observe a presentation and observe the presenter’s communication skills. Identify which methods contributed to an impactful message and which detracted from the meaning of the message."
+    r27.type = "Do Something"
+    r27.description = ""
+    r27.link = ""
+    r27.save!
+
+    r28 = Resource.new
+    r28.name = "Draft an important email you need to send and ask your supervisor to review it to ensure it is clear and delivers the intended meaning of the message.  "
+    r28.type = "Do Something"
+    r28.description = ""
+    r28.link = ""
+    r28.save!
+
+    r29 = Resource.new
+    r29.name = "Practice active listening skills when meeting with your supervisor. You can then review what was heard and ask your supervisor for feedback."
+    r29.type = "Do Something"
+    r29.description = ""
+    r29.link = ""
+    r29.save!
+
+    r30 = Resource.new
+    r30.name = "Practice new communication skills when presenting familiar information to various individuals."
+    r30.type = "Do Something"
+    r30.description = ""
+    r30.link = ""
+    r30.save!
+
+    r31 = Resource.new
+    r31.name = "Be aware of your nonverbal cues. Ask a colleague to indicate the message your nonverbal cues are delivering."
+    r31.type = "Do Something"
+    r31.description = ""
+    r31.link = ""
+    r31.save!
+
+    r32 = Resource.new
+    r32.name = "Outline the intended message of an important communication and gain feedback from your supervisor and colleagues before delivering it."
+    r32.type = "Do Something"
+    r32.description = ""
+    r32.link = ""
+    r32.save!
+
+    r33 = Resource.new
+    r33.name = "Identify the cause(s) of a misunderstanding that occurred and develop a plan to avoid it in the future."
+    r33.type = "Do Something"
+    r33.description = ""
+    r33.link = ""
+    r33.save!
+
+    r34 = Resource.new
+    r34.name = "Identify how you acquired and developed your best communication skill. Then, use that insight to develop additional communication skills."
+    r34.type = "Do Something"
+    r34.description = ""
+    r34.link = ""
+    r34.save!
+
+    r35 = Resource.new
+    r35.name = "Volunteer to teach a new work process or procedure to a colleague."
+    r35.type = "Do Something"
+    r35.description = ""
+    r35.link = ""
+    r35.save!
+
+    r36 = Resource.new
+    r36.name = "Write your perception of the meaning of a message following an interaction with an individual who is unfamiliar to you. Then, follow-up with the person to ensure that you have accurately interpreted the message."
+    r36.type = "Do Something"
+    r36.description = ""
+    r36.link = ""
+    r36.save!
+
+    r37 = Resource.new
+    r37.name = "Be aware of the number of times you engage in active listening techniques and reflect on how such techniques impact your ability to understand a message."
+    r37.type = "Do Something"
+    r37.description = ""
+    r37.link = ""
+    r37.save!
+
+    r38 = Resource.new
+    r38.name = "Identify a situation where miscommunication occurs and develop a plan to clarify the miscommunication."
+    r38.type = "Do Something"
+    r38.description = ""
+    r38.link = ""
+    r38.save!
+
+    r39 = Resource.new
+    r39.name = "Offer to review a colleague’s written communication."
+    r39.type = "Do Something"
+    r39.description = ""
+    r39.link = ""
+    r39.save!
+
+    r40 = Resource.new
+    r40.name = "Attend public speaking events to identify new communication skills."
+    r40.type = "Do Something"
+    r40.description = ""
+    r40.link = ""
+    r40.save!
+
+    r41 = Resource.new
+    r41.name = "Offer to facilitate your next team meeting."
+    r41.type = "Do Something"
+    r41.description = ""
+    r41.link = ""
+    r41.save!
+
+    r42 = Resource.new
+    r42.name = "Identify a presentation that needs to be completed and offer to develop and present it. Ask your supervisor and colleagues to provide feedback following the presentation."
+    r42.type = "Do Something"
+    r42.description = ""
+    r42.link = ""
+    r42.save!
+
+    r43 = Resource.new
+    r43.name = "Ask multiple colleagues to review your written work in order to identify common errors, then focus to improve them."
+    r43.type = "Do Something"
+    r43.description = ""
+    r43.link = ""
+    r43.save!
+
+    r44 = Resource.new
+    r44.name = "Identify different delivery methods by interacting with individuals from diverse backgrounds (individuals from different departments, different positions, etc.)."
+    r44.type = "Do Something"
+    r44.description = ""
+    r44.link = ""
+    r44.save!
+
+    r45 = Resource.new
+    r45.name = "Request feedback from audience members in order to identify gaps between the intended message and the message the audience perceived."
+    r45.type = "Do Something"
+    r45.description = ""
+    r45.link = ""
+    r45.save!
+
+    r46 = Resource.new
+    r46.name = "Develop an improvement plan and present it to your supervisor and colleagues to communicate a process or procedure within the department."
+    r46.type = "Do Something"
+    r46.description = ""
+    r46.link = ""
+    r46.save!
+
+    r47 = Resource.new
+    r47.name = "Document the feedback you receive regarding your communication approach and effectiveness in order to identify consistent themes in the feedback."
+    r47.type = "Do Something"
+    r47.description = ""
+    r47.link = ""
+    r47.save!
+
+    r48 = Resource.new
+    r48.name = "Develop a communication plan for a project or an initiative you are responsible for completing. Then you can strategically deliver the message using the most effective medium."
+    r48.type = "Do Something"
+    r48.description = ""
+    r48.link = ""
+    r48.save!
+
+    r49 = Resource.new
+    r49.name = "Practice changing nonverbal cues during conversation in order to best portray the intended meaning of the message."
+    r49.type = "Do Something"
+    r49.description = ""
+    r49.link = ""
+    r49.save!
+
+    r50 = Resource.new
+    r50.name = "Look for opportunities to collaborate with colleagues and others outside your department in order to strengthen your ability to accommodate various audiences.  "
+    r50.type = "Do Something"
+    r50.description = ""
+    r50.link = ""
+    r50.save!
+
+    r51 = Resource.new
+    r51.name = "Take a lead role in communicating a strategic plan for your department/organization."
+    r51.type = "Do Something"
+    r51.description = ""
+    r51.link = ""
+    r51.save!
+
+    r52 = Resource.new
+    r52.name = "Seek opportunities to present complex information to a large group of people."
+    r52.type = "Do Something"
+    r52.description = ""
+    r52.link = ""
+    r52.save!
+
+    r53 = Resource.new
+    r53.name = "Offer colleagues assistance as they prepare to deliver high-impact, large-scale messages."
+    r53.type = "Do Something"
+    r53.description = ""
+    r53.link = ""
+    r53.save!
+
+    r54 = Resource.new
+    r54.name = "Offer support to colleagues and ask probing questions to encourage others to openly share ideas with you."
+    r54.type = "Do Something"
+    r54.description = ""
+    r54.link = ""
+    r54.save!
+
+    r55 = Resource.new
+    r55.name = "Draft a plan to improve communication within your department. Gain feedback from colleagues and your supervisor."
+    r55.type = "Do Something"
+    r55.description = ""
+    r55.link = ""
+    r55.save!
+
+    r56 = Resource.new
+    r56.name = "Discuss your communication style with others in your group. Ask for feedback."
+    r56.type = "Engage With Others"
+    r56.description = ""
+    r56.link = ""
+    r56.save!
+
+    r57 = Resource.new
+    r57.name = "Ask others in your group how they prefer to communicate. Do their preferences change based on the situation?"
+    r57.type = "Engage With Others"
+    r57.description = ""
+    r57.link = ""
+    r57.save!
+
+    r58 = Resource.new
+    r58.name = "Invite a colleague out to lunch. Use your listening skills to learn more about him or her."
+    r58.type = "Engage With Others"
+    r58.description = ""
+    r58.link = ""
+    r58.save!
+
+    r59 = Resource.new
+    r59.name = "Identify a colleague who you feel expresses his or her ideas effectively. Observe his or her behavior when faced with a conflict situation."
+    r59.type = "Engage With Others"
+    r59.description = ""
+    r59.link = ""
+    r59.save!
+
+    r60 = Resource.new
+    r60.name = "Identify a colleague who communicates effectively in writing. Ask if he or she can review an important email before you send."
+    r60.type = "Engage With Others"
+    r60.description = ""
+    r60.link = ""
+    r60.save!
+
+    r61 = Resource.new
+    r61.name = "Attend an event or celebration with colleagues. Observe their non-verbal cues as they speak with you and with others."
+    r61.type = "Engage With Others"
+    r61.description = ""
+    r61.link = ""
+    r61.save!
+
+    r62 = Resource.new
+    r62.name = "Attend a conference or networking event where you know very few people. Practice introducing yourself and asking questions to get to know others."
+    r62.type = "Engage With Others"
+    r62.description = ""
+    r62.link = ""
+    r62.save!
+
+    r63 = Resource.new
+    r63.name = "Ask for feedback from colleagues or your supervisor on written and verbal messages – are you able to deliver your intended message in a way that encourages others and provides important information?"
+    r63.type = "Engage With Others"
+    r63.description = ""
+    r63.link = ""
+    r63.save!
+
+    r64 = Resource.new
+    r64.name = "Connect with a colleague and offer to proofread his or her written communication. Ask him or her to proofread your written communication.  "
+    r64.type = "Engage With Others"
+    r64.description = ""
+    r64.link = ""
+    r64.save!
+
+    r65 = Resource.new
+    r65.name = "Ask a colleague to provide feedback regarding your nonverbal cues."
+    r65.type = "Engage With Others"
+    r65.description = ""
+    r65.link = ""
+    r65.save!
+
+    r66 = Resource.new
+    r66.name = "Connect with individuals within other departments to identify best practices for communicating a new initiative."
+    r66.type = "Engage With Others"
+    r66.description = ""
+    r66.link = ""
+    r66.save!
+
+    r67 = Resource.new
+    r67.name = "During a conversation with a colleague, ask probing questions and create an open environment to encourage him or her to openly share feedback with you. "
+    r67.type = "Engage With Others"
+    r67.description = ""
+    r67.link = ""
+    r67.save!
+
+    r68 = Resource.new
+    r68.name = "Practice providing positive feedback by acknowledging when someone exceeds your expectations. "
+    r68.type = "Engage With Others"
+    r68.description = ""
+    r68.link = ""
+    r68.save!
+
+    r69 = Resource.new
+    r69.name = "Engage colleagues - particularly companions and contributors – in the process of determining an appropriate medium for an important message that needs to be sent, or information that needs to be shared. "
+    r69.type = "Engage With Others"
+    r69.description = ""
+    r69.link = ""
+    r69.save!
+
+    r70 = Resource.new
+    r70.name = "Invite other good communicators to a meeting you will lead. Request feedback regarding the nonverbal messages you sent"
+    r70.type = "Engage With Others"
+    r70.description = ""
+    r70.link = ""
+    r70.save!
+
+    r71 = Resource.new
+    r71.name = "Help colleagues – particularly companions and contributors – develop communication strategies to improve written, nonverbal, and verbal communication.  "
+    r71.type = "Engage With Others"
+    r71.description = ""
+    r71.link = ""
+    r71.save!
+
+    r72 = Resource.new
+    r72.name = "Written Communication "
+    r72.type = "Learn More"
+    r72.description = ""
+    r72.link = ""
+    r72.save!
+
+    r73 = Resource.new
+    r73.name = "That's Not What I Wanted to Hear: Customer Service for the Unhappy Customer "
+    r73.type = "Learn More"
+    r73.description = ""
+    r73.link = ""
+    r73.save!
+
+    r74 = Resource.new
+    r74.name = "Speakers Bureau Program"
+    r74.type = "Learn More"
+    r74.description = ""
+    r74.link = ""
+    r74.save!
+
+    r75 = Resource.new
+    r75.name = "So You Are New… Communication and Culture at CMU"
+    r75.type = "Learn More"
+    r75.description = ""
+    r75.link = ""
+    r75.save!
+
+    r76 = Resource.new
+    r76.name = "Organizational Communication "
+    r76.type = "Learn More"
+    r76.description = ""
+    r76.link = ""
+    r76.save!
+
+    r77 = Resource.new
+    r77.name = "Listening Skills "
+    r77.type = "Learn More"
+    r77.description = ""
+    r77.link = ""
+    r77.save!
+
+    r78 = Resource.new
+    r78.name = "Get Up and Go: Motivating Others"
+    r78.type = "Learn More"
+    r78.description = ""
+    r78.link = ""
+    r78.save!
+
+    r79 = Resource.new
+    r79.name = "Creating an Exceptional Customer Experience"
+    r79.type = "Learn More"
+    r79.description = ""
+    r79.link = ""
+    r79.save!
+
+    r80 = Resource.new
+    r80.name = "Conflict Resolution"
+    r80.type = "Learn More"
+    r80.description = ""
+    r80.link = ""
+    r80.save!
+
+    r81 = Resource.new
+    r81.name = "Communication Strategies in the Workplace "
+    r81.type = "Learn More"
+    r81.description = ""
+    r81.link = ""
+    r81.save!
+
+    r82 = Resource.new
+    r82.name = "Collaboration 101 "
+    r82.type = "Learn More"
+    r82.description = ""
+    r82.link = ""
+    r82.save!
+
+    r83 = Resource.new
+    r83.name = "Assertive Communication "
+    r83.type = "Learn More"
+    r83.description = ""
+    r83.link = ""
+    r83.save!
+
+    r84 = Resource.new
+    r84.name = "Think about a time when you needed clarification on a request from your supervisor. How did you seek clarification? Did you receive the information you needed?"
+    r84.type = "Reflect On It"
+    r84.description = ""
+    r84.link = ""
+    r84.save!
+
+    r85 = Resource.new
+    r85.name = "Think about a time when you chose to communicate in person, rather than by phone. Or, recall a time when you chose to communicate by e-mail rather than in person. Why did you make those choices? What were the outcomes? How would the outcomes have been different if you had chosen another mode of communication?"
+    r85.type = "Reflect On It"
+    r85.description = ""
+    r85.link = ""
+    r85.save!
+
+    r86 = Resource.new
+    r86.name = "Think about how you communicate with your supervisor. Then, think about how you communicate with co-workers. Do you change your communication style based on who you’re communicating with? How so?"
+    r86.type = "Reflect On It"
+    r86.description = ""
+    r86.link = ""
+    r86.save!
+
+    r87 = Resource.new
+    r87.name = "Does my communication approach result in others understanding my intended message?"
+    r87.type = "Reflect On It"
+    r87.description = ""
+    r87.link = ""
+    r87.save!
+
+    r88 = Resource.new
+    r88.name = "How often do I practice active listening skills?"
+    r88.type = "Reflect On It"
+    r88.description = ""
+    r88.link = ""
+    r88.save!
+
+    r89 = Resource.new
+    r89.name = "When delivering a message, do I overuse my preferred method of communication, or do I try various methods?"
+    r89.type = "Reflect On It"
+    r89.description = ""
+    r89.link = ""
+    r89.save!
+
+    r90 = Resource.new
+    r90.name = "Reflect on a time when you communicated a complicated idea successfully. What strategies did you use to ensure your communication was effective?"
+    r90.type = "Reflect On It"
+    r90.description = ""
+    r90.link = ""
+    r90.save!
+
+    r91 = Resource.new
+    r91.name = "Reflect on a time when someone misunderstood your e-mail, letter or other written communication. Why did the misunderstanding occur? How could you have clarified your written message?"
+    r91.type = "Reflect On It"
+    r91.description = ""
+    r91.link = ""
+    r91.save!
+
+    r92 = Resource.new
+    r92.name = "Recall a time when someone neglected to inform you about an important decision. How did you address the problem? How can you ensure you are included in future communications?"
+    r92.type = "Reflect On It"
+    r92.description = ""
+    r92.link = ""
+    r92.save!
+
+    r93 = Resource.new
+    r93.name = "Think about a time when you neglected to inform someone of an important decision. What could you have done to include this person in your communication? How did you rectify the situation?"
+    r93.type = "Reflect On It"
+    r93.description = ""
+    r93.link = ""
+    r93.save!
+
+    r94 = Resource.new
+    r94.name = "When experiencing conflict, identify the source of the conflict. It may not be what you expect. What motivations, attitudes and pressures may be contributing factors in creating conflict?"
+    r94.type = "Reflect On It"
+    r94.description = ""
+    r94.link = ""
+    r94.save!
+
+    r95 = Resource.new
+    r95.name = "Reflect on a time when you faced conflict with another person. How did you respond to the conflict? What would you change about your response?"
+    r95.type = "Reflect On It"
+    r95.description = ""
+    r95.link = ""
+    r95.save!
+
+    r96 = Resource.new
+    r96.name = "Think about a time when you sensed another person’s emotional state without being told. What non-verbal cues informed your intuition? How could you have tested your impression?"
+    r96.type = "Reflect On It"
+    r96.description = ""
+    r96.link = ""
+    r96.save!
+
+    r97 = Resource.new
+    r97.name = "Think of a time when you made a surprising and unintended impression on someone. How might your non-verbal cues have led to this impression?"
+    r97.type = "Reflect On It"
+    r97.description = ""
+    r97.link = ""
+    r97.save!
+
+    r98 = Resource.new
+    r98.name = "Consider how you determine which communication medium you use for a given message.  Why did you choose this medium?  Can you articulate this choice to others in a way that may help them develop their ability to discern the most appropriate medium?"
+    r98.type = "Reflect On It"
+    r98.description = ""
+    r98.link = ""
+    r98.save!
+
+    r99 = Resource.new
+    r99.name = "How comfortable do you believe others are in addressing concerns with you?  What factors lead you to this conclusion?  Are there ways you can increase your openness to feedback from others?"
+    r99.type = "Reflect On It"
+    r99.description = ""
+    r99.link = ""
+    r99.save!
+
+    r100 = Resource.new
+    r100.name = "In what ways can you help people in your department improve their communication effectiveness?"
+    r100.type = "Reflect On It"
+    r100.description = ""
+    r100.link = ""
+    r100.save!
 
     # # Step 2: add some categories to work with (small set for now...)
     # categories = %w[".NET", "Agile Practices", "Android", "Databases", "Design", "Java", "PHP", "Python", "Rails", "Ruby", "Security", "Testing", "iOS"]
