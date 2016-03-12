@@ -11,12 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160302080938) do
+=======
+ActiveRecord::Schema.define(version: 20160303012053) do
+>>>>>>> master
 
   create_table "competencies", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "active"
   end
 
   create_table "indicator_resources", force: true do |t|
@@ -36,11 +41,13 @@ ActiveRecord::Schema.define(version: 20160302080938) do
   end
 
   create_table "resources", force: true do |t|
+    t.string   "name"
     t.string   "type"
     t.string   "description"
     t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "active"
   end
 
 end

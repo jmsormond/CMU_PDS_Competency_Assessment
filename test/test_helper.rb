@@ -1,10 +1,13 @@
+require 'simplecov'
+SimpleCov.start 'rails'
+
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
+<<<<<<< HEAD
 require 'simplecov'
 SimpleCov.start 'rails'
 require 'turn/autorun'
-
 
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
@@ -19,37 +22,53 @@ class ActiveSupport::TestCase
 
   # ----------------------------------------------------
   # THIS HELPER METHOD IS NOT A DEFAULT METHOD IN RAILS
+  # (added in by Prof. H; will have to include it if used in phase 2)
   def deny(condition)
     # a simple transformation to increase readability IMO
     assert !condition
   end
 
-  # ----------------------------------------------------
-  # CREATE_ & REMOVE_CONTEXT HELPER METHODS NOT DEFAULT METHODS IN RAILS (added in by J.H,)
+
+# For formatting the test output a little nicer
+Turn.config.format = :outline
+
+
+  # CREATE_ & REMOVE_CONTEXT HELPER METHODS NOT DEFAULT METHODS IN RAILS (added in by Prof. H)
   def create_context
-    # Create two competencies
+    # create FactoryGirl objects
+    # examples:
+    # @ruby    = FactoryGirl.create(:category)
+    # @rails   = FactoryGirl.create(:category, name: "Rails")
+
+    # Create three competencies
     @communication = FactoryGirl.create(:competency)
-    @utilizingtechnology = FactoryGirl.create(:competency, name: "Utilizing Technology")
+    @decision_making = FactoryGirl.create(:competency, name: "Decision Making")
+    @problem_solving = FactoryGirl.create(:competency, name: "Problem Solving", active: false)
 
     # Create four indicators
     @indicator1 = FactoryGirl.create(:indicator, competency: @communication)
     @indicator2 = FactoryGirl.create(:indicator, competency: @communication, description: "Able to present written communication in an easy–to-read format.")
     @indicator3 = FactoryGirl.create(:indicator, competency: @communication, level: "Champion", description: "Engages in difficult conversations with others while maintaining respect.")
-    @indicator4 = FactoryGirl.create(:indicator, competency: @utilizingtechnology, level: "Companion", description: "Able to find the power button for electronic devices." )
-    @indicator5 = FactoryGirl.create(:indicator, competency: @utilizingtechnology, level: "Companion", description: "Able to press buttons", active: false)
+    @indicator4 = FactoryGirl.create(:indicator, competency: @decision_making, level: "Companion", description: "Able to find the power button for electronic devices." )
+    @indicator5 = FactoryGirl.create(:indicator, competency: @problem_solving, level: "Companion", description: "Able to press buttons", active: false)
   end
   
   def remove_context
+    # destroy FactoryGirl objects
+    # example:
+    # @ruby.destroy
+
+    # Destroy the indicator objects
     @indicator1.destroy
     @indicator2.destroy
     @indicator3.destroy
     @indicator4.destroy
-    @communication.destroy
-    @utilizingtechnology.destroy
-  end
 
+    # Destroy the competency objects
+    @communication.destroy
+    @decision_making.destroy
+    @problem_solving.destroy
+  end
 
 end
 
-# For formatting the test output a little nicer
-Turn.config.format = :outline

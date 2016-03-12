@@ -1,6 +1,7 @@
 {
   "MiniTest": {
     "coverage": {
+<<<<<<< HEAD
       "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/helpers/application_helper.rb": [
         1,
         null
@@ -22,6 +23,43 @@
         null
       ],
       "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/models/indicator.rb": [
+=======
+      "/home/mogh/Desktop/pds/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/home/mogh/Desktop/pds/app/helpers/competencies_helper.rb": [
+        1,
+        null
+      ],
+      "/home/mogh/Desktop/pds/app/helpers/indicator_resources_helper.rb": [
+        1,
+        null
+      ],
+      "/home/mogh/Desktop/pds/app/helpers/indicators_helper.rb": [
+        1,
+        null
+      ],
+      "/home/mogh/Desktop/pds/app/helpers/resources_helper.rb": [
+        1,
+        null
+      ],
+      "/home/mogh/Desktop/pds/app/models/competency.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        2,
+        2,
+        4,
+        null
+      ],
+      "/home/mogh/Desktop/pds/app/models/indicator.rb": [
+>>>>>>> master
         1,
         null,
         null,
@@ -41,7 +79,11 @@
         1,
         1,
         1,
+<<<<<<< HEAD
         1,
+=======
+        null,
+>>>>>>> master
         null,
         null,
         null,
@@ -50,15 +92,43 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/models/competency.rb": [
         1,
         null
       ],
       "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/models/indicator_resource.rb": [
+=======
+      "/home/mogh/Desktop/pds/app/models/resource.rb": [
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/mogh/Desktop/pds/app/models/indicator_resource.rb": [
+        1,
+        1,
+        1,
+>>>>>>> master
         1,
         null
       ]
     },
+<<<<<<< HEAD
     "timestamp": 1456910895
+=======
+    "timestamp": 1456970359
+>>>>>>> master
   }
 }
