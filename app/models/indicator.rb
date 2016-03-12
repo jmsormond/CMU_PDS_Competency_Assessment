@@ -4,7 +4,7 @@ class Indicator < ActiveRecord::Base
 	# --------------------------------
 	belongs_to :competency
 	has_many :indicator_resources
-	has_many :indicators, through: :indicator_resources
+	has_many :resources, through: :indicator_resources
 
 	# Validations
 	# --------------------------------
@@ -17,7 +17,7 @@ class Indicator < ActiveRecord::Base
 	scope :alphabetical, -> { order('description') }
 	scope :by_level, -> (level) { where("level LIKE ?", level) }
 	scope :by_competency, -> (competency) { joins(:competency).where("competency.name LIKE ?", competency) }
-
+	scope :active, -> { where(active: true) }
 
 	# Methods
 	# --------------------------------

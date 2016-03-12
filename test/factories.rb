@@ -1,10 +1,13 @@
+
 FactoryGirl.define do
-    #competencies
+
+  # Competencies factory set up
     factory :competency do
         name "Communication"
         active true
     end
 
+  # Resources factory set up 
 	factory :resource do
 		name "Crocodile Dundee"
 		type "MOVIE"
@@ -13,8 +16,18 @@ FactoryGirl.define do
 		active true
 	end
 
+  # Resource_Indicator factory set up
 	factory :resource_inicator do
 		association :resource
 		association :indicator
 	end
+
+  # Indicators factory set up
+  factory :indicator do
+    association :competency
+    level "Companion"
+    description "Able to identify common nonverbal cues."
+    active true
+  end
+
 end
