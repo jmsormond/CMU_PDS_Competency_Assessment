@@ -23,10 +23,37 @@ class ResourceTest < ActiveSupport::TestCase
  	should_not allow_value(-2).for(:link)
 
  	#Validate Description
+ 	string desc1 = "A comprehensive guide for talking with new yorkers."
+ 	should allow_value(desc1).for(:description)
+ 	should_not allow_value(-2).for(:description)
 
  	#Contexts
+ 	Context "Create 3 resources" do
+	 	#Set up contexts
+	 	setup do
+	 		@dundee = FactoryGirl.create(:resource)
+	 		@bears = FactoryGirl.create(:resource, name:"Waltzing With Bears")
+	 		@newyork = FactoryGirl.create(:resource, name:"Talking to New Yorkers")
+	 		@irwin = FactoryGirl.create(:resource, name:"Steve Irwin: A Legacy", active:false)
+	 	end
 
- 	#Scope Test
+	 	#Tear down contexts
+	 	teardown do
+	 		@dundee.destroy
+	 		@bears.destroy
+	 		@newyork.destroy
+	 		@irwin.destroy
+	 	end
 
+ 		#Scope Test
+ 		should "show that there are 3 active resources" do
+ 			assert_equal 3, Resource.active.size
+ 		end
 
+ 		should "list resources in alphabetical order" do
+ 			assert_equal ["Crocodile Dundee", "Talking to New Yorkers", "Waltzing With Bears"], Owner.alphabetical.map{|o| o.name}
+ 		end
+
+	end
+#end of testing
 end
