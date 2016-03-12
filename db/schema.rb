@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160312164705) do
+ActiveRecord::Schema.define(version: 20160312165143) do
 
   create_table "competencies", force: true do |t|
     t.string   "name"
@@ -37,12 +37,12 @@ ActiveRecord::Schema.define(version: 20160312164705) do
   end
 
   create_table "resources", force: true do |t|
-    t.string   "resource_type"
+    t.string   "resource_category"
     t.string   "description"
     t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "active",        default: true
+    t.boolean  "active",            default: true
     t.string   "name"
   end
 
