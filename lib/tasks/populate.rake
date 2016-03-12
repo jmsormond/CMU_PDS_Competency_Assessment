@@ -894,7 +894,7 @@ namespace :db do
     r100.save!
 
     # Step 4: add the indicator-resource relationships
-    ir1 = 
+    # ir1 = 
 
     # # Step 2: add some categories to work with (small set for now...)
     # categories = %w[".NET", "Agile Practices", "Android", "Databases", "Design", "Java", "PHP", "Python", "Rails", "Ruby", "Security", "Testing", "iOS"]

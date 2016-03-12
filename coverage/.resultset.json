@@ -1,27 +1,27 @@
 {
   "MiniTest": {
     "coverage": {
-      "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/helpers/application_helper.rb": [
+      "/Users/jamesormond/Documents/CMU 15-16/S16 Software Development Project/CMU_PDS_Competency_Assessment/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/helpers/competencies_helper.rb": [
+      "/Users/jamesormond/Documents/CMU 15-16/S16 Software Development Project/CMU_PDS_Competency_Assessment/app/helpers/competencies_helper.rb": [
         1,
         null
       ],
-      "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/helpers/indicator_resources_helper.rb": [
+      "/Users/jamesormond/Documents/CMU 15-16/S16 Software Development Project/CMU_PDS_Competency_Assessment/app/helpers/indicator_resources_helper.rb": [
         1,
         null
       ],
-      "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/helpers/indicators_helper.rb": [
+      "/Users/jamesormond/Documents/CMU 15-16/S16 Software Development Project/CMU_PDS_Competency_Assessment/app/helpers/indicators_helper.rb": [
         1,
         null
       ],
-      "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/helpers/resources_helper.rb": [
+      "/Users/jamesormond/Documents/CMU 15-16/S16 Software Development Project/CMU_PDS_Competency_Assessment/app/helpers/resources_helper.rb": [
         1,
         null
       ],
-      "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/models/competency.rb": [
+      "/Users/jamesormond/Documents/CMU 15-16/S16 Software Development Project/CMU_PDS_Competency_Assessment/app/models/competency.rb": [
         1,
         null,
         1,
@@ -35,7 +35,7 @@
         4,
         null
       ],
-      "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/models/indicator.rb": [
+      "/Users/jamesormond/Documents/CMU 15-16/S16 Software Development Project/CMU_PDS_Competency_Assessment/app/models/indicator.rb": [
         1,
         null,
         null,
@@ -64,14 +64,14 @@
         null,
         null
       ],
-      "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/models/indicator_resource.rb": [
+      "/Users/jamesormond/Documents/CMU 15-16/S16 Software Development Project/CMU_PDS_Competency_Assessment/app/models/indicator_resource.rb": [
         1,
         1,
         1,
         1,
         null
       ],
-      "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/models/resource.rb": [
+      "/Users/jamesormond/Documents/CMU 15-16/S16 Software Development Project/CMU_PDS_Competency_Assessment/app/models/resource.rb": [
         1,
         1,
         1,
@@ -89,10 +89,6 @@
         null
       ]
     },
-<<<<<<< HEAD
-    "timestamp": 1457802187
-=======
-    "timestamp": 1457796714
->>>>>>> 9c1afc3d945318ca67e1570036299e0236830a88
+    "timestamp": 1457802905
   }
 }
