@@ -11,11 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160302080938) do
-=======
+
 ActiveRecord::Schema.define(version: 20160303012053) do
->>>>>>> master
 
   create_table "competencies", force: true do |t|
     t.string   "name"
