@@ -49,6 +49,17 @@ Turn.config.format = :outline
     @indicator3 = FactoryGirl.create(:indicator, competency: @communication, level: "Champion", description: "Engages in difficult conversations with others while maintaining respect.")
     @indicator4 = FactoryGirl.create(:indicator, competency: @decision_making, level: "Companion", description: "Able to outline a plan to gather data that will aid in the completion of a familiar task.")
     @indicator5 = FactoryGirl.create(:indicator, competency: @problem_solving, level: "Companion", description: "Able to identify apparent causes of a problem.", active: false)
+    #Create Four Resourcess
+    @dundee = FactoryGirl.create(:resource)
+    @bears = FactoryGirl.create(:resource, name: "Waltzing With Bears")
+    @newyork = FactoryGirl.create(:resource, name: "Talking to New Yorkers")
+    @irwin = FactoryGirl.create(:resource, name: "Steve Irwin: A Legacy", active:false)
+      
+    #Create relations between indicators and resources
+    @a1 = FactoryGirl.create(:indicator_resource, resource: @dundee, indicator: @indicator1)
+    @a2 = FactoryGirl.create(:indicator_resource, resource: @bears, indicator: @indicator1)
+    @a3 = FactoryGirl.create(:indicator_resource, resource: @dundee, indicator: @indicator2)
+
   end
   
   def remove_context
@@ -66,6 +77,18 @@ Turn.config.format = :outline
     @communication.destroy
     @decision_making.destroy
     @problem_solving.destroy
+
+    #Destroy Resource competency objects
+    @dundee.destroy
+    @bears.destroy
+    @newyork.destroy
+    @irwin.destroy
+
+    #Destroy Associations
+    @a1.destroy
+    @a2.destroy
+    @a3.destroy
+    
   end
 
 end
