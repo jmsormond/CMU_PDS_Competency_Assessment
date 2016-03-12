@@ -1,27 +1,27 @@
 {
   "MiniTest": {
     "coverage": {
-      "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/helpers/application_helper.rb": [
+      "/home/mogh/Desktop/pds/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/helpers/competencies_helper.rb": [
+      "/home/mogh/Desktop/pds/app/helpers/competencies_helper.rb": [
         1,
         null
       ],
-      "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/helpers/indicator_resources_helper.rb": [
+      "/home/mogh/Desktop/pds/app/helpers/indicator_resources_helper.rb": [
         1,
         null
       ],
-      "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/helpers/indicators_helper.rb": [
+      "/home/mogh/Desktop/pds/app/helpers/indicators_helper.rb": [
         1,
         null
       ],
-      "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/helpers/resources_helper.rb": [
+      "/home/mogh/Desktop/pds/app/helpers/resources_helper.rb": [
         1,
         null
       ],
-      "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/models/competency.rb": [
+      "/home/mogh/Desktop/pds/app/models/competency.rb": [
         1,
         null,
         1,
@@ -35,7 +35,7 @@
         4,
         null
       ],
-      "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/models/indicator.rb": [
+      "/home/mogh/Desktop/pds/app/models/indicator.rb": [
         1,
         null,
         null,
@@ -52,10 +52,10 @@
         null,
         null,
         null,
-        5,
-        2,
-        2,
-        2,
+        1,
+        1,
+        1,
+        1,
         null,
         null,
         null,
@@ -64,31 +64,33 @@
         null,
         null
       ],
-      "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/models/indicator_resource.rb": [
+      "/home/mogh/Desktop/pds/app/models/resource.rb": [
         1,
         1,
         1,
+        null,
+        null,
+        null,
+        2,
+        2,
+        3,
         1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
         null
       ],
-      "/Users/jenniferhan/Dropbox/zz-373/CMU_PDS_Competency_Assessment/app/models/resource.rb": [
+      "/home/mogh/Desktop/pds/app/models/indicator_resource.rb": [
         1,
         1,
         1,
-        null,
-        null,
-        null,
         1,
-        1,
-        null,
-        null,
-        null,
-        1,
-        1,
-        null,
         null
       ]
     },
-    "timestamp": 1457796714
+    "timestamp": 1457802637
   }
 }
