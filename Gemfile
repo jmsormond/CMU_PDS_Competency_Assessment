@@ -32,29 +32,6 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# Gems used only in testing
-group :development, :test do
-  gem 'faker'
-  gem 'hirb'
-  gem 'populator3'
-  gem 'wirble'
-  gem 'quiet_assets'
-  gem 'thin'
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'meta_request'
-end
-
-# Gems used only in testing
-group :test do
-  gem 'factory_girl_rails'
-  gem 'shoulda'
-  gem 'shoulda-matchers'
-  gem 'simplecov'
-  gem 'turn'
-  gem 'single_test'
-end
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
