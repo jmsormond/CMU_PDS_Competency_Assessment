@@ -16,7 +16,7 @@ class Indicator < ActiveRecord::Base
 	# --------------------------------
 	scope :alphabetical, -> { order('description') }
 	scope :by_level, -> (level) { where("level LIKE ?", level) }
-	scope :by_competency, -> (competency) { joins(:competency).where("competency.name LIKE ?", competency) }
+	scope :by_competency, -> (competency) { joins(:competency).where("name LIKE ?", competency) }
 	scope :active, -> { where(active: true) }
 
 	# Methods
