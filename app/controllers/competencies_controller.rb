@@ -10,6 +10,7 @@ class CompetenciesController < ApplicationController
   # GET /competencies/1
   # GET /competencies/1.json
   def show
+    @indicators = @competency.indicators.alphabetical.to_a
   end
 
   # GET /competencies/new
