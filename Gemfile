@@ -13,6 +13,7 @@ gem 'sass-rails', '~> 4.0.2'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'simple_form'
+gem 'nested_form'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
@@ -68,5 +69,4 @@ group :test do
   gem 'simplecov'
   gem 'turn'
   gem 'single_test'
-  gem 'nested_form'
 end
