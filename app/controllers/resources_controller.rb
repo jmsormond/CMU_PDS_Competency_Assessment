@@ -5,6 +5,8 @@ class ResourcesController < ApplicationController
   # GET /resources.json
   def index
     @resources = Resource.all
+    @competencies = Competency.all
+    @levels = Indicator.get_levels
   end
 
   # GET /resources/1
