@@ -6,7 +6,8 @@ class ResourcesController < ApplicationController
   def index
     @resources = Resource.all
     @competencies = Competency.all
-    @levels = Indicator.get_levels
+    @levels = ["Companion", "Contributor", "Champion"]
+    @categories = Resource.all.group("resource_category")
   end
 
   # GET /resources/1

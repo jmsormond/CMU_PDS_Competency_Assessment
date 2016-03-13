@@ -16,10 +16,10 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody id="resource_table_body">
     <% @resources.each do |resource| %>
       <tr class="row">
-        <td class="col-xs-4 text-overflow"><%= resource.name %></td>
+        <td class="col-xs-4 text-overflow" name="name"><%= resource.name %></td>
         <td class="col-xs-1"><%= resource.resource_category %></td>
         <td class="col-xs-2"><%= resource.description %></td>
         <td class="col-xs-1"><%= resource.link %></td>

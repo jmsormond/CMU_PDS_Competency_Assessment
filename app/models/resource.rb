@@ -6,6 +6,7 @@ class Resource < ActiveRecord::Base
     # -----------------------------
 	scope :alphabetical, -> { order('name') }
 	scope :active, -> { where(active: true) }
+    scope :inactive, -> { where(active: false) }
 	scope :for_indicator, -> (indicator_id) { joins(:indicator_resources).where('indicator_id = ?', indicator_id) }
 	scope :search, ->(term) { where('name LIKE ?', "#{term}%", "#{term}%") }
 

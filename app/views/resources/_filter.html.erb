@@ -1,7 +1,7 @@
 <form class="form-inline">
     <div class="form-group">
         <label for="competency">Competency</label>
-        <select class="form-control" id="competency">
+        <select class="form-control" id="competency" onchange="filterResources()">
           <option value=" "> </option>
           <% @competencies.each do |competency| %>
               <option value=<%= competency.name %>><%= competency.name %></option>
@@ -9,28 +9,67 @@
         </select>
     </div>
     <div class="form-group">
-        <label for="competency">Level</label>
-        <select class="form-control" id="competency">
+        <label for="level">Level</label>
+        <select class="form-control" id="level" onchange="filterResources()">
           <option value=" "> </option>
-          <% @competencies.each do |competency| %>
-              <option value=<%= competency.name %>><%= competency.name %></option>
+          <% @levels.each do |level| %>
+              <option value=<%= level %>><%= level %></option>
           <% end %>
         </select>
     </div>
     <div class="form-group">
-        <label for="competency">Active</label>
-        <select class="form-control" id="competency">
-          <option value="true">True</option>
-          <option value="false">False</option>
+        <label for="active">Active</label>
+        <select class="form-control" id="active" onchange="filterResources()">
+          <option value=true>True</option>
+          <option value=false>False</option>
         </select>
     </div>
     <div class="form-group">
-        <label for="competency">Category</label>
-        <select class="form-control" id="competency">
+        <label for="category">Category</label>
+        <select class="form-control" id="category" onchange="filterResources()">
           <option value=" "> </option>
-          <% @competencies.each do |competency| %>
-              <option value=<%= competency.name %>><%= competency.name %></option>
+          <% @categories.each do |category| %>
+              <option value=<%= category.resource_category %>><%= category.resource_category %></option>
           <% end %>
         </select>
     </div>
 </form>
+
+<script type="text/javascript">
+var resources = <%= @resources.to_json.to_s.html_safe %>;
+var filterResources = function() {
+    var competency = $("#competency").val();
+    var level = $("#level").val();
+    var active = $("#active").val();
+    var category = $("#category").val();
+
+    var table = $("#resource_table_body");
+    table.empty();
+
+    resources.each(function(resource) {
+        var valid = true;
+        if (!(resource.active && active) || !(!resource.actice && !active)) {
+            valid = false
+        }
+        if (valid) {
+            table.append(
+                "<tr class='row'>
+                    <td class='col-xs-4 text-overflow' name='name'><%=" + resource.name + "%></td>
+                    <td class='col-xs-1'><%=" + resource.resource_category + "%></td>
+                    <td class='col-xs-2'><%=" + resource.descrition + "%></td>
+                    <td class='col-xs-1'><%=" + resource.link + "%></td>
+                    <% if" + resource.active + "%>
+                      <td class='col-xs-1'>Active</td>
+                    <% else %>
+                      <td class='col-xs-1'>Inactive</td>
+                    <% end %>
+                    <td class='col-xs-1'><%= link_to 'Show'," + resource + "%></td>
+                    <td class='col-xs-1'><%= link_to 'Edit', edit_resource_path(" + resource + ") %></td>
+                    <td class='col-xs-1'><%= link_to 'Destroy', " + resource + ", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>"
+            );
+        }
+    })
+
+}
+</script>
