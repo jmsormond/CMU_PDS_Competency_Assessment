@@ -1,23 +1,26 @@
-<!--Errors-->
-<%= form_for(@competency) do |f| %>
-  <% if @competency.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@competency.errors.count, "error") %> prohibited this competency from being saved:</h2>
+  <%= simple_nested_form_for @competency, :html => { :class => 'form-horizontal' } do |competency_form| %>
+    <div class="row">
+      <div class="span7">
+        <fieldset>
+          <legend><%= controller.action_name.capitalize %> competency</legend>
+          <%= render :partial => "competency_fields", :locals => { :f => competency_form } %>
+        </fieldset>
+      </div>
 
-      <ul>
-      <% @competency.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <div class="span5">
+      <legend>Indicators for this Competency</legend>
+        <div id="indicators">
+          <%= competency_form.simple_fields_for :indicators do |indicator_form| %>
+            <%= render :partial => "indicator_fields", :locals => { :f => indicator_form } %>
+          <% end %> 
+          <p>
+            <br /><%= competency_form.link_to_add("Add Indicator", :indicators, :class => 'button tiny') %>
+          </p>
+        </div> 
+      </div>
+    </div>
+    <div class="form-actions">
+      <%= competency_form.submit nil, :class => 'button radius' %>
+      <%= link_to 'Cancel', competencies_path, :class => 'button secondary' %>
     </div>
   <% end %>
-<!--End Errors-->
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

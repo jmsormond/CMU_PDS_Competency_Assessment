@@ -1,5 +1,5 @@
 class Indicator < ActiveRecord::Base
-
+	accepts_nested_attributes_for :indicator_resources
 	# Relationships
 	# --------------------------------
 	belongs_to :competency
