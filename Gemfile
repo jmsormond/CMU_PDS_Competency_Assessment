@@ -66,4 +66,6 @@ group :test do
   gem 'simplecov'
   gem 'turn'
   gem 'single_test'
+  gem 'simple_form'
+  gem 'nested_form'
 end
