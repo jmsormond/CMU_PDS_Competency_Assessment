@@ -1,34 +1,36 @@
 <h1>Listing resources</h1>
 
-<table>
+<%= render 'filter' %>
+
+<table class="table table-bordered">
   <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Link</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+    <tr class="row">
+      <th class="col-xs-4">Name</th>
+      <th class="col-xs-1">Type</th>
+      <th class="col-xs-2">Description</th>
+      <th class="col-xs-1">Link</th>
+      <th class="col-xs-1"></th>
+      <th class="col-xs-1"></th>
+      <th class="col-xs-1"></th>
+      <th class="col-xs-1"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @resources.each do |resource| %>
-      <tr>
-        <td><%= resource.name %></td>
-        <td><%= resource.resource_category %></td>
-        <td><%= resource.description %></td>
-        <td><%= resource.link %></td>
+      <tr class="row">
+        <td class="col-xs-4 text-overflow"><%= resource.name %></td>
+        <td class="col-xs-1"><%= resource.resource_category %></td>
+        <td class="col-xs-2"><%= resource.description %></td>
+        <td class="col-xs-1"><%= resource.link %></td>
         <% if resource.active %>
-          <td>Active</td>
+          <td class="col-xs-1">Active</td>
         <% else %>
-          <td>Inactive</td>
+          <td class="col-xs-1">Inactive</td>
         <% end %>
-        <td><%= link_to 'Show', resource %></td>
-        <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
-        <td><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="col-xs-1"><%= link_to 'Show', resource %></td>
+        <td class="col-xs-1"><%= link_to 'Edit', edit_resource_path(resource) %></td>
+        <td class="col-xs-1"><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
