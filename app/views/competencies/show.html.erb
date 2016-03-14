@@ -4,6 +4,14 @@
   <strong>Name:</strong>
   <%= @competency.name %>
 </p>
+  <p>
+  <b>Indicators in <%= @competency.name %>:</b>
+    <ol>
+      <% for indicator in @indicators %>
+        <li><%= indicator.description %></li>
+      <% end %>
+    </ol>
+  </p>
 
 <%= link_to 'Edit', edit_competency_path(@competency) %> |
 <%= link_to 'Back', competencies_path %>

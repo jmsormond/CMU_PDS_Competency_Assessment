@@ -1,10 +1,10 @@
 class Indicator < ActiveRecord::Base
-
 	# Relationships
 	# --------------------------------
 	belongs_to :competency
 	has_many :indicator_resources
 	has_many :resources, through: :indicator_resources
+	accepts_nested_attributes_for :indicator_resources
 
 	# Validations
 	# --------------------------------
