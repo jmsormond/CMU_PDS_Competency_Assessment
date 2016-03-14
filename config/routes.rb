@@ -4,11 +4,8 @@ PDSAssessment::Application.routes.draw do
   resources :indicators
   resources :competencies
 
-  CompetencyWizard::Application.routes.draw do
-  resources :competencies
-  resources :competency_steps
+  resources :competency_steps_controller
   root to: 'competency#index'
-  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
