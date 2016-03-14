@@ -6,19 +6,6 @@
           <%= render :partial => "competency_fields", :locals => { :f => competency_form } %>
         </fieldset>
       </div>
-
-    <div class="span5">
-      <legend>Indicators for this Competency</legend>
-        <div id="indicators">
-          <%= competency_form.simple_fields_for :indicators do |indicator_form| %>
-            <%= render :partial => "indicator_fields", :locals => { :f => indicator_form } %>
-          <% end %> 
-          <p>
-            <br /><%= competency_form.link_to_add("Add Indicator", :indicators, :class => 'button tiny') %>
-          </p>
-        </div> 
-      </div>
-    </div>
     <div class="form-actions">
       <%= competency_form.submit nil, :class => 'button radius' %>
       <%= link_to 'Cancel', competencies_path, :class => 'button secondary' %>

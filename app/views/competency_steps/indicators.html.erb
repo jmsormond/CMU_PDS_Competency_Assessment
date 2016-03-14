@@ -1,1 +1,14 @@
-Indicator Selector Goes Here
+<%= simple_nested_form_for @competency, :html => { :class => 'form-horizontal' } do |competency_form| %>
+    <div class="span5">
+      <legend>Indicators for this Competency</legend>
+        <div id="indicators">
+          <%= competency_form.simple_fields_for :indicators do |indicator_form| %>
+            <%= render :partial => "indicator_fields", :locals => { :f => indicator_form } %>
+          <% end %> 
+          <p>
+            <br /><%= competency_form.link_to_add("Add Indicator", :indicators, :class => 'button tiny') %>
+          </p>
+        </div> 
+      </div>
+    </div>
+<% end %>
