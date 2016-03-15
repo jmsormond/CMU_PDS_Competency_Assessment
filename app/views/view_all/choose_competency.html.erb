@@ -12,15 +12,18 @@
 
 <div class="container">
   <h2>Form control: select</h2>
-  <p>The form below contains two dropdown menus (select lists):</p>
   <form role="form">
     <div class="form-group">
       <label for="sel1">Select list (select one):</label>
-      <select class="form-control" id="sel1">
+      <select class="form-control" id="sel1" name="competency_id">
         <%= @competencies.each do |competency| %>
           <option><%= competency.name %></option>
         <% end %>
       </select>
     </div>
+    <%= link_to "Add Pictures",
+      view_all_level_step(competency_id: @competency.id),
+      class: "btn btn-small btn-success" %>
   </form>
 </div>
+

@@ -9,6 +9,9 @@ class ViewAllController < ApplicationController
 		@competencies = Competency.all
 	end
 
-	
+	# Choose Level step
+	def choose_level
+		@competency = Competency.find(params[:competency_id])
+	end
 
 end
