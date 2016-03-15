@@ -1,36 +1,44 @@
-<form class="form-inline">
-    <div class="form-group">
-        <label for="competency">Competency</label>
-        <select class="form-control" id="competency" onchange="filterResources()">
-          <option value=" "> </option>
-          <% @competencies.each do |competency| %>
-              <option value=<%= competency.name %>><%= competency.name %></option>
-          <% end %>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="level">Level</label>
-        <select class="form-control" id="level" onchange="filterResources()">
-          <option value=" "> </option>
-          <% @levels.each do |level| %>
-              <option value=<%= level %>><%= level %></option>
-          <% end %>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="active">Active</label>
-        <select class="form-control" id="active" onchange="filterResources()">
-          <option value=true>True</option>
-          <option value=false>False</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="category">Category</label>
-        <select class="form-control" id="category" onchange="filterResources()">
-          <option value=" "> </option>
-          <% @categories.each do |category| %>
-              <option value=<%= category.resource_category %>><%= category.resource_category %></option>
-          <% end %>
-        </select>
-    </div>
-</form>
+<%= form_for_filterrific @filterrific do |f| %>
+  <div>
+    Competency
+    <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+    <%= f.select(
+      :sort_by_competency,
+      @filterrific.select_options[:sort_by_competency],
+      { include_blank: '- Any -' }
+    ) %>
+  </div>
+  <div>
+    Level
+    <%= f.select(
+      :sort_by_level,
+      @filterrific.select_options[:sort_by_level],
+      { include_blank: '- Any -' }
+    ) %>
+  </div>
+  <div>
+    Category
+    <%= f.select(
+      :sort_by_category,
+      @filterrific.select_options[:sort_by_category],
+      { include_blank: '- Any -' }
+    ) %>
+  </div>
+  <div>
+    Active
+    <%= f.select(
+      :sort_active,
+      @filterrific.select_options[:sort_active]
+    ) %>
+  </div>
+  <div>
+    <%= link_to(
+      'Reset filters',
+      reset_filterrific_url,
+    ) %>
+  </div>
+  <%# add an automated spinner to your form when the list is refreshed %>
+  <%= render_filterrific_spinner %>
+<% end %>
+
+<%= render( partial: 'resources/list', locals: { resources: @resources } ) %>

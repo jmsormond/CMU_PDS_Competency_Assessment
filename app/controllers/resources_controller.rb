@@ -4,10 +4,28 @@ class ResourcesController < ApplicationController
   # GET /resources
   # GET /resources.json
   def index
-    @resources = Resource.all
-    @competencies = Competency.all
-    @levels = ["Companion", "Contributor", "Champion"]
-    @categories = Resource.all.group("resource_category")
+    @filterrific = initialize_filterrific(
+      Resource,
+      params[:filterrific],
+      select_options: {
+        sort_active: Resource.options_for_sort_active,
+        sort_by_competency: Competency.options_for_sort_by_competency,
+        sort_by_level: Indicator.options_for_sort_by_level,
+        sort_by_category: Resource.options_for_sort_by_category
+      }
+    ) or return
+
+    # @resources = @filterrific.find
+
+    @resources = Resource.filterrific_find(@filterrific)
+    puts "hello"
+    puts @resources.map { |e| e.name }
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   # GET /resources/1
