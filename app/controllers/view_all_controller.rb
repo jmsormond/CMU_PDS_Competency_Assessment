@@ -5,8 +5,10 @@ class ViewAllController < ApplicationController
 	end
 
 	# Competency step of the view all process
-	def show_all_competencies
+	def choose_competency
 		@competencies = Competency.all
 	end
+
+	
 
 end

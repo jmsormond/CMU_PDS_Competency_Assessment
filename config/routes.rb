@@ -10,6 +10,7 @@ PDSAssessment::Application.routes.draw do
 
   # Routes for View All Process
   get 'view_all/index' => 'view_all#index', as: :view_all_index
+  get 'view_all/choose_competency' => 'view_all#choose_competency', as: :view_all_competencies_step
 
 
   # The priority is based upon order of creation: first created -> highest priority.
