@@ -7,6 +7,11 @@ PDSAssessment::Application.routes.draw do
   resources :competency_steps
   #root to: 'competencies#create'
 
+
+  # Routes for View All Process
+  get 'view_all/index' => 'view_all#index', as: :view_all_index
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
