@@ -1,8 +1,9 @@
 class Resource < ActiveRecord::Base
     # Gem for filtering
     filterrific(
-        default_filter_params: { sort_active: true },
+        default_filter_params: { sorted_by: 'name asc' },
         available_filters: [
+            :sorted_by,
             :sort_active,
             :sort_by_competency,
             :sort_by_level,
@@ -25,6 +26,17 @@ class Resource < ActiveRecord::Base
     scope :sort_by_category, -> (query) { where('resources.resource_category = ?', query) }
     scope :sort_by_level, -> (query) { joins(:indicators).where('indicators.level = ?', query) }
     scope :sort_by_competency, -> (query) {  joins(:indicators).joins(:competencies).where('competencies.name = ?', query) }
+    scope :sorted_by, lambda { |sort_option|
+      direction = (sort_option =~ /desc$/) ? 'desc' : 'asc'
+      case sort_option.to_s
+      when /^name/
+        order("LOWER(resources.name) #{ direction }")
+      when /^resource_category/
+        order("LOWER(resources.resource_category) #{ direction }")
+      else
+        raise(ArgumentError, "Invalid sort option: #{ sort_option.inspect }")
+      end
+    }
 
     # Validations
     # -----------------------------
@@ -33,6 +45,16 @@ class Resource < ActiveRecord::Base
 
     # Private Functions
     # -----------------------------
+
+    def self.options_for_sorted_by
+        [
+          ['Name (a-z)', 'name asc'],
+          ['Name (z-a)', 'name desc'],
+          ['Type (a-z)', 'resource_category_desc'],
+          ['Type (z-a)', 'resource_category_asc']
+        ]
+    end
+
     def self.options_for_sort_active
         [
             ["True", 't'],

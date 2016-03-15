@@ -2,10 +2,9 @@
   <table class="table table-bordered" id="resource_table">
     <thead>
       <tr class="row">
-        <th class="col-xs-4">Name</th>
-        <th class="col-xs-1">Type</th>
-        <th class="col-xs-2">Description</th>
-        <th class="col-xs-1">Link</th>
+        <th class="col-xs-5"><%= filterrific_sorting_link(@filterrific, :name) %></th>
+        <th class="col-xs-1"><%= filterrific_sorting_link(@filterrific, :resource_category) %></th>
+        <th class="col-xs-2"><%= filterrific_sorting_link(@filterrific, :description) %></th>
         <th class="col-xs-1"></th>
         <th class="col-xs-1"></th>
         <th class="col-xs-1"></th>
@@ -18,8 +17,11 @@
         <tr class="row">
           <td class="col-xs-4 text-overflow" name="name"><%= resource.name %></td>
           <td class="col-xs-1"><%= resource.resource_category %></td>
-          <td class="col-xs-2"><%= resource.description %></td>
-          <td class="col-xs-1"><%= resource.link %></td>
+          <% if resource.description != "" %>
+            <td class="col-xs-2"><%= resource.description %></td>
+          <% else %>
+            <td class="col-xs-2">N/A</td>
+          <% end %>
           <% if resource.active %>
             <td class="col-xs-1">Active</td>
           <% else %>

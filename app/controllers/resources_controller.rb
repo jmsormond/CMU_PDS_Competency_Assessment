@@ -18,8 +18,6 @@ class ResourcesController < ApplicationController
     # @resources = @filterrific.find
 
     @resources = Resource.filterrific_find(@filterrific)
-    puts "hello"
-    puts @resources.map { |e| e.name }
 
     respond_to do |format|
       format.html
