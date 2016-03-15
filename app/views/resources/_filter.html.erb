@@ -33,6 +33,7 @@
     <%= f.select(
       :sort_active,
       @filterrific.select_options[:sort_active],
+      { include_blank: '- Any -' },
       :html => {:class => "form-control"}
     ) %>
   </div>
