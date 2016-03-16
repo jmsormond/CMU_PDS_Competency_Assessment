@@ -1,4 +1,4 @@
-<%= simple_nested_form_for @competency, :html => { :class => 'form-horizontal' }, url: wizard_path do |competency_form| %>
+<%= simple_nested_form_for @competency, method: :put, url: wizard_path do |competency_form| %>
     <div class="span5">
       <legend>Indicators for this Competency</legend>
         <div id="indicators">
