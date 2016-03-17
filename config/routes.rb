@@ -5,7 +5,15 @@ PDSAssessment::Application.routes.draw do
   resources :competencies
 
   resources :competency_steps
-  #root to: 'competencies#create'
+
+  # Routes for View All Process
+  get 'view_all/index' => 'view_all#index', as: :view_all_index
+  get 'view_all/choose_competency' => 'view_all#choose_competency', as: :view_all_competency_step
+  get 'view_all/choose_level/:competency_id' => 'view_all#choose_level', as: :view_all_level_step
+
+
+  # root :to 
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
