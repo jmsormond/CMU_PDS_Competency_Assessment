@@ -57,23 +57,23 @@
 }
 
 .pds-color-font {
-  color: rgb(108, 0, 0);
+  color: rgb(108, 0, 0) !important
 }
 
 .pds-color-background {
-  background-color: rgb(108, 0, 0);
+  background-color: rgb(108, 0, 0) !important
 }
 
 .pds-color-font-light {
-  color: rgb(179, 58, 58);
+  color: rgb(179, 58, 58) !important
 }
 
 .pds-color-background-light {
-  background-color: rgb(179, 58, 58);
+  background-color: rgb(179, 58, 58) !important
 }
 
 .white-text {
-  color: #FFF;
+  color: #FFF !important
 }
 
 /* Override to change table header text color */
@@ -82,6 +82,6 @@
 }
 
 .active-icon {
-  margin: 0 auto;
+  margin: 0 auto !important
 }
 
