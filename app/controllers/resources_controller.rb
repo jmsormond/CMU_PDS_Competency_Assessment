@@ -83,7 +83,6 @@ class ResourcesController < ApplicationController
     @resource = Resource.find(params[:id])
     @resource.toggle :active
     @resource.save
-    puts "SAAAAAAAAAAVED"
     redirect_to resources_url
   end
 
@@ -95,6 +94,6 @@ class ResourcesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def resource_params
-      params.require(:resource).permit(:type, :description, :link)
+      params.require(:resource).permit(:name, :resource_category, :description, :link)
     end
 end
