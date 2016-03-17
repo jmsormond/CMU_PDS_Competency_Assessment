@@ -22,12 +22,15 @@
           <% end %>
           <% if resource.active %>
             <td class="col-xs-1">
-              <%= link_to toggle_active_path(id: resource.id) do %>
-                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+              <%= link_to toggle_active_path(id: resource.id), :method => :put do %>
+                <span class="glyphicon glyphicon-ok-circle btn-lg active-icon" aria-hidden="true"></span>
               <% end %>
             </td>
           <% else %>
-            <td class="col-xs-1"><input type="checkbox"></input></td>
+            <td class="col-xs-1">
+              <%= link_to toggle_active_path(id: resource.id), :method => :put do %>
+                <span class="glyphicon glyphicon-ban-circle btn-lg active-icon" aria-hidden="true"></span>
+              <% end %></td>
           <% end %>
           <td class="col-xs-1"><%= link_to 'View', resource %> | <%= link_to 'Edit', edit_resource_path(resource) %></td>
         </tr>

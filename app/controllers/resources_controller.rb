@@ -83,6 +83,7 @@ class ResourcesController < ApplicationController
     @resource = Resource.find(params[:id])
     @resource.toggle :active
     @resource.save
+    puts "SAAAAAAAAAAVED"
     redirect_to resources_url
   end
 
