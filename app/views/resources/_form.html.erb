@@ -23,12 +23,8 @@
     <%= f.label :resource_category %><br>
     <%= f.text_field :resource_category, :class => "form-control", :onfocus => "showCategoryOptions()", :onblur => "hideCategoryOptions()" %>
     <div id="category_options">
-      Current resource categories in the system:
-      <ul>
-      <% @resource_category_options.each do |cat| %>
-        <li><%= cat %></li>
-      <% end %>
-      </ul>
+      Current resource categories in the system:<br>
+      <%= @resource_category_options.join(", ") %>
     </div>
   </div>
   <div class="form-group col-xs-6">
@@ -39,16 +35,3 @@
     <%= f.submit %>
   </div>
 <% end %>
-
-<script type="text/javascript">
-var cat_options = $("#category_options")
-$(function() {
-  cat_options.hide();
-})
-var showCategoryOptions = function() {
-  cat_options.slideDown("slow");
-}
-var hideCategoryOptions = function() {
-  cat_options.slideUp("slow");
-}
-</script>
