@@ -1,0 +1,49 @@
+<div>Filter by:</div>
+<%= form_for_filterrific @filterrific, :html => {:class => "form-inline"} do |f| %>
+  <div class="form-group">
+    <label>Competency</label>
+    <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+    <%= f.select(
+      :sort_by_competency,
+      @filterrific.select_options[:sort_by_competency],
+      { include_blank: '- Any -' },
+      :html => {:class => "form-control"}
+    ) %>
+  </div>
+  <div class="form-group">
+    <label>Level</label>
+    <%= f.select(
+      :sort_by_level,
+      @filterrific.select_options[:sort_by_level],
+      { include_blank: '- Any -' },
+      :html => {:class => "form-control"}
+    ) %>
+  </div>
+  <div class="form-group">
+    <label>Category</label>
+    <%= f.select(
+      :sort_by_category,
+      @filterrific.select_options[:sort_by_category],
+      { include_blank: '- Any -' },
+      :html => {:class => "form-control"}
+    ) %>
+  </div>
+  <div class="form-group">
+    <label>Active</label>
+    <%= f.select(
+      :sort_active,
+      @filterrific.select_options[:sort_active],
+      { include_blank: '- Any -' },
+      :html => {:class => "form-control"}
+    ) %>
+  </div>
+  <div class="form-group">
+    <%= link_to(
+      'Reset filters',
+      reset_filterrific_url,
+    ) %>
+  </div>
+  <%= render_filterrific_spinner %>
+<% end %>
+
+<%= render( partial: 'resources/list', locals: { resources: @resources } ) %>

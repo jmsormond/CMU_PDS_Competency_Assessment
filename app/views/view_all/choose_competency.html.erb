@@ -1,0 +1,21 @@
+<h1>Select a Competency</h1>
+
+<table>
+  <tbody>
+    <% @competencies.each do |competency| %>
+      <tr>
+        <td><%= competency.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br><br>
+
+<!-- Selection Dropdown menu for choosing a Competency -->
+<select class="form-control" id="sel1" name="competency_id">
+  <%= @competencies.each do |competency| %>
+    <option><%= competency.name %></option>
+  <% end %>
+</select>
+
