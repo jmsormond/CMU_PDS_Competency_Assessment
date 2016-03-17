@@ -66,4 +66,8 @@ class Resource < ActiveRecord::Base
         group(:resource_category).map { |e| [e.resource_category, e.resource_category] }
     end
 
+    def self.get_categories
+        group(:resource_category).map { |e| e.resource_category }
+    end
+
 end

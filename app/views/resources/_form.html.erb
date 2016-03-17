@@ -11,19 +11,44 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :type %><br>
-    <%= f.text_field :type %>
+  <div class="form-group col-xs-12">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, :class => "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group col-xs-12">
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, :class => "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group col-xs-6">
+    <%= f.label :resource_category %><br>
+    <%= f.text_field :resource_category, :class => "form-control", :onfocus => "showCategoryOptions()", :onblur => "hideCategoryOptions()" %>
+    <div id="category_options">
+      Current resource categories in the system:
+      <ul>
+      <% @resource_category_options.each do |cat| %>
+        <li><%= cat %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="form-group col-xs-6">
     <%= f.label :link %><br>
-    <%= f.text_field :link %>
+    <%= f.text_field :link, :class => "form-control" %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+var cat_options = $("#category_options")
+$(function() {
+  cat_options.hide();
+})
+var showCategoryOptions = function() {
+  cat_options.slideDown("slow");
+}
+var hideCategoryOptions = function() {
+  cat_options.slideUp("slow");
+}
+</script>
