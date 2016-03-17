@@ -71,3 +71,9 @@ group :test do
   gem 'turn'
   gem 'single_test'
 end
+
+# gem for filtering
+gem 'filterrific'
+
+# gem for pagination
+gem 'will_paginate', '~> 3.0.6'
