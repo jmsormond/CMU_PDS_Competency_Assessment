@@ -79,6 +79,13 @@ class ResourcesController < ApplicationController
     end
   end
 
+  def toggle_active
+    @resource = Resource.find(params[:id])
+    @resource.toggle :active
+    @resource.save
+    redirect_to resources_url
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_resource

@@ -11,6 +11,9 @@ PDSAssessment::Application.routes.draw do
   get 'view_all/choose_competency' => 'view_all#choose_competency', as: :view_all_competency_step
   get 'view_all/choose_level/:competency_id' => 'view_all#choose_level', as: :view_all_level_step
 
+  # Route for resources
+  put 'resource/:id/toggle_active' => 'resources#toggle_active', as: :toggle_active
+
 
   # root :to 
 
