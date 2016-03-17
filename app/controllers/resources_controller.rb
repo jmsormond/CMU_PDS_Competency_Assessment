@@ -37,6 +37,7 @@ class ResourcesController < ApplicationController
 
   # GET /resources/1/edit
   def edit
+    @resource_category_options = Resource.get_categories
   end
 
   # POST /resources
