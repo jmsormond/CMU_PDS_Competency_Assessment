@@ -2,12 +2,10 @@
   <table class="table table-bordered" id="resource_table">
     <thead>
       <tr class="row">
-        <th class="col-xs-5"><%= filterrific_sorting_link(@filterrific, :name) %></th>
+        <th class="col-xs-6"><%= filterrific_sorting_link(@filterrific, :name) %></th>
         <th class="col-xs-1"><%= filterrific_sorting_link(@filterrific, :resource_category) %></th>
-        <th class="col-xs-2">Description</th>
+        <th class="col-xs-3">Description</th>
         <th class="col-xs-1">Active</th>
-        <th class="col-xs-1"></th>
-        <th class="col-xs-1"></th>
         <th class="col-xs-1"></th>
       </tr>
     </thead>
@@ -15,21 +13,19 @@
     <tbody id="resource_table_body">
       <% @resources.each do |resource| %>
         <tr class="row">
-          <td class="col-xs-4 text-overflow" name="name"><%= resource.name %></td>
+          <td class="col-xs-6 text-overflow" name="name"><%= resource.name %></td>
           <td class="col-xs-1"><%= resource.resource_category %></td>
           <% if resource.description != "" %>
-            <td class="col-xs-2"><%= resource.description %></td>
+            <td class="col-xs-3"><%= resource.description %></td>
           <% else %>
-            <td class="col-xs-2">N/A</td>
+            <td class="col-xs-3">N/A</td>
           <% end %>
           <% if resource.active %>
             <td class="col-xs-1">Active</td>
           <% else %>
             <td class="col-xs-1">Inactive</td>
           <% end %>
-          <td class="col-xs-1"><%= link_to 'Show', resource %></td>
-          <td class="col-xs-1"><%= link_to 'Edit', edit_resource_path(resource) %></td>
-          <td class="col-xs-1"><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="col-xs-1"><%= link_to 'View', resource %> | <%= link_to 'Edit', edit_resource_path(resource) %></td>
         </tr>
       <% end %>
     </tbody>
