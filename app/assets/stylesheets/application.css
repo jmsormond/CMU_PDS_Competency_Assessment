@@ -56,5 +56,28 @@
   border-color: #FFF;
 }
 
+.pds-color-font {
+  color: rgb(108, 0, 0);
+}
 
+.pds-color-background {
+  background-color: rgb(108, 0, 0);
+}
+
+.pds-color-font-light {
+  color: rgb(179, 58, 58);
+}
+
+.pds-color-background-light {
+  background-color: rgb(179, 58, 58);
+}
+
+.white-text {
+  color: #FFF;
+}
+
+/* Override to change table header text color */
+.filterrific_sort_column {
+  color: #FFF !important
+}
 
