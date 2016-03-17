@@ -1,38 +1,6 @@
-<h1>Listing resources</h1>
+<h1>View All Resources</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Link</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @resources.each do |resource| %>
-      <tr>
-        <td><%= resource.name %></td>
-        <td><%= resource.resource_category %></td>
-        <td><%= resource.description %></td>
-        <td><%= resource.link %></td>
-        <% if resource.active %>
-          <td>Active</td>
-        <% else %>
-          <td>Inactive</td>
-        <% end %>
-        <td><%= link_to 'Show', resource %></td>
-        <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
-        <td><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'filter' %>
 
 <br>
 

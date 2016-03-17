@@ -19,9 +19,11 @@ class Indicator < ActiveRecord::Base
 	scope :by_competency, -> (competency) { joins(:competency).where("name LIKE ?", competency) }
 	scope :active, -> { where(active: true) }
 
-	# Methods
+	# Private Methods
 	# --------------------------------
 
-
+	def self.options_for_sort_by_level
+        group(:level).map { |e| [e.level, e.level] }
+    end
 
 end

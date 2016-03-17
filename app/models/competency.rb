@@ -9,4 +9,12 @@ class Competency < ActiveRecord::Base
     scope :active, -> { where("active = ?", true) }
     scope :inactive, -> { where("active = ?", false) }
     scope :alphabetical, -> { order("name") }
+
+    # Private Methods
+    # ---------------------------
+
+    def self.options_for_sort_by_competency
+        all.map { |e| [e.name, e.name] }
+    end
+
 end

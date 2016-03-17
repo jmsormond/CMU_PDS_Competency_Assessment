@@ -4,7 +4,27 @@ class ResourcesController < ApplicationController
   # GET /resources
   # GET /resources.json
   def index
-    @resources = Resource.all
+    @filterrific = initialize_filterrific(
+      Resource,
+      params[:filterrific],
+      select_options: {
+        sort_active: Resource.options_for_sort_active,
+        sort_by_competency: Competency.options_for_sort_by_competency,
+        sort_by_level: Indicator.options_for_sort_by_level,
+        sort_by_category: Resource.options_for_sort_by_category
+      }
+    ) or return
+
+    puts "---------------------"
+    puts Resource.sort_by_competency("Communication").to_sql
+
+    @resources = Resource.filterrific_find(@filterrific).paginate(page: params[:page], per_page: 10)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   # GET /resources/1
