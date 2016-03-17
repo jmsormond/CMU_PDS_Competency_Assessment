@@ -25,9 +25,17 @@ class CompetenciesController < ApplicationController
   # POST /competencies
   # POST /competencies.json
   def create
-    @competency = Competency.new
-    @competency.save(validate: false)
-    redirect_to competency_steps_path(@competency, Competency.form_steps.first)
+    @competency = Competency.new(competency_params)
+
+    respond_to do |format|
+      if @competency.save
+        format.html { redirect_to competency_steps_path(competency_id: @competency.id) }
+        #format.json { render action: 'show', status: :created, location: @competency }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @competency.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /competencies/1

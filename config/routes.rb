@@ -2,10 +2,9 @@ PDSAssessment::Application.routes.draw do
   resources :indicator_resources
   resources :resources
   resources :indicators
-  resources :competencies
-
-  resources :competency_steps
-  root to: 'competencies#index'
+  resources :competencies do
+     resources :competency_steps, controller: 'competencies/competency_steps_controller'
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
