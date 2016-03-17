@@ -25,7 +25,7 @@ class Resource < ActiveRecord::Base
     scope :sort_active, -> (query) { where('resources.active = ?', query) }
     scope :sort_by_category, -> (query) { where('resources.resource_category = ?', query) }
     scope :sort_by_level, -> (query) { joins(:indicators).where('indicators.level = ?', query) }
-    scope :sort_by_competency, -> (query) {  joins(:indicators).joins(:competencies).where('competencies.name = ?', query) }
+    scope :sort_by_competency, -> (query) {  joins(:indicators).joins("INNER JOIN competencies ON indicators.competency_id = competencies.id").where('competencies.name = ?', query) }
     scope :sorted_by, lambda { |sort_option|
       direction = (sort_option =~ /desc$/) ? 'desc' : 'asc'
       case sort_option.to_s

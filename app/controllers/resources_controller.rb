@@ -15,6 +15,9 @@ class ResourcesController < ApplicationController
       }
     ) or return
 
+    puts "---------------------"
+    puts Resource.sort_by_competency("Communication").to_sql
+
     @resources = Resource.filterrific_find(@filterrific).paginate(page: params[:page], per_page: 10)
 
     respond_to do |format|
