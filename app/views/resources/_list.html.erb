@@ -21,9 +21,13 @@
             <td class="col-xs-3">N/A</td>
           <% end %>
           <% if resource.active %>
-            <td class="col-xs-1"><%= link_to 'Active', toggle_active_path(id: resource.id), :method => :put %></td>
+            <td class="col-xs-1">
+              <%= link_to toggle_active_path(id: resource.id) do %>
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+              <% end %>
+            </td>
           <% else %>
-            <td class="col-xs-1"><%= link_to 'Inactive', toggle_active_path(id: resource.id), :method => :put %></td>
+            <td class="col-xs-1"><input type="checkbox"></input></td>
           <% end %>
           <td class="col-xs-1"><%= link_to 'View', resource %> | <%= link_to 'Edit', edit_resource_path(resource) %></td>
         </tr>
@@ -32,3 +36,9 @@
   </table>
   <%= will_paginate @posts %>
 </div>
+
+<script type="text/javascript">
+var toggleActive = function(resource) {
+  console.log(resource);
+}
+</script>
