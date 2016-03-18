@@ -1,12 +1,3 @@
-<%= simple_nested_form_for @competency, method: :put, url: wizard_path do |competency_form| %>
-    <div class="span5">
-      <legend>Indicators for this Competency</legend>
-        <div id="indicators">
-          <%= competency_form.simple_fields_for :indicators do |indicator_form| %>
-            <%= render :partial => "indicator_fields", :locals => { :f => indicator_form } %>
-          <% end %> 
-          <p>
-            <br /><%= competency_form.link_to_add("Add Indicator", :indicators, :class => 'button tiny') %>
-          </p>
-    <%= competency_form.submit nil, :class => 'button radius' %>
-<% end %>
+Ok so we do indicators here.<p><p>
+But this is a test.<p><p>
+We're going to construct something using our helper function now.<p><p><p><p>

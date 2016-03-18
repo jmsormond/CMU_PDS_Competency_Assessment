@@ -3,7 +3,6 @@ PDSAssessment::Application.routes.draw do
   resources :resources
   resources :indicators
   resources :competencies
-
   resources :competency_steps
 
   # Routes for View All Process

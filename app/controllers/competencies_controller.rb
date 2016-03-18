@@ -29,8 +29,7 @@ class CompetenciesController < ApplicationController
 
     respond_to do |format|
       if @competency.save
-        format.html { redirect_to([competency_competency_steps_path, @competency]) }
-        #format.html { redirect_to competency_competency_steps_path(competency_id: @competency.id) }
+        format.html { redirect_to competency_steps_path(competency_id: @competency.id) }
         #format.json { render action: 'show', status: :created, location: @competency }
       else
         format.html { render action: 'new' }
