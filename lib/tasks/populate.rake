@@ -44,14 +44,14 @@ namespace :db do
 
     i3 = Indicator.new
     i3.level = "Compantion"
-    i3.description = "Able to indentify common nonverbal cues"
+    i3.description = "Able to identify common nonverbal cues"
     i3.active = true
     i3.competency = c
     i3.save!
 
     i4 = Indicator.new
     i4.level = "Compantion"
-    i4.description = "Able to indetify various media used to deliver messages"
+    i4.description = "Able to identify various media used to deliver messages"
     i4.active = true
     i4.competency = c
     i4.save!
@@ -79,7 +79,7 @@ namespace :db do
 
     i8 = Indicator.new
     i8.level = "Contributor"
-    i8.description = "Able to select the most appropraite medium of communication to deliver a menaningful message"
+    i8.description = "Able to select the most appropriate medium of communication to deliver a menaningful message"
     i8.active = true
     i8.competency = c
     i8.save!
@@ -100,7 +100,7 @@ namespace :db do
 
     i11 = Indicator.new
     i11.level = "Contributor"
-    i11.description = "Able to evaluate previous interactions and develop a communication strategy to accommodate audiences' preferences"
+    i11.description = "Able to evaluate previous interactions and develop a communication strategy to accommodate audience's preferences"
     i11.active = true
     i11.competency = c
     i11.save!
@@ -114,7 +114,7 @@ namespace :db do
 
     i13 = Indicator.new
     i13.level = "Contributor"
-    i13.description = "Able to articulate intentions, ideas and feelings to a large group"
+    i13.description = "Able to articulate intentions, ideas, and feelings to a large group"
     i13.active = true
     i13.competency = c
     i13.save!
@@ -135,7 +135,7 @@ namespace :db do
 
     i16 = Indicator.new
     i16.level = "Champion"
-    i16.description = "Able to evaluate the environment and/or audience to determine the most appropraite medium for delivering a meaningful message"
+    i16.description = "Able to evaluate the environment and/or audience to determine the most appropriate medium for delivering a meaningful message"
     i16.active = true
     i16.competency = c
     i16.save!
@@ -149,21 +149,21 @@ namespace :db do
 
     i18 = Indicator.new
     i18.level = "Champion"
-    i18.description = "Able to deliver an inspiring and informative message regarding departmental and/or organizational objectives using multile modes of communication"
+    i18.description = "Able to deliver an inspiring and informative message regarding departmental and/or organizational objectives using multiple modes of communication"
     i18.active = true
     i18.competency = c
     i18.save!
 
     i19 = Indicator.new
     i19.level = "Champion"
-    i19.description = "Able to paraphrase or extract meaning from others' communcation"
+    i19.description = "Able to paraphrase or extract meaning from others' communication"
     i19.active = true
     i19.competency = c
     i19.save!
 
     i20 = Indicator.new
     i20.level = "Champion"
-    i20.description = "Able to indetify and interpret nonverbal cues"
+    i20.description = "Able to identify and interpret nonverbal cues"
     i20.active = true
     i20.competency = c
     i20.save!
