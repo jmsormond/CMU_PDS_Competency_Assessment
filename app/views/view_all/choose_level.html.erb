@@ -1,9 +1,10 @@
 <h1>Select a Level</h1>
 
-<p>Competency Name: <%= @competency.name %></p>
+<p>Competency Name: <%= @competency.name %> <%= @competency.id %></p>
 
 <!-- Selection Dropdown menu for choosing a Level -->
 <%= form_tag(view_all_ind_res_step_path, method: :get) do %>
+  <%= hidden_field_tag :competency_id , @competency.id %>
   <%= select_tag :level, options_for_select(["Contributor", "Companion", "Champion"]), {include_blank: 'None'} %>
   <%= submit_tag "Next", :name => nil %>
 <% end %>

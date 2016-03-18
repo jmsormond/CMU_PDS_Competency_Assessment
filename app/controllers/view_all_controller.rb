@@ -16,7 +16,8 @@ class ViewAllController < ApplicationController
 
 	# The step where the user can view the indicators and resources associated with the chosen competency and level
 	def view_indicators_and_resources
-		@indicators = Indicator.by_level(params[:level])
+		@competency = Competency.find(params[:competency_id])
+		@indicators = Indicator.by_level(params[:level]).by_competency(@competency.name)
 	end
 
 end
