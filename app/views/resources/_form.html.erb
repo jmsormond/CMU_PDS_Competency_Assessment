@@ -10,28 +10,39 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="form-group col-xs-12">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, :class => "form-control" %>
-  </div>
-  <div class="form-group col-xs-12">
-    <%= f.label :description %><br>
-    <%= f.text_field :description, :class => "form-control" %>
-  </div>
-  <div class="form-group col-xs-6">
-    <%= f.label :resource_category %><br>
-    <%= f.text_field :resource_category, :class => "form-control", :onfocus => "showCategoryOptions()", :onblur => "hideCategoryOptions()" %>
-    <div id="category_options">
-      Current resource categories in the system:<br>
-      <%= @resource_category_options.join(", ") %>
+  <div class="row">
+    <div class="form-group col-xs-12">
+      <%= f.label :name %><br>
+      <%= f.text_field :name, :class => "form-control" %>
     </div>
   </div>
-  <div class="form-group col-xs-6">
-    <%= f.label :link %><br>
-    <%= f.text_field :link, :class => "form-control" %>
+    <div class="row">
+    <div class="form-group col-xs-12">
+      <%= f.label :description %><br>
+      <%= f.text_field :description, :class => "form-control" %>
+    </div>
   </div>
-  <div class="actions col-xs-12">
-    <%= f.submit "Create Resource", :class => "pds-color-background-light white-text btn btn-xs" %>
+    <div class="row">
+    <div class="form-group col-xs-6">
+      <%= f.label :resource_category %><br>
+      <%= f.text_field :resource_category, :class => "form-control", :onfocus => "showCategoryOptions()", :onblur => "hideCategoryOptions()" %>
+      <div id="category_options">
+        Current resource categories in the system:<br>
+        <%= @resource_category_options.join(", ") %>
+      </div>
+    </div>
+    <div class="form-group col-xs-4">
+      <%= f.label :link %><br>
+      <%= f.text_field :link, :class => "form-control" %>
+    </div>
+    <div class="form-group col-xs-2">
+      <%= f.label :active %>
+      <%= f.check_box(:active, {}, true, false) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="actions col-xs-12">
+      <%= f.submit "Create Resource", :class => "pds-color-background-light white-text btn btn-xs" %>
+    </div>
   </div>
 <% end %>
