@@ -9,7 +9,8 @@ PDSAssessment::Application.routes.draw do
   # Routes for View All Process
   get 'view_all/index' => 'view_all#index', as: :view_all_index
   get 'view_all/choose_competency' => 'view_all#choose_competency', as: :view_all_competency_step
-  get 'view_all/choose_level/' => 'view_all#choose_level', as: :view_all_level_step
+  get 'view_all/choose_level' => 'view_all#choose_level', as: :view_all_level_step
+  get 'view_all/view_indicator_and_resources' => 'view_all#view_indicators_and_resources', as: :view_all_ind_res_step
 
 
   # root :to 

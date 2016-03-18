@@ -21,6 +21,11 @@ namespace :db do
     c.active = true
     c.save!
 
+    c = Competency.new
+    c.name = "Utilizing Technology"
+    c.active = true
+    c.save!
+
     # Step 3: add the indicators
 
     i1 = Indicator.new
