@@ -15,6 +15,9 @@ PDSAssessment::Application.routes.draw do
   # Route for resources
   put 'resource/:id/toggle_active' => 'resources#toggle_active', as: :toggle_active
 
+  # Routes for home
+  get '/' => 'home#home', as: :home
+
 
   # root :to 
 
