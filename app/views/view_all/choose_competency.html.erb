@@ -1,21 +1,14 @@
 <h1>Select a Competency</h1>
 
-<table>
-  <tbody>
-    <% @competencies.each do |competency| %>
-      <tr>
-        <td><%= competency.name %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br><br>
-
 <!-- Selection Dropdown menu for choosing a Competency -->
-<select class="form-control" id="sel1" name="competency_id">
-  <%= @competencies.each do |competency| %>
-    <option><%= competency.name %></option>
-  <% end %>
-</select>
+<%= form_tag(view_all_level_step_path, method: :get) do %>
+  <%= select_tag :competency_id, options_from_collection_for_select(@competencies, 'id', 'name'), {include_blank: 'None'} %>
+  <%= submit_tag "Next", :name => nil %>
+<% end %>
+
+
+
+
+
+
 
