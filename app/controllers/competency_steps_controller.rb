@@ -1,6 +1,6 @@
 class CompetencyStepsController < ApplicationController
 	include Wicked::Wizard
-  include PDSHelpers::Builder
+  include AssessmentHelpers::Builder
   
   steps :indicators, :resources, :verify
 
@@ -14,6 +14,7 @@ class CompetencyStepsController < ApplicationController
     resource_info = {indicator_id: 0, category: "MOVIE", link: "wikipedia.com", name: "Wikipedia", description: ""}
     update_competency_resources(resource_info)
     build_competency
+
     render_wizard
   end
 

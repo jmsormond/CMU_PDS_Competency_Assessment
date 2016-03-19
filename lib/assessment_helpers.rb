@@ -2,6 +2,6 @@
 require 'helpers/builder'
 
 # create PDSHelpers
-module PDSHelpers
-  include PDSHelpers::Builder
+module AssessmentHelpers
+  include AssessmentHelpers::Builder
 end

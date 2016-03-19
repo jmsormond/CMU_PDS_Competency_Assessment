@@ -1,4 +1,4 @@
-module PDSHelpers
+module AssessmentHelpers
 	module Builder
 
 		def create_competency_session
