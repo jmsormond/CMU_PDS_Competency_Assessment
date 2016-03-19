@@ -1,6 +1,7 @@
 <h1 class="pds-color-font">Resources and Indicators</h1>
 
-<table>
+
+<table class="table table-hover table-expandable" >
   <thead class="pds-color-background-light white-text">
     <tr>
       <th>Competency</th>
@@ -18,9 +19,8 @@
 	        <td><%= indicator.competency_id %></td>
 	        <td><%= indicator.level %></td>
 	        <td><%= indicator.description %></td>
-	        <td><%= link_to 'Show', indicator %></td>
 	        <td><%= link_to 'Edit', edit_indicator_path(indicator) %></td>
-	        <td><%= link_to 'Destroy', indicator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	        <td><%= link_to 'Delete', indicator, method: :delete, data: { confirm: 'Are you sure you want to delete this indicator?' } %></td>
 	    </tr>
 	    <tr>
 	  		<td colspan="5">

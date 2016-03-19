@@ -17,3 +17,4 @@
 //= require_tree .
 //= require bootstrap.min.js
 //= require filterrific/filterrific-jquery
+//= require bootstrap-table-expandable.js

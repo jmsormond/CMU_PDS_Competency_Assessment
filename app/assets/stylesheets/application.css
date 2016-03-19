@@ -11,6 +11,7 @@
  *= require_self
  *= require_tree .
  *= require bootstrap.min.css
+ *= require bootstrap-table-expandable.css
  */
 
    .min_indicator {
@@ -57,6 +58,9 @@
   padding: 40px;
 }
 
+
+
+
 /* Color palette custom for PDS and CMU web standards */ 
 .pds-color-font {
   color: rgb(108, 0, 0) !important
@@ -78,6 +82,8 @@
   color: #FFF !important
 }
 
+
+
 /* Override to change table header text color */
 .filterrific_sort_column {
   color: #FFF !important
@@ -86,4 +92,7 @@
 .active-icon {
   margin: 0 auto !important
 }
+
+
+
 
