@@ -127,6 +127,7 @@ GEM
     simplecov-html (0.10.0)
     single_test (0.6.0)
       rake
+    smarter_csv (1.1.0)
     sprockets (2.12.4)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -183,6 +184,7 @@ DEPENDENCIES
   simple_form
   simplecov
   single_test
+  smarter_csv
   sqlite3
   thin
   turbolinks
