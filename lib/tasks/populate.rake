@@ -29,49 +29,49 @@ namespace :db do
     # Step 3: add the indicators
 
     i1 = Indicator.new
-    i1.level = "Compantion"
+    i1.level = "Companion"
     i1.description = "Able to organize own thoughts and outline intended meaning of a message"
     i1.active = true
     i1.competency = c1
     i1.save!
 
     i2 = Indicator.new
-    i2.level = "Compantion"
+    i2.level = "Companion"
     i2.description = "Able to identify and may employ active listening skills"
     i2.active = true
     i2.competency = c1
     i2.save!
 
     i3 = Indicator.new
-    i3.level = "Compantion"
+    i3.level = "Companion"
     i3.description = "Able to identify common nonverbal cues"
     i3.active = true
     i3.competency = c1
     i3.save!
 
     i4 = Indicator.new
-    i4.level = "Compantion"
+    i4.level = "Companion"
     i4.description = "Able to identify various media used to deliver messages"
     i4.active = true
     i4.competency = c1
     i4.save!
 
     i5 = Indicator.new
-    i5.level = "Compantion"
+    i5.level = "Companion"
     i5.description = "Able to comprehend the content of oral and written messages by applying personal context to interpret the meaning"
     i5.active = true
     i5.competency = c1
     i5.save!
 
     i6 = Indicator.new
-    i6.level = "Compantion"
+    i6.level = "Companion"
     i6.description = "Able to present simple, familiar information to familiar audiences by using preferred method of communication"
     i6.active = true
     i6.competency = c1
     i6.save!
 
     i7 = Indicator.new
-    i7.level = "Compantion"
+    i7.level = "Companion"
     i7.description = "Able to present intentions and ideas to a familiar individual when prompted by the individual"
     i7.active = true
     i7.competency = c1

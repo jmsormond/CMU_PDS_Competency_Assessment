@@ -18,6 +18,7 @@ class ViewAllController < ApplicationController
 	def view_indicators_and_resources
 		@competency = Competency.find(params[:competency_id])
 		@indicators = Indicator.by_level(params[:level]).by_competency(@competency.name)
+		@resources = Resource.all
 	end
 
 end
