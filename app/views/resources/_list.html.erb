@@ -1,6 +1,6 @@
 <div id="filterrific_results">
   <table class="table table-bordered" id="resource_table">
-    <thead>
+    <thead class="pds-color-background-light white-text">
       <tr class="row">
         <th class="col-xs-6"><%= filterrific_sorting_link(@filterrific, :name) %></th>
         <th class="col-xs-1"><%= filterrific_sorting_link(@filterrific, :resource_category) %></th>
@@ -21,9 +21,16 @@
             <td class="col-xs-3">N/A</td>
           <% end %>
           <% if resource.active %>
-            <td class="col-xs-1">Active</td>
+            <td class="col-xs-1">
+              <%= link_to toggle_active_path(id: resource.id), :method => :put do %>
+                <span class="glyphicon glyphicon-ok-circle btn-lg active-icon" aria-hidden="true"></span>
+              <% end %>
+            </td>
           <% else %>
-            <td class="col-xs-1">Inactive</td>
+            <td class="col-xs-1">
+              <%= link_to toggle_active_path(id: resource.id), :method => :put do %>
+                <span class="glyphicon glyphicon-ban-circle btn-lg active-icon" aria-hidden="true"></span>
+              <% end %></td>
           <% end %>
           <td class="col-xs-1"><%= link_to 'View', resource %> | <%= link_to 'Edit', edit_resource_path(resource) %></td>
         </tr>
@@ -32,3 +39,9 @@
   </table>
   <%= will_paginate @posts %>
 </div>
+
+<script type="text/javascript">
+var toggleActive = function(resource) {
+  console.log(resource);
+}
+</script>

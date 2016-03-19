@@ -1,0 +1,37 @@
+<h1 class="pds-color-font">Resources and Indicators</h1>
+
+<table>
+  <thead class="pds-color-background-light white-text">
+    <tr>
+      <th>Competency</th>
+      <th>Level</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @indicators.each do |indicator| %>
+	    <tr>
+	        <td><%= indicator.competency_id %></td>
+	        <td><%= indicator.level %></td>
+	        <td><%= indicator.description %></td>
+	        <td><%= link_to 'Show', indicator %></td>
+	        <td><%= link_to 'Edit', edit_indicator_path(indicator) %></td>
+	        <td><%= link_to 'Destroy', indicator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	    </tr>
+	    <tr>
+	  		<td colspan="5">
+	  			<h4>Resources</h4>
+				<% @resources.for_indicator(indicator.id).each do |resource| %>
+				<ul>
+	    			<li><%= resource.name %></li>
+	    		</ul>
+	    		<% end %>
+	    	</td>
+	    </tr>
+    <% end %>
+  </tbody>
+</table>

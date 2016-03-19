@@ -15,9 +15,6 @@ class ResourcesController < ApplicationController
       }
     ) or return
 
-    puts "---------------------"
-    puts Resource.sort_by_competency("Communication").to_sql
-
     @resources = Resource.filterrific_find(@filterrific).paginate(page: params[:page], per_page: 10)
 
     respond_to do |format|
@@ -35,10 +32,12 @@ class ResourcesController < ApplicationController
   # GET /resources/new
   def new
     @resource = Resource.new
+    @resource_category_options = Resource.get_categories
   end
 
   # GET /resources/1/edit
   def edit
+    @resource_category_options = Resource.get_categories
   end
 
   # POST /resources
@@ -81,6 +80,13 @@ class ResourcesController < ApplicationController
     end
   end
 
+  def toggle_active
+    @resource = Resource.find(params[:id])
+    @resource.toggle :active
+    @resource.save
+    redirect_to resources_url
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_resource
@@ -89,6 +95,6 @@ class ResourcesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def resource_params
-      params.require(:resource).permit(:type, :description, :link)
+      params.require(:resource).permit(:name, :resource_category, :description, :link, :active)
     end
 end

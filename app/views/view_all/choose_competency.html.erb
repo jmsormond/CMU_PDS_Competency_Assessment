@@ -1,33 +1,14 @@
-<h1>Select a Competency</h1>
-
-<table>
-  <tbody>
-    <% @competencies.each do |competency| %>
-      <tr>
-        <td><%= competency.name %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br><br>
+<h1 class="pds-color-font">Select a Competency</h1>
 
 <!-- Selection Dropdown menu for choosing a Competency -->
-
-<select class="form-control" id="select_competency" name="competency_id" onchange="save_competency_obj()">
-  <option selected="selected">Select a Competency</option>
-  <%= @competencies.each do |competency| %>
-    <option ><%= competency.name %></option>
-  <% end %>
-</select>
-<%= link_to 'Next', view_all_level_step_path(:competency_id => 8) %>
+<%= form_tag(view_all_level_step_path, method: :get) do %>
+  <%= select_tag :competency_id, options_from_collection_for_select(@competencies, 'id', 'name'), {include_blank: 'None'} %>
+  <%= submit_tag "Next", :name => nil, :class => "btn btn-default btn-xs pds-color-background-light white-text" %>
+<% end %>
 
 
 
-<script>
-function save_competency_obj() {
-  var selected_competency = $('#select_competency').find(":selected");
-  console.log(select_competency);
-}
-</script>
+
+
+
 

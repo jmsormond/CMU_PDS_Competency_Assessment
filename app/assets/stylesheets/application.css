@@ -54,7 +54,36 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-style: solid;
   border-color: #FFF;
+  padding: 40px;
 }
 
+/* Color palette custom for PDS and CMU web standards */ 
+.pds-color-font {
+  color: rgb(108, 0, 0) !important
+}
 
+.pds-color-background {
+  background-color: rgb(108, 0, 0) !important
+}
+
+.pds-color-font-light {
+  color: rgb(179, 58, 58) !important
+}
+
+.pds-color-background-light {
+  background-color: rgb(179, 58, 58) !important
+}
+
+.white-text {
+  color: #FFF !important
+}
+
+/* Override to change table header text color */
+.filterrific_sort_column {
+  color: #FFF !important
+}
+
+.active-icon {
+  margin: 0 auto !important
+}
 

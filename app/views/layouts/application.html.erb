@@ -13,6 +13,12 @@
   	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   	<%= csrf_meta_tags %>
 
+    <!-- Css and Js files for the Expandable Tables Bootstrap Plug-In --> 
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-1.12.2.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap-table-expandable.css">
+    <script src="js/bootstrap-table-expandable.js"></script>
+    
 
     <title>PDS Competency Assessment</title>
 
@@ -41,7 +47,7 @@
             <li class="active"><a href="#">Home</a></li>
             <li><a href="/view_all/index">View All</a></li>
             <li><a href="#">Manage a Competency</a></li>
-            <li><a href="#">Manage a Resource</a></li>
+            <li><a href="/resources">Manage a Resource</a></li>
             <li><a href="#">Manage the Assessment</a></li>
           </ul>
         </div><!--/.nav-collapse -->

@@ -16,179 +16,184 @@ namespace :db do
     [IndicatorResource, Indicator, Resource, Competency].each(&:delete_all)
 
     # Step 2: create the competency
-    c = Competency.new
-    c.name = "Communication"
-    c.active = true
-    c.save!
+    c1 = Competency.new
+    c1.name = "Communication"
+    c1.active = true
+    c1.save!
+
+    c2 = Competency.new
+    c2.name = "Utilizing Technology"
+    c2.active = true
+    c2.save!
 
     # Step 3: add the indicators
 
     i1 = Indicator.new
-    i1.level = "Compantion"
+    i1.level = "Companion"
     i1.description = "Able to organize own thoughts and outline intended meaning of a message"
     i1.active = true
-    i1.competency = c
+    i1.competency = c1
     i1.save!
 
     i2 = Indicator.new
-    i2.level = "Compantion"
+    i2.level = "Companion"
     i2.description = "Able to identify and may employ active listening skills"
     i2.active = true
-    i2.competency = c
+    i2.competency = c1
     i2.save!
 
     i3 = Indicator.new
-    i3.level = "Compantion"
-    i3.description = "Able to indentify common nonverbal cues"
+    i3.level = "Companion"
+    i3.description = "Able to identify common nonverbal cues"
     i3.active = true
-    i3.competency = c
+    i3.competency = c1
     i3.save!
 
     i4 = Indicator.new
-    i4.level = "Compantion"
-    i4.description = "Able to indetify various media used to deliver messages"
+    i4.level = "Companion"
+    i4.description = "Able to identify various media used to deliver messages"
     i4.active = true
-    i4.competency = c
+    i4.competency = c1
     i4.save!
 
     i5 = Indicator.new
-    i5.level = "Compantion"
+    i5.level = "Companion"
     i5.description = "Able to comprehend the content of oral and written messages by applying personal context to interpret the meaning"
     i5.active = true
-    i5.competency = c
+    i5.competency = c1
     i5.save!
 
     i6 = Indicator.new
-    i6.level = "Compantion"
+    i6.level = "Companion"
     i6.description = "Able to present simple, familiar information to familiar audiences by using preferred method of communication"
     i6.active = true
-    i6.competency = c
+    i6.competency = c1
     i6.save!
 
     i7 = Indicator.new
-    i7.level = "Compantion"
+    i7.level = "Companion"
     i7.description = "Able to present intentions and ideas to a familiar individual when prompted by the individual"
     i7.active = true
-    i7.competency = c
+    i7.competency = c1
     i7.save!
 
     i8 = Indicator.new
     i8.level = "Contributor"
-    i8.description = "Able to select the most appropraite medium of communication to deliver a menaningful message"
+    i8.description = "Able to select the most appropriate medium of communication to deliver a menaningful message"
     i8.active = true
-    i8.competency = c
+    i8.competency = c1
     i8.save!
 
     i9 = Indicator.new
     i9.level = "Contributor"
     i9.description = "Able to clearly and concisely deliver the meaning of a message using various media"
     i9.active = true
-    i9.competency = c
+    i9.competency = c1
     i9.save!
 
     i10 = Indicator.new
     i10.level = "Contributor"
     i10.description = "Able to actively listen to others and clarify the meaning of a message"
     i10.active = true
-    i10.competency = c
+    i10.competency = c1
     i10.save!
 
     i11 = Indicator.new
     i11.level = "Contributor"
-    i11.description = "Able to evaluate previous interactions and develop a communication strategy to accommodate audiences' preferences"
+    i11.description = "Able to evaluate previous interactions and develop a communication strategy to accommodate audience's preferences"
     i11.active = true
-    i11.competency = c
+    i11.competency = c1
     i11.save!
 
     i12 = Indicator.new
     i12.level = "Contributor"
     i12.description = "Able to present written communication in an easy-to-read format"
     i12.active = true
-    i12.competency = c
+    i12.competency = c1
     i12.save!
 
     i13 = Indicator.new
     i13.level = "Contributor"
-    i13.description = "Able to articulate intentions, ideas and feelings to a large group"
+    i13.description = "Able to articulate intentions, ideas, and feelings to a large group"
     i13.active = true
-    i13.competency = c
+    i13.competency = c1
     i13.save!
 
     i14 = Indicator.new
     i14.level = "Contributor"
     i14.description = "Able to articulate thoughts using proper grammer in written and verbal form"
     i14.active = true
-    i14.competency = c
+    i14.competency = c1
     i14.save!
 
     i15 = Indicator.new
     i15.level = "Contributor"
     i15.description = "Able to deliver an informational message which encourages others to take action"
     i15.active = true
-    i15.competency = c
+    i15.competency = c1
     i15.save!
 
     i16 = Indicator.new
     i16.level = "Champion"
-    i16.description = "Able to evaluate the environment and/or audience to determine the most appropraite medium for delivering a meaningful message"
+    i16.description = "Able to evaluate the environment and/or audience to determine the most appropriate medium for delivering a meaningful message"
     i16.active = true
-    i16.competency = c
+    i16.competency = c1
     i16.save!
 
     i17 = Indicator.new
     i17.level = "Champion"
     i17.description = "Able to determine the effectiveness of a chosen medium in delivering a message"
     i17.active = true
-    i17.competency = c
+    i17.competency = c1
     i17.save!
 
     i18 = Indicator.new
     i18.level = "Champion"
-    i18.description = "Able to deliver an inspiring and informative message regarding departmental and/or organizational objectives using multile modes of communication"
+    i18.description = "Able to deliver an inspiring and informative message regarding departmental and/or organizational objectives using multiple modes of communication"
     i18.active = true
-    i18.competency = c
+    i18.competency = c1
     i18.save!
 
     i19 = Indicator.new
     i19.level = "Champion"
-    i19.description = "Able to paraphrase or extract meaning from others' communcation"
+    i19.description = "Able to paraphrase or extract meaning from others' communication"
     i19.active = true
-    i19.competency = c
+    i19.competency = c1
     i19.save!
 
     i20 = Indicator.new
     i20.level = "Champion"
-    i20.description = "Able to indetify and interpret nonverbal cues"
+    i20.description = "Able to identify and interpret nonverbal cues"
     i20.active = true
-    i20.competency = c
+    i20.competency = c1
     i20.save!
 
     i21 = Indicator.new
     i21.level = "Champion"
     i21.description = "Able to adjust communication approach while delivering a message by analyzing the audience's verbal and nonverbal cues"
     i21.active = true
-    i21.competency = c
+    i21.competency = c1
     i21.save!
 
     i22 = Indicator.new
     i22.level = "Champion"
     i22.description = "Able to encourage others to openly and clearly express intentions and ideas"
     i22.active = true
-    i22.competency = c
+    i22.competency = c1
     i22.save!
 
     i23 = Indicator.new
     i23.level = "Champion"
     i23.description = "Able to help others develop appropriate and effective communication strategies"
     i23.active = true
-    i23.competency = c
+    i23.competency = c1
     i23.save!
 
     i24 = Indicator.new
     i24.level = "Champion"
     i24.description = "Able to clarify complex information into simple, easy-to-understand terms and translate complex concepts for a broader audience"
     i24.active = true
-    i24.competency = c
+    i24.competency = c1
     i24.save!
 
     # Step 3: add the resoruces
