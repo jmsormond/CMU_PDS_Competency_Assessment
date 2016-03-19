@@ -1,11 +1,11 @@
   <%= simple_nested_form_for @competency, :html => { :class => 'form-horizontal' } do |competency_form| %>
     <div class="row">
-      <div class="span7">
+      <div class="col-xs-12">
         <fieldset>
-          <legend><%= controller.action_name.capitalize %> competency</legend>
           <%= render :partial => "competency_fields", :locals => { :f => competency_form } %>
         </fieldset>
       </div>
+    </div>
     <div class="form-actions">
       <%= competency_form.submit nil, :class => 'button radius' %>
       <%= link_to 'Cancel', competencies_path, :class => 'button secondary' %>
