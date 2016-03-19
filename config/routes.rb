@@ -3,7 +3,6 @@ PDSAssessment::Application.routes.draw do
   resources :resources
   resources :indicators
   resources :competencies
-
   resources :competency_steps
 
   # Routes for View All Process
@@ -17,10 +16,6 @@ PDSAssessment::Application.routes.draw do
 
   # Routes for home
   get '/' => 'home#home', as: :home
-
-
-  # root :to 
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
