@@ -3,7 +3,6 @@ PDSAssessment::Application.routes.draw do
   resources :resources
   resources :indicators
   resources :competencies
-
   resources :competency_steps
 
   # Routes for View All Process
@@ -15,9 +14,8 @@ PDSAssessment::Application.routes.draw do
   # Route for resources
   put 'resource/:id/toggle_active' => 'resources#toggle_active', as: :toggle_active
 
-
-  # root :to 
-
+  # Routes for home
+  get '/' => 'home#home', as: :home
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
