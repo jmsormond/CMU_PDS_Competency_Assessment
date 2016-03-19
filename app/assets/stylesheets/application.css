@@ -56,6 +56,7 @@
   border-color: #FFF;
 }
 
+/* Color palette custom for PDS and CMU web standards */ 
 .pds-color-font {
   color: rgb(108, 0, 0) !important
 }

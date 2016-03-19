@@ -1,9 +1,9 @@
-<h1>Select a Competency</h1>
+<h1 class="pds-color-font">Select a Competency</h1>
 
 <!-- Selection Dropdown menu for choosing a Competency -->
 <%= form_tag(view_all_level_step_path, method: :get) do %>
   <%= select_tag :competency_id, options_from_collection_for_select(@competencies, 'id', 'name'), {include_blank: 'None'} %>
-  <%= submit_tag "Next", :name => nil %>
+  <%= submit_tag "Next", :name => nil, :class => "btn btn-default btn-xs pds-color-background-light white-text" %>
 <% end %>
 
 
