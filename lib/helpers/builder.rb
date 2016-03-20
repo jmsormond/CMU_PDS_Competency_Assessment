@@ -14,27 +14,17 @@ module AssessmentHelpers
 		end
 
 		def update_competency_name(name)
+			create_competency_session
 			session[:competency][:name] = name
 		end
 
 		def update_competency_indicators(indicators)
-			##Feed me a hash of indicators
-			indicators_array = Array.new
-			indicators.each do |description, level|
-				indicator_info = {description: description, level: level}
-				indicators_array << indicator_info
-			end
-			session[:competency][:indicators] = indicators_array;
+			##Feed me an array of indicator hashes
+			session[:competency][:indicators] = indicators;
 		end
 
 		def update_competency_resources(resources)
-			##Feed me a hash of resources
-			resources_array = Array.new
-			resources.each do |indicator_id, category, link, name, description|
-				resource_info = {indicator_id: indicator_id, resource_category: category, link: link, name: name, description: description}
-				resource_info << resources_array
-			end
-			session[:competency][:resources] = resources_array
+			session[:competency][:resources] = resources;
 		end
 
 		def build_competency
@@ -44,28 +34,35 @@ module AssessmentHelpers
 		end
 
 		def construct_association(resource_id, indicator_id)
-			info = {resource_id: resource_id, indicator_id: indicator_id}
-			IndicatorResource.new(info)
+			new_array = Array.new
+			session[:competency][:resources].each do |params|
+				new_array.push(Indicator.new(params))
+			end
+			session[:competency][:indicators] = new_array
 		end
 
-		def construct_indicators(competency_id)
-			session[:competency][:indicators].each do |description, level|
-				info = {competency_id: competency_id, description: description, level: level}
-				Indicator.new(info)
+		def construct_indicators
+			new_array = Array.new
+			session[:competency][:indicators].each do |params|
+				@indicator = Indicator.new
+				params[:id] = @indicator.id
+				@indicator = Indicator.new(params)
+				new_array.push(@indicator)
 			end
+			session[:competency][:indicators] = new_array
 		end
 
 		def construct_resources
-			session[:competency][:resources].each do|indicator_id, category, link, name, description|
+			session[:competency][:resources].each do|params|
 				##Is resource in database alreaady?
-				currentResource = Resources.find_by name: name, link: link, category: category, description: description
-				if currentResource == nil
+				#name = params.name
+				#currentResource = Resource.find_by name: name
+				#if currentResource == nil
 					##If no, create it!
-					info = {name: name, link: link, resource_category: category, description: description}
-					currentResource = Resources.new(info)
-				end
+				#	currentResource = Resource.new(params)
+				#end
 				##Now connect the indicator with the resource
-				construct_association(resource_id, indicator_id)
+				construct_association(currentResource.id, indicator_id)
 			end
 		end
 

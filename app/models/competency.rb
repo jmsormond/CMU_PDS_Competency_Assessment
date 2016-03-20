@@ -1,7 +1,9 @@
 class Competency < ActiveRecord::Base
     # relationshis
     has_many :indicators
-    accepts_nested_attributes_for :indicators, reject_if: lambda { |indicator| indicator[:name].blank? }, allow_destroy: true
+    has_many :resouce_indicators, through: :indicators
+    accepts_nested_attributes_for :indicators
+    accepts_nested_attributes_for :resouce_indicators
 
     # validations
     validates_presence_of :name
