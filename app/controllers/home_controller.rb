@@ -1,8 +1,7 @@
 class HomeController < ApplicationController
-    require 'smarter_csv'
 
     def home
-        indicators = SmarterCSV.process('/tmp/Indicators.xlsx')
+        indicators = SmarterCSV.process('./public/Indicators.csv')
         puts indicators
     end
 
