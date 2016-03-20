@@ -5,28 +5,38 @@ class CompetencyStepsController < ApplicationController
   steps :indicators, :resources, :verify
 
 	def show
-    ##Reckless testing
-		#@competency = Competency.find(params[:competency_id])
-    create_competency_session
-    update_competency_name("Crocodile Hunting")
-    indicator_info = {description: "Carries a big knife", level: "Champion"}
-    update_competency_indicators(indicator_info)
-    resource_info = {indicator_id: 0, category: "MOVIE", link: "wikipedia.com", name: "Wikipedia", description: ""}
-    update_competency_resources(resource_info)
-    build_competency
-
+    case step
+    when :indicators
+      @competency = Competency.find(params[:competency_id])
+      session[:Competency] = @competency.attributes
+    else
+      @competency = Competency.new(session[:competency])
+    end
     render_wizard
   end
 
   def update
-  	@competency = Competency.find(params[:competency_id])
-  	@competency.update_attributes(params[:competency])
-  	render_wizard @competency
+  	#@competency = Competency.find(params[:competency_id])
+  	#@competency.update_attributes(params[:competency])
+  	#render_wizard @competency
+    case step
+    when :indicators
+      session[:competency] = session[:competency].merge(params[:competency])
+      @competency = Competency.new(session[:competency])
+      @competency.save
+      redirect_to next_wizard_path
+    when :resources
+      session[:competency] = session[:competency].merge(params[:competency])
+      @competency = Competency.new(session[:competency])
+      redirect_to next_wizard_path
+    when :verify
+      @competency.save
+      redirect_to competency_path(@competency)
+    end
   end
 
-  def create
-    @competency = competency.create
-    redirect_to wizard_path(steps.first, :competency_id => @competency.id)
+  def competency_params
+    params.require(:Competency).permit(:name)
   end
 
 end
