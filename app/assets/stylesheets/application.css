@@ -15,12 +15,12 @@
  */
 
    .min_indicator {
-      background-color: #d1ecfb;
+      background-color: #e1e1e1;
       padding: 2px 2px 2px 5px;
-      border: 1px solid blue;
+      border: 1px solid black;
       margin-top: 5px;
       margin-bottom: 10px;
-      border-radius: 10px;
+      border-radius: 1px;
       select { width: 180px; }
       input { width: 182px; }
   }
