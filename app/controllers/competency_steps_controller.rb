@@ -5,13 +5,7 @@ class CompetencyStepsController < ApplicationController
   steps :indicators, :resources, :verify
 
 	def show
-    case step
-    when :indicators
-      @competency = Competency.find(params[:competency_id])
-      session[:Competency] = @competency.attributes
-    else
-      @competency = Competency.new(session[:competency])
-    end
+    @competency = Competency.new(session[:competency])
     render_wizard
   end
 
@@ -23,7 +17,6 @@ class CompetencyStepsController < ApplicationController
     when :indicators
       session[:competency] = session[:competency].merge(params[:competency])
       @competency = Competency.new(session[:competency])
-      @competency.save
       redirect_to next_wizard_path
     when :resources
       session[:competency] = session[:competency].merge(params[:competency])
