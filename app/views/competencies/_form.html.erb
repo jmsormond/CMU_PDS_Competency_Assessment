@@ -1,13 +1,15 @@
-  <%= simple_nested_form_for @competency, :html => { :class => 'form-horizontal' } do |competency_form| %>
-    <div class="row">
-      <div class="col-xs-12">
-        <fieldset>
-          <%= render :partial => "competency_fields", :locals => { :f => competency_form } %>
-        </fieldset>
+<div class="row">
+  <div class="col-xs-3">
+    <h2 class="pds-color-font">Create a Competency</h2>
+  </div>
+  <div class="col-xs-9">
+    <%= simple_nested_form_for @competency, :html => { :class => 'form-inline' } do |f| %>
+      <div class="form-group">
+        <%= f.input :name, :class => "control-label" %>
       </div>
-    </div>
-    <div class="form-actions">
-      <%= competency_form.submit nil, :class => 'button radius' %>
-      <%= link_to 'Cancel', competencies_path, :class => 'button secondary' %>
-    </div>
-  <% end %>
+      <div class="form-group">
+        <%= f.submit nil, :class => 'btn btn-xs pds-color-background-light white-text' %>
+      </div>
+    <% end %>
+  </div>
+</div>
