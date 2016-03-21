@@ -14,8 +14,17 @@
   </div>
   <div class="panel-body">
     The CSV files you upload need to follow a certain format. If you need the templates, download them here:
+    <%= link_to "Indicators Template", template_downloader_path(filename: 'Indicators_Template'), :method => :get %>
+    <%= link_to "Resources Template", template_downloader_path(filename: 'Resource_Template'), :method => :get %>
+    <%= link_to "Relationships Template", template_downloader_path(filename: 'Relationships_Template'), :method => :get %>
     <form method="get" action="../public/Indicators_Template.csv">
         <button type="submit">Indicators Template</button>
+    </form>
+    <form method="get" action="../public/Resources_Template.csv">
+        <button type="submit">Resources Template</button>
+    </form>
+    <form method="get" action="../public/Relationships_Template.csv">
+        <button type="submit">Relationships Template</button>
     </form>
   </div>
 </div>
