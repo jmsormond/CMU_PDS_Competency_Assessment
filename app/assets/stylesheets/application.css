@@ -58,6 +58,12 @@
   padding: 40px;
 }
 
+/* Nav Bar */ 
+.active a {
+  background-color: rgb(108, 0, 0)!important
+}
+
+
 
 
 
