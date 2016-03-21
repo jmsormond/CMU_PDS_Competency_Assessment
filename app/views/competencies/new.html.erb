@@ -1,5 +1,24 @@
-<h1>New competency</h1>
-
-<%= render 'form' %>
+<h1 class="pds-color-font">New Competency</h1>
+<hr style="color: darkgrey;">
+<div class="row">
+    <div class="col-xs-12">
+        <%= render 'form' %>
+    </div>
+</div>
+<div class="row divider-group">
+    <table width="100%">
+        <tr>
+            <td><hr class="div-divider pds-color-background"/></td>
+            <td style="width:1px; padding: 0 10px; white-space: nowrap;" class="pds-color-font">OR</td>
+            <td><hr class="div-divider pds-color-background"/></td>
+        </tr>
+    </table>​
+</div>
+<br>
+<div class="row">
+    <div class="col-xs-12">
+        <%= render 'csv_upload' %>
+    </div>
+</div>
 
 <%= link_to 'Back', competencies_path %>

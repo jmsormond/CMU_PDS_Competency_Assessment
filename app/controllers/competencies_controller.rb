@@ -25,11 +25,13 @@ class CompetenciesController < ApplicationController
   # POST /competencies
   # POST /competencies.json
   def create
+    session[:competency] = nil
     @competency = Competency.new(competency_params)
-
+    session[:competency] = @competency.attributes
     respond_to do |format|
       if @competency.save
-        format.html { redirect_to competency_steps_path(competency_id: @competency.id) }
+        format.html { redirect_to competency_steps_path }
+        #format.html { redirect_to competency_steps_path(competency_id: @competency.id) }
         #format.json { render action: 'show', status: :created, location: @competency }
       else
         format.html { render action: 'new' }
