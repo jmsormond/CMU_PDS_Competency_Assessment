@@ -93,6 +93,16 @@
   margin: 0 auto !important
 }
 
+/* divider for divs */
+.div-divider {
+  width: 100%;
+  height: 3px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
+.divider-group {
+  height: 20px;
+}
 
 
