@@ -25,7 +25,7 @@
 
 
   	<!-- Navigation Bar --> 
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse pds-color-background">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -46,6 +46,12 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+    <script>
+$(".nav li").on("click", function(){
+  $(".nav .nabar-nav").find(".active").removeClass("active");
+  $(this).parent().addClass("active");
+});
+</script>
 
 
   	<!-- Yield page content here --> 
