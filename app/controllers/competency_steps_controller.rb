@@ -23,6 +23,7 @@ class CompetencyStepsController < ApplicationController
       @competency = Competency.new(session[:competency])
       redirect_to next_wizard_path
     when :verify
+      @competency = Competency.new(session[:competency])
       @competency.save
       redirect_to competency_path(@competency)
     end
