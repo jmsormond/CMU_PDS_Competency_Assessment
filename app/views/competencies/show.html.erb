@@ -7,7 +7,7 @@
   <p>
   <b>Indicators in <%= @competency.name %>:</b>
     <ol>
-      <% for indicator in @indicators %>
+      <% for indicator in @competency.indicators %>
         <li><%= indicator.description %></li>
       <% end %>
     </ol>
@@ -15,3 +15,7 @@
 
 <%= link_to 'Edit', edit_competency_path(@competency) %> |
 <%= link_to 'Back', competencies_path %>
+<%= @competency.attributes %>
+<p>
+<p>
+<%= session[:competency] %>
