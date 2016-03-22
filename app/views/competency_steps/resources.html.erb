@@ -1,1 +1,18 @@
-Putting in Resources go here
+<%= simple_nested_form_for @competency, url: wizard_path, method: :put do |competency_form| %>
+    <div class="row">
+    <div class="span5">
+      <legend>indicator_resources for this competency</legend>
+        <div id="competency_indicator_resources">
+          <%= competency_form.simple_fields_for :indicator_resources do |indicator_resource_form| %>
+            <%= render :partial => "indicator_resource_fields", :locals => { :f => indicator_resource_form } %>
+          <% end %> 
+          <p>
+            <br /><%= competency_form.link_to_add("Add indicator_resource", :indicator_resources, :class => 'button tiny') %>
+          </p>
+        </div> 
+      </div>
+    </div>
+    <div class="form-actions">
+      <%= competency_form.submit 'Next', :class => 'btn btn-primary' %>
+    </div>
+  <% end %>

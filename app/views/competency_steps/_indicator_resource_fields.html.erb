@@ -1,0 +1,9 @@
+  <div class="fields">
+    <div class="min_indicator">
+      <!-- x icon to remove -->
+      <%= f.link_to_remove("x") %>
+      <!-- fields -->
+      <%= f.collection_select :indicator_id, @competency.indicators, :id, :description, :prompt => "Select indicator..." %>
+      <%= f.collection_select :resource_id, Resource.active.all, :id, :name, :prompt => "Select resource..." %>
+    </div>
+  </div>

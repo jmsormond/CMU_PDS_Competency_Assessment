@@ -11,7 +11,7 @@
   </thead>
 
   <tbody>
-    <% session[:competency][:indicators].each do |indicator| %>
+    <% @competency.indicators.each do |indicator| %>
 	    <tr>
 	        <td><%= indicator.competency_id %></td>
 	        <td><%= indicator.level %></td>
@@ -20,9 +20,9 @@
 	    <tr>
 	  		<td colspan="5">
 	  			<h4>Resources</h4>
-				<% session[:competency][:resources].for_indicator(indicator.id).each do |resource| %>
+				<% @competency.indicator_resources.each do |resource| %>
 				<ul>
-	    			<li><%= resource.name %></li>
+	    			<li><%= resource.resource_id%></li>
 	    		</ul>
 	    		<% end %>
 	    	</td>
