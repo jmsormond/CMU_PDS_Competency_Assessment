@@ -28,28 +28,30 @@ module AssessmentHelpers
 		end
 
 		def build_competency
-			competency = Competency.new
+			name = session[:competency][:name]
+			c_info = {name: name}
+			Competency.save(c_info)
 			construct_indicators(competency.id)
-			construct_resources
+			#construct_resources
 		end
 
 		def construct_association(resource_id, indicator_id)
-			new_array = Array.new
-			session[:competency][:resources].each do |params|
-				new_array.push(Indicator.new(params))
-			end
-			session[:competency][:indicators] = new_array
+			#new_array = Array.new
+			#session[:competency][:indicator_resources].each do |resource_id|
+			#	indicator_id = 
+			#end
 		end
 
 		def construct_indicators
 			new_array = Array.new
-			session[:competency][:indicators].each do |params|
-				@indicator = Indicator.new
-				params[:id] = @indicator.id
-				@indicator = Indicator.new(params)
-				new_array.push(@indicator)
+			session[:competency][:indicators].each do |competency_id, description, level|
+				#@indicator = Indicator.new
+				#params[:id] = @indicator.id
+				#@indicator = Indicator.new(params)
+				info = {description: description, level: level, competency_id: competency_id}
+				@indicator.create(params)
 			end
-			session[:competency][:indicators] = new_array
+			#session[:competency][:indicators] = new_array
 		end
 
 		def construct_resources

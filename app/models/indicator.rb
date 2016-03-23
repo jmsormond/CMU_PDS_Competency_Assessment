@@ -1,4 +1,5 @@
 class Indicator < ActiveRecord::Base
+	LEVELS_LIST = ["Companion", "Contributor", "Champion"]
 	# Relationships
 	# --------------------------------
 	belongs_to :competency
