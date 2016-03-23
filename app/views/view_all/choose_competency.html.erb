@@ -9,6 +9,11 @@
 <br>
 
 <h1 class="pds-color-font">Select a Competency</h1>
+
+<button type="button" id="tooltip1" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
+
+
+
 <br>
 
 <!-- Selection Dropdown menu for choosing a Competency -->
@@ -17,8 +22,9 @@
   <%= submit_tag "Next", :name => nil, :class => "btn btn-default btn-xs pds-color-background-light white-text" %>
 <% end %>
 
-
-
+<script>
+$( "#tooltip1" ).tooltip();
+</script>
 
 
 
