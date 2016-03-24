@@ -13,26 +13,16 @@ module AssessmentHelpers
 			session[:competency] = nil
 		end
 
-		def update_competency_name(name)
-			create_competency_session
-			session[:competency][:name] = name
-		end
-
-		def update_competency_indicators(indicators)
-			##Feed me an array of indicator hashes
-			session[:competency][:indicators] = indicators;
-		end
-
-		def update_competency_resources(resources)
-			session[:competency][:resources] = resources;
-		end
-
-		def build_competency
-			name = session[:competency][:name]
+		def build_competency(competency)
+			name = competency["name"]
 			c_info = {name: name}
-			Competency.save(c_info)
-			construct_indicators(competency.id)
-			#construct_resources
+			@competency = Competency.new(c_info)
+
+
+			@competency.save!
+			construct_indicators(@competency.id)
+
+			#associate_indicators(@competency)
 		end
 
 		def construct_association(resource_id, indicator_id)
@@ -42,16 +32,19 @@ module AssessmentHelpers
 			#end
 		end
 
-		def construct_indicators
-			new_array = Array.new
-			session[:competency][:indicators].each do |competency_id, description, level|
-				#@indicator = Indicator.new
-				#params[:id] = @indicator.id
-				#@indicator = Indicator.new(params)
-				info = {description: description, level: level, competency_id: competency_id}
-				@indicator.create(params)
-			end
-			#session[:competency][:indicators] = new_array
+		def construct_indicators(competency_id)
+		  session[:competency]["indicators_attributes"].each do |params|
+		        info = {description: params[1]["description"], level: params[1]["level"]}
+		        @indicator = Indicator.new(info)
+		        @indicator.competency_id = competency_id
+		        @indicator.save!
+		  end
+		end
+
+		def associate_indicators(competency)
+		  competency.indicators.each do |competency_id|
+		        indicator.competency_id = competency.id
+		  end
 		end
 
 		def construct_resources

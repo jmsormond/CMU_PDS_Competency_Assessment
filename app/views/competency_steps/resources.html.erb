@@ -1,7 +1,7 @@
 <%= simple_nested_form_for @competency, url: wizard_path, method: :put do |competency_form| %>
     <div class="row">
     <div class="span5">
-      <legend>indicator_resources for this competency</legend>
+      <h2 class="pds-color-font">Create a Competency: <%=session[:competency]["name"]%></h2>
         <div id="competency_indicator_resources">
           <%= competency_form.simple_fields_for :indicator_resources do |indicator_resource_form| %>
             <%= render :partial => "indicator_resource_fields", :locals => { :f => indicator_resource_form } %>
@@ -13,8 +13,6 @@
       </div>
     </div>
     <div class="form-actions">
-      <%= competency_form.submit 'Next', :class => 'btn btn-primary' %>
+      <%= competency_form.submit 'Next', :class => 'btn btn-xs pds-color-background-light white-text' %>
     </div>
   <% end %>
-
-  <%=session[:competency][:indicators]%>
