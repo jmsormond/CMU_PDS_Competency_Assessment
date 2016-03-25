@@ -13,6 +13,10 @@ module AssessmentHelpers
 			session[:competency] = nil
 		end
 
+		def define_association(params)
+			session[:indicators] = params
+		end
+
 		def build_competency(competency)
 			name = competency["name"]
 			c_info = {name: name}
@@ -21,15 +25,7 @@ module AssessmentHelpers
 
 			@competency.save!
 			construct_indicators(@competency.id)
-
-			#associate_indicators(@competency)
-		end
-
-		def construct_association(resource_id, indicator_id)
-			#new_array = Array.new
-			#session[:competency][:indicator_resources].each do |resource_id|
-			#	indicator_id = 
-			#end
+			construct_associations(@competency.id)
 		end
 
 		def construct_indicators(competency_id)
@@ -41,24 +37,15 @@ module AssessmentHelpers
 		  end
 		end
 
-		def associate_indicators(competency)
-		  competency.indicators.each do |competency_id|
-		        indicator.competency_id = competency.id
+		def construct_associations(competency_id)
+		  session[:competency]["indicator_resources_attributes"].each do |params|
+		  		description = params[1]["indicator_description"]
+		  		indicator_id = Indicator.by_description(description).first.id
+		        info = {indicator_id: indicator_id, resource_id: params[1]["resource_id"]}
+		        @indicator_resource = IndicatorResource.new(info)
+		        #@indicator_resource.competency_id = competency_id
+		        @indicator_resource.save!
 		  end
-		end
-
-		def construct_resources
-			session[:competency][:resources].each do|params|
-				##Is resource in database alreaady?
-				#name = params.name
-				#currentResource = Resource.find_by name: name
-				#if currentResource == nil
-					##If no, create it!
-				#	currentResource = Resource.new(params)
-				#end
-				##Now connect the indicator with the resource
-				construct_association(currentResource.id, indicator_id)
-			end
 		end
 
 	end

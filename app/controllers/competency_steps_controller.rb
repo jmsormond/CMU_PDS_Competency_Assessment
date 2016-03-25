@@ -25,8 +25,8 @@ class CompetencyStepsController < ApplicationController
     when :verify
       @competency = Competency.new(session[:competency])
       build_competency(@competency)
-      render json: @competency.errors, status: :unprocessable_entity
-      #redirect_to @competency
+      #render json: @competency.errors, status: :unprocessable_entity
+      redirect_to @competency
         #if @competency.save
         #  redirect_to @competency, notice: 'Indicator was successfully created.'
         #else
