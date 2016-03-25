@@ -1,7 +1,6 @@
-<% session[:competency]["indicator_resources_attributes"].each do |params| %>
-<%= params[1] %>
-<%end%>
-
+Put pretty summary page in here:
+<p>
+<p>
 <%= simple_nested_form_for @competency, url: wizard_path, method: :put do |competency_form| %>
   <div class="form-actions">
       <%= competency_form.submit 'Done', :class => 'btn btn-primary' %>

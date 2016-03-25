@@ -8,16 +8,17 @@
   <b>Indicators in <%= @competency.name %>:</b>
     <ol>
       <% for indicator in @competency.indicators %>
-        <li><%= indicator.description %></li>
+        <li>
+        <%= indicator.description %>
+        <% for resource in indicator.indicator_resources %>
+        <p>
+        <%= resource.name %> 
+        <% end %>
+
+        </li>
       <% end %>
     </ol>
   </p>
 
 <%= link_to 'Edit', edit_competency_path(@competency) %> |
 <%= link_to 'Back', competencies_path %>
-<p>
-<p>
-<%= @competency.attributes %>
-<p>
-<p>
-<%= session[:competency] %>
