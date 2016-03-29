@@ -11,13 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160312165143) do
+ActiveRecord::Schema.define(version: 20160329154640) do
 
   create_table "competencies", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "active",     default: true
+  end
+
+  create_table "indicator_questions", force: true do |t|
+    t.integer  "indicator_id"
+    t.integer  "question_id"
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "indicator_resources", force: true do |t|
@@ -34,6 +42,13 @@ ActiveRecord::Schema.define(version: 20160312165143) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "active",        default: true
+  end
+
+  create_table "questions", force: true do |t|
+    t.string   "question"
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "resources", force: true do |t|
