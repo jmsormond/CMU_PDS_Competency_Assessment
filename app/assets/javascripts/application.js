@@ -18,3 +18,4 @@
 //= require bootstrap.min.js
 //= require filterrific/filterrific-jquery
 //= require bootstrap-table-expandable.js
+//= require jquery-ui-1.9.2.custom.min.js

@@ -9,16 +9,22 @@
 <br>
 
 <h1 class="pds-color-font">Select a Competency</h1>
+
 <br>
 
 <!-- Selection Dropdown menu for choosing a Competency -->
-<%= form_tag(view_all_level_step_path, method: :get) do %>
-  <%= select_tag :competency_id, options_from_collection_for_select(@competencies, 'id', 'name'), {include_blank: 'None'} %>
-  <%= submit_tag "Next", :name => nil, :class => "btn btn-default btn-xs pds-color-background-light white-text" %>
-<% end %>
+<div class="inline">
+	<%= form_tag(view_all_level_step_path, method: :get) do %>
+	  <%= select_tag :competency_id, options_from_collection_for_select(@competencies, 'id', 'name'), {include_blank: 'None'} %>
+	  <%= submit_tag "Next", :name => nil, :class => "btn btn-default btn-xs pds-color-background-light white-text" %>
+	<% end %>
+</div>
 
+<div class="inline">
+	<a href="#" data-toggle="tooltip" data-placement="right" title="A competency has three levels, indicators, and resources nested beneath it. Select the competency that you are looking for to begin viewing its associated levels, indicators, and resources."><%= image_tag("tooltip.png", :alt => "Hint", class: "tool-tip-img") %></a>
+</div>
 
-
+<%= render 'partials/tooltip' %>
 
 
 
