@@ -24,13 +24,7 @@
 	<a href="#" data-toggle="tooltip" data-placement="right" title="A competency has three levels, indicators, and resources nested beneath it. Select the competency that you are looking for to begin viewing its associated levels, indicators, and resources."><%= image_tag("tooltip.png", :alt => "Hint", class: "tool-tip-img") %></a>
 </div>
 
-
-
-<script>
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip(); 
-});
-</script>
+<%= render 'partials/tooltip' %>
 
 
 
