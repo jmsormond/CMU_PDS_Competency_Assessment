@@ -35,6 +35,10 @@ class CompetencyStepsController < ApplicationController
     end
   end
 
+  def upload
+    puts "SDJKGLHSDGKJHSDKJGHSKJHGKSJDHGKJSDHFKSLH"
+  end
+
   def competency_params
     params.require(:Competency).permit(:name)
   end
