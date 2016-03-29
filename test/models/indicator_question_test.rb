@@ -6,8 +6,8 @@ class IndicatorQuestionTest < ActiveSupport::TestCase
   # end
 
   # Relationship Macros
-  should belong_to(:questions)
-  should belong_to(:indicators)
+  should belong_to(:question)
+  should belong_to(:indicator)
 
   # Validation Macros
   should validate_presence_of(:indicator_id)
