@@ -1,7 +1,7 @@
 class Question < ActiveRecord::Base
     #relationships
     has_many :indicator_questions
-    has_many :indicators, through: :inidcator_questions
+    has_many :indicators, through: :indicator_questions
 
     #validations
     validates_presence_of :question
@@ -9,5 +9,5 @@ class Question < ActiveRecord::Base
     #scoeps
     scope :active, -> { where("active = ?", true) }
     scope :inactive, -> { where("active = ?", false) }
-    scope :alphabetical, -> { order("name") }
+    scope :alphabetical, -> { order("question") }
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160329154640) do
+ActiveRecord::Schema.define(version: 20160329162453) do
 
   create_table "competencies", force: true do |t|
     t.string   "name"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20160329154640) do
   create_table "indicator_questions", force: true do |t|
     t.integer  "indicator_id"
     t.integer  "question_id"
-    t.boolean  "active"
+    t.boolean  "active",       default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20160329154640) do
 
   create_table "questions", force: true do |t|
     t.string   "question"
-    t.boolean  "active"
+    t.boolean  "active",     default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
