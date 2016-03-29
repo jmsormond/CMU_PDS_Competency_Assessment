@@ -3,8 +3,7 @@
       <!-- x icon to remove -->
       <%= f.link_to_remove("x") %>
       <!-- fields -->
-      <%= f.input :level %>
+      <%= f.input :level, collection: Indicator::LEVELS_LIST, include_blank: false, input_html: {class: "avg"} %>
       <%= f.input :description %>
-      <% f.input :indicator_resources %>
     </div>
   </div>

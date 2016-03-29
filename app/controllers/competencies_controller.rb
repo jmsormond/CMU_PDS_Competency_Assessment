@@ -28,16 +28,16 @@ class CompetenciesController < ApplicationController
     session[:competency] = nil
     @competency = Competency.new(competency_params)
     session[:competency] = @competency.attributes
-    respond_to do |format|
-      if @competency.save
-        format.html { redirect_to competency_steps_path }
-        #format.html { redirect_to competency_steps_path(competency_id: @competency.id) }
-        #format.json { render action: 'show', status: :created, location: @competency }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @competency.errors, status: :unprocessable_entity }
-      end
-    end
+    redirect_to competency_steps_path
+      # if @competency.save
+      #   format.html { redirect_to competency_steps_path }
+      #   #format.html { redirect_to competency_steps_path(competency_id: @competency.id) }
+      #   #format.json { render action: 'show', status: :created, location: @competency }
+      # else
+      #   format.html { render action: 'new' }
+      #   format.json { render json: @competency.errors, status: :unprocessable_entity }
+      # end
+    #end
   end
 
   # PATCH/PUT /competencies/1

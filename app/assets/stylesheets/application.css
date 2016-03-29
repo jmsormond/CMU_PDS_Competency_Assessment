@@ -105,6 +105,13 @@
   margin-bottom: 10px;
 }
 
+.small-div-divider {
+  width: 100%;
+  height: 1px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
 .divider-group {
   height: 20px;
 }
@@ -113,7 +120,6 @@
   padding-right: 30px;
   border-right: 2px solid rgb(108, 0, 0);
 }
-
 
 
 
@@ -143,3 +149,9 @@
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
+
+.pointer {
+  cursor: pointer;
+}
+
+
