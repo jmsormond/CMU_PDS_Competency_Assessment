@@ -38,8 +38,8 @@ FactoryGirl.define do
 
   #Indicator_Question factory set up
   factory :indicator_question do
-    association :question
     association :indicator
+    association :question
     active true
   end
 

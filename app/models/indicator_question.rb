@@ -4,5 +4,5 @@ class IndicatorQuestion < ActiveRecord::Base
     belongs_to :indicator
 
     #validations
-    validates_presence_of :indicator_id, :resource_id
+    validates_presence_of :indicator_id, :question_id
 end
