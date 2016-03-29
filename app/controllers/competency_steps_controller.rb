@@ -23,8 +23,15 @@ class CompetencyStepsController < ApplicationController
       @competency = Competency.new(session[:competency])
       redirect_to next_wizard_path
     when :verify
-      @competency.save
-      redirect_to competency_path(@competency)
+      @competency = Competency.new(session[:competency])
+      build_competency(@competency)
+      #render json: @competency.errors, status: :unprocessable_entity
+      redirect_to @competency
+        #if @competency.save
+        #  redirect_to @competency, notice: 'Indicator was successfully created.'
+        #else
+        #  render json: @competency.errors, status: :unprocessable_entity
+        #end
     end
   end
 

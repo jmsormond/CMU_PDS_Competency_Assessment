@@ -1,32 +1,9 @@
-<table class="table table-hover table-expandable" >
-  <thead class="pds-color-background-light white-text">
-    <tr>
-      <th>Competency</th>
-      <th>Level</th>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+Put pretty summary page in here:
+<p>
+<p>
+<%= simple_nested_form_for @competency, url: wizard_path, method: :put do |competency_form| %>
+  <div class="form-actions">
+      <%= competency_form.submit 'Done', :class => 'btn btn-primary' %>
+    </div>
+  <% end %>
 
-  <tbody>
-    <% session[:competency][:indicators].each do |indicator| %>
-	    <tr>
-	        <td><%= indicator.competency_id %></td>
-	        <td><%= indicator.level %></td>
-	        <td><%= indicator.description %></td>
-	    </tr>
-	    <tr>
-	  		<td colspan="5">
-	  			<h4>Resources</h4>
-				<% session[:competency][:resources].for_indicator(indicator.id).each do |resource| %>
-				<ul>
-	    			<li><%= resource.name %></li>
-	    		</ul>
-	    		<% end %>
-	    	</td>
-	    </tr>
-    <% end %>
-  </tbody>
-</table>
