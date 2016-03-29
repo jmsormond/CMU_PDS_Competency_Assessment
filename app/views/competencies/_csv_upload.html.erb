@@ -5,23 +5,16 @@
   <div class="col-xs-9">
     <%= simple_form_for @competency, url: competency_upload_path, method: :put, :class => "form-horizontal", html: {multipart: true} do |competency_form| %>
       <div class="form-group">
-        <!-- <label class=" col-xs-3">Choose indicators file:</label>
-        <div class="col-xs-9">
-          <input type="file" class="btn btn-xs" name="indicators"></input>
-        </div> -->
+        <label class=" col-xs-4">Choose indicators file:</label>
         <%= file_field_tag :indicators %>
       </div>
       <div class="form-group">
-        <label class=" col-xs-3">Choose resources file:</label>
-        <div class="col-xs-9">
-          <input type="file" class="btn btn-xs" name="resources"></input>
-        </div>
+        <label class=" col-xs-4">Choose resources file:</label>
+        <%= file_field_tag :resources %>
       </div>
       <div class="form-group">
-        <label class=" col-xs-3">Choose relationships file:</label>
-        <div class="col-xs-9">
-          <input type="file" class="btn btn-xs" name="relationships"></input>
-        </div>
+        <label class=" col-xs-4">Choose relationships file:</label>
+        <%= file_field_tag :relationships %>
       </div>
       <div class="form-group">
         <div class="col-xs-offset-3 col-xs-9">
