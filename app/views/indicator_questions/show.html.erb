@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Indicator:</strong>
+  <%= @indicator_question.indicator_id %>
+</p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @indicator_question.question_id %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @indicator_question.active %>
+</p>
+
+<%= link_to 'Edit', edit_indicator_question_path(@indicator_question) %> |
+<%= link_to 'Back', indicator_questions_path %>
