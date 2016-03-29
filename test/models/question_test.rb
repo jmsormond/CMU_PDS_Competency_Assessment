@@ -11,7 +11,6 @@ class QuestionTest < ActiveSupport::TestCase
 
   # Validation Macros
   should validate_presence_of(:question)
-  should validate_presence_of(:active)
 
   # Contexts
   context "With a proper context, " do
