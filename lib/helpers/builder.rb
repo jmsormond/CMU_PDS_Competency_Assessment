@@ -13,57 +13,39 @@ module AssessmentHelpers
 			session[:competency] = nil
 		end
 
-		def update_competency_name(name)
-			create_competency_session
-			session[:competency][:name] = name
+		def define_association(params)
+			session[:indicators] = params
 		end
 
-		def update_competency_indicators(indicators)
-			##Feed me an array of indicator hashes
-			session[:competency][:indicators] = indicators;
+		def build_competency(competency)
+			name = competency["name"]
+			c_info = {name: name}
+			@competency = Competency.new(c_info)
+
+
+			@competency.save!
+			construct_indicators(@competency.id)
+			construct_associations(@competency.id)
 		end
 
-		def update_competency_resources(resources)
-			session[:competency][:resources] = resources;
+		def construct_indicators(competency_id)
+		  session[:competency]["indicators_attributes"].each do |params|
+		        info = {description: params[1]["description"], level: params[1]["level"]}
+		        @indicator = Indicator.new(info)
+		        @indicator.competency_id = competency_id
+		        @indicator.save!
+		  end
 		end
 
-		def build_competency
-			competency = Competency.new
-			construct_indicators(competency.id)
-			construct_resources
-		end
-
-		def construct_association(resource_id, indicator_id)
-			new_array = Array.new
-			session[:competency][:resources].each do |params|
-				new_array.push(Indicator.new(params))
-			end
-			session[:competency][:indicators] = new_array
-		end
-
-		def construct_indicators
-			new_array = Array.new
-			session[:competency][:indicators].each do |params|
-				@indicator = Indicator.new
-				params[:id] = @indicator.id
-				@indicator = Indicator.new(params)
-				new_array.push(@indicator)
-			end
-			session[:competency][:indicators] = new_array
-		end
-
-		def construct_resources
-			session[:competency][:resources].each do|params|
-				##Is resource in database alreaady?
-				#name = params.name
-				#currentResource = Resource.find_by name: name
-				#if currentResource == nil
-					##If no, create it!
-				#	currentResource = Resource.new(params)
-				#end
-				##Now connect the indicator with the resource
-				construct_association(currentResource.id, indicator_id)
-			end
+		def construct_associations(competency_id)
+		  session[:competency]["indicator_resources_attributes"].each do |params|
+		  		description = params[1]["indicator_description"]
+		  		indicator_id = Indicator.by_description(description).first.id
+		        info = {indicator_id: indicator_id, resource_id: params[1]["resource_id"]}
+		        @indicator_resource = IndicatorResource.new(info)
+		        #@indicator_resource.competency_id = competency_id
+		        @indicator_resource.save!
+		  end
 		end
 
 	end
