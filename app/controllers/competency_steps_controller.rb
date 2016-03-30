@@ -58,7 +58,7 @@ class CompetencyStepsController < ApplicationController
     puts resource_info
     # update_competency_resources(resource_info)
 
-    redirect_to competency_step_path(:indicators)
+    redirect_to competency_step_path(:resources)
   end
 
   def competency_params
