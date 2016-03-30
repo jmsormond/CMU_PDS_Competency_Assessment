@@ -85,3 +85,6 @@ gem 'smarter_csv'
 group :production do
   gem 'pg'
 end
+
+# gem for storing session in db
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
