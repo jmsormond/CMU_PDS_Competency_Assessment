@@ -36,35 +36,33 @@ class CompetencyStepsController < ApplicationController
   end
 
   def upload
+    session[:competency] = nil
+    @competency = Competency.new(competency_params)
+    session[:competency] = @competency.attributes
+
     indicator_info = Array.new
     indicator_file = params[:indicators]
     indicators = CSV.read(indicator_file.path, {:headers => true, :encoding => 'windows-1251:utf-8'})
     indicators.each do |indicator|
-        indicator_info.push({id: indicator[0], level: indicator[1], name: indicator[2]})
+        indicator_info.push({level: indicator[0], description: indicator[1]})
     end
     puts indicator_info
-    # update_competency_indicators(indicator_info)
+    session[:competency]["indicators_attributes"] = indicator_info
 
     resource_info = Array.new
     resources_file = params[:resources]
     resources = CSV.read(resources_file.path, {:headers => true, :encoding => 'windows-1251:utf-8'})
     resources.each do |resource|
-        resource_info.push({id: resource[0], resource_category: resource[1], name: resource[2], description: resource[3], link: resource[4]})
+        resource_info.push({resource_category: resource[0], name: resource[1], description: resource[2], link: resource[3]})
     end
     puts resource_info
     # update_competency_resources(resource_info)
 
-    relationship_info = Array.new
-    relationships_file = params[:relationships]
-    relationships = CSV.read(relationships_file.path, {:headers => true, :encoding => 'windows-1251:utf-8'})
-    relationships.each do |relationship|
-        relationship_info.push({indicator_id: relationship[0], resource_id: relationship[1]})
-    end
-    puts relationship_info
+    redirect_to competency_step_path(:indicators)
   end
 
   def competency_params
-    params.require(:Competency).permit(:name)
+    params.require(:competency).permit(:name)
   end
 
 end
