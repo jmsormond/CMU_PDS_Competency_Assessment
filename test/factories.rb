@@ -30,4 +30,17 @@ FactoryGirl.define do
     active true
   end
 
+  # Questions factory set up
+  factory :question do
+    question "How often to you ask questions?"
+    active true
+  end
+
+  #Indicator_Question factory set up
+  factory :indicator_question do
+    association :indicator
+    association :question
+    active true
+  end
+
 end

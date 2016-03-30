@@ -1,0 +1,2 @@
+module IndicatorQuestionsHelper
+end
