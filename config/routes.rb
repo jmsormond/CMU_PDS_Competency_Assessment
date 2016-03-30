@@ -1,4 +1,8 @@
 PDSAssessment::Application.routes.draw do
+  resources :indicator_questions
+
+  resources :questions
+
   resources :indicator_resources
   resources :resources
   resources :indicators

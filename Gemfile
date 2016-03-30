@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.13'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
@@ -60,6 +60,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
+  gem 'sqlite3'
 end
 
 # Gems used only in testing
@@ -80,3 +81,7 @@ gem 'will_paginate', '~> 3.0.6'
 
 # gem for csv import
 gem 'smarter_csv'
+
+group :production do
+  gem 'pg'
+end
