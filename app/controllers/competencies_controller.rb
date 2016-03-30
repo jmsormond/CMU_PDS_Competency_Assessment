@@ -11,6 +11,7 @@ class CompetenciesController < ApplicationController
   # GET /competencies/1.json
   def show
     @indicators = @competency.indicators.alphabetical.to_a
+    redirect_to view_all_level_step_path(competency_id: @competency.id)
   end
 
   # GET /competencies/new
