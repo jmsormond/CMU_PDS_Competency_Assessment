@@ -80,3 +80,7 @@ gem 'will_paginate', '~> 3.0.6'
 
 # gem for csv import
 gem 'smarter_csv'
+
+group :production do
+  gem 'pg'
+end
