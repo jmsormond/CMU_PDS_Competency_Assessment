@@ -13,10 +13,6 @@
         <%= file_field_tag :resources %>
       </div>
       <div class="form-group">
-        <label class=" col-xs-4">Choose relationships file:</label>
-        <%= file_field_tag :relationships %>
-      </div>
-      <div class="form-group">
         <div class="col-xs-offset-3 col-xs-9">
           <%= competency_form.submit 'Upload', :class => 'btn btn-xs pds-color-background-light white-text' %>
         </div>
@@ -38,8 +34,7 @@
       <div class="panel-body">
         The CSV files you upload need to follow a certain format. If you need the templates, download them here:<br>
         <%= link_to "Indicators Template", template_downloader_path(filename: 'Indicators_Template'), :method => :get, :class => "btn btn-default" %>&nbsp;
-        <%= link_to "Resources Template", template_downloader_path(filename: 'Resource_Template'), :method => :get, :class => "btn btn-default" %>&nbsp;
-        <%= link_to "Relationships Template", template_downloader_path(filename: 'Relationships_Template'), :method => :get, :class => "btn btn-default" %>&nbsp;
+        <%= link_to "Resources Template", template_downloader_path(filename: 'Resource_Template'), :method => :get, :class => "btn btn-default" %>
       </div>
     </div>
   </div>
