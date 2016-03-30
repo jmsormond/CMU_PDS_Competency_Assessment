@@ -2,23 +2,34 @@
   <table class="table table-bordered" id="resource_table">
     <thead class="pds-color-background-light white-text">
       <tr class="row">
-        <th class="col-xs-6"><%= filterrific_sorting_link(@filterrific, :name) %></th>
+        <th class="col-xs-7"><%= filterrific_sorting_link(@filterrific, :name) %></th>
         <th class="col-xs-1"><%= filterrific_sorting_link(@filterrific, :resource_category) %></th>
-        <th class="col-xs-3">Description</th>
+        <th class="col-xs-1">Link</th>
         <th class="col-xs-1">Active</th>
-        <th class="col-xs-1"></th>
+        <th class="col-xs-2"></th>
       </tr>
     </thead>
 
     <tbody id="resource_table_body">
       <% @resources.each do |resource| %>
         <tr class="row">
-          <td class="col-xs-6 text-overflow" name="name"><%= resource.name %></td>
+          <td class="col-xs-7 text-overflow" name="name">
+            <%= resource.name %><br><br>
+            <a class="pointer pull-right btn btn-xs pds-color-font-light" onclick="showDescription(this)">View Description</a>
+            <div style="display: none;">
+              <hr class="small-div-divider pds-color-background-light" />
+              <% if resource.description != "" %>
+                <%= resource.description %>
+              <% else %>
+                N/A
+              <% end %>
+            </div>
+          </td>
           <td class="col-xs-1"><%= resource.resource_category %></td>
-          <% if resource.description != "" %>
-            <td class="col-xs-3"><%= resource.description %></td>
+          <% if resource.link != "" %>
+            <td class="col-xs-1"><%= resource.link %></td>
           <% else %>
-            <td class="col-xs-3">N/A</td>
+            <td class="col-xs-1">N/A</td>
           <% end %>
           <% if resource.active %>
             <td class="col-xs-1">
@@ -32,16 +43,21 @@
                 <span class="glyphicon glyphicon-ban-circle btn-lg active-icon" aria-hidden="true"></span>
               <% end %></td>
           <% end %>
-          <td class="col-xs-1"><%= link_to 'View', resource %> | <%= link_to 'Edit', edit_resource_path(resource) %></td>
+          <td class="col-xs-2"><%= link_to 'View', resource %> | <%= link_to 'Edit', edit_resource_path(resource) %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-  <%= will_paginate @posts %>
+  <%= will_paginate @resources %>
 </div>
 
 <script type="text/javascript">
-var toggleActive = function(resource) {
-  console.log(resource);
+var showDescription = function(div) {
+  var description = div.nextSibling.nextSibling;
+  if(description.style.display == 'block') {
+      description.style.display = 'none';
+  } else {
+      description.style.display = 'block';
+  }
 }
 </script>

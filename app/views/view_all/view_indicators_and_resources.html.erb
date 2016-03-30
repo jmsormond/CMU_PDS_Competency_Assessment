@@ -11,6 +11,9 @@
 
 <h1 class="pds-color-font">Resources and Indicators</h1>
 
+<div id="right-tooltip">
+  <a href="#" data-toggle="tooltip" data-placement="right" title="Each level nested within a competency has a set of unique indicators. Each indicator can be mapped to one or many resources."><%= image_tag("tooltip.png", :alt => "Hint", class: "tool-tip-img") %></a>
+</div>
 
 <table class="table table-hover table-expandable" >
   <thead class="pds-color-background-light white-text">
@@ -46,3 +49,6 @@
     <% end %>
   </tbody>
 </table>
+
+
+<%= render 'partials/tooltip' %>
