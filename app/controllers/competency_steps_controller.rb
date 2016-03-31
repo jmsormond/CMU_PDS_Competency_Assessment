@@ -17,10 +17,12 @@ class CompetencyStepsController < ApplicationController
     when :indicators
       session[:competency] = session[:competency].merge(params[:competency])
       @competency = Competency.new(session[:competency])
+      puts session[:competency]
       redirect_to next_wizard_path
     when :resources
       session[:competency] = session[:competency].merge(params[:competency])
       @competency = Competency.new(session[:competency])
+      puts session[:competency]
       redirect_to next_wizard_path
     when :verify
       @competency = Competency.new(session[:competency])
@@ -46,7 +48,6 @@ class CompetencyStepsController < ApplicationController
     indicators.each do |indicator|
         indicator_info.push({level: indicator[0], description: indicator[1]})
     end
-    puts indicator_info
     session[:competency]["indicators_attributes"] = indicator_info
 
     resource_info = Array.new
@@ -55,10 +56,10 @@ class CompetencyStepsController < ApplicationController
     resources.each do |resource|
         resource_info.push({resource_category: resource[0], name: resource[1], description: resource[2], link: resource[3]})
     end
-    puts resource_info
-    # update_competency_resources(resource_info)
+    session[:competency]["indicator_resources_attributes"] = resource_info
 
-    redirect_to competency_step_path(:resources)
+    @resource_options = session[:competency]["indicator_resources_attributes"]
+    redirect_to competency_step_path(:resources, upload: true)
   end
 
   def competency_params

@@ -4,6 +4,10 @@
       <%= f.link_to_remove("x") %>
       <!-- fields -->
       <%= f.collection_select :indicator_description, @competency.indicators, :description, :description, :prompt => "Select indicator..." %>
-      <%= f.collection_select :resource_id, Resource.active.all, :id, :name, :prompt => "Select resource..." %>
+      <% if @resource_options.nil? %>
+          <%= f.collection_select :resource_id, Resource.active.alphabetical, :id, :name, :prompt => "Select resource..." %>
+      <% else %>
+          <%= f.collection_select :resource_id, @resource_options, :name, :name, :prompt => "Select resource..." %>
+      <% end %>
     </div>
   </div>
