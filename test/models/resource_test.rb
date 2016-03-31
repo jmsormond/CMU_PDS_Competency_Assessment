@@ -53,6 +53,22 @@ class ResourceTest < ActiveSupport::TestCase
       		assert_equal 1, Resource.for_indicator(@indicator2).size
 		end
 
+        should "have a method to get the options for filterrific sorting" do
+            assert_equal [['Name (a-z)', 'name asc'],['Name (z-a)', 'name desc'],['Type (a-z)', 'resource_category_desc'],['Type (z-a)', 'resource_category_asc']], Resource.options_for_sorted_by
+        end
+
+        should "have a method to get the options for sorting by active state" do
+            assert_equal [["True", 't'],["False", 'f']], Resource.options_for_sort_active
+        end
+
+        should "have a method to get the options for sorting by categorr" do
+            assert_equal [["MOVIE", "MOVIE"]], Resource.options_for_sort_by_category
+        end
+
+        should "have a method to get the resource categories in the system" do
+            assert_equal ["MOVIE"], Resource.get_categories
+        end
+
 	end
 #end of testing
 end
