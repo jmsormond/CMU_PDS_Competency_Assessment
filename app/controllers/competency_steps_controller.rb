@@ -17,15 +17,18 @@ class CompetencyStepsController < ApplicationController
     when :indicators
       session[:competency] = session[:competency].merge(params[:competency])
       @competency = Competency.new(session[:competency])
+      puts "SDLKJHFDSIUHQWEJBFEWILUBFSDKJBFSKDJLFBSLDKF"
       puts session[:competency]
       redirect_to next_wizard_path
     when :resources
       session[:competency] = session[:competency].merge(params[:competency])
       @competency = Competency.new(session[:competency])
+      puts "SDLKJHFDSIUHQWEJBFEWILUBFSDKJBFSKDJLFBSLDKF"
       puts session[:competency]
       redirect_to next_wizard_path
     when :verify
       @competency = Competency.new(session[:competency])
+      puts "SDLKJHFDSIUHQWEJBFEWILUBFSDKJBFSKDJLFBSLDKF"
       build_competency(@competency)
       #render json: @competency.errors, status: :unprocessable_entity
       redirect_to @competency
