@@ -66,7 +66,15 @@ class ResourceTest < ActiveSupport::TestCase
         end
 
         should "have a method to get the resource categories in the system" do
-            assert_equal ["MOVIE"], Resource.get_categories
+            assert_equal ["MOVIE"], Resource.get_categories.map { |e| e.resource_category }
+        end
+
+        should "have method to sort resources" do
+            assert_equal ["Crocodile Dundee", "Talking to New Yorkers", "Waltzing With Bears"], Resource.active.sorted_by("name asc").map { |e| e.name }
+            assert_equal ["Waltzing With Bears", "Talking to New Yorkers", "Crocodile Dundee"], Resource.active.sorted_by("name desc").map { |e| e.name }
+            assert_equal ["Crocodile Dundee", "Waltzing With Bears", "Talking to New Yorkers"], Resource.active.sorted_by("resource_category desc").map { |e| e.name }
+            assert_equal ["Crocodile Dundee", "Waltzing With Bears", "Talking to New Yorkers"], Resource.active.sorted_by("resource_category asc").map { |e| e.name }
+            assert_raise( ArgumentError ) { Resource.active.sorted_by("error").map { |e| e.name } }
         end
 
 	end
