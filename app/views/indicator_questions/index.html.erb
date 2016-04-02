@@ -1,0 +1,31 @@
+<h1>Listing indicator_questions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Indicator</th>
+      <th>Question</th>
+      <th>Active</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @indicator_questions.each do |indicator_question| %>
+      <tr>
+        <td><%= indicator_question.indicator_id %></td>
+        <td><%= indicator_question.question_id %></td>
+        <td><%= indicator_question.active %></td>
+        <td><%= link_to 'Show', indicator_question %></td>
+        <td><%= link_to 'Edit', edit_indicator_question_path(indicator_question) %></td>
+        <td><%= link_to 'Destroy', indicator_question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Indicator question', new_indicator_question_path %>
