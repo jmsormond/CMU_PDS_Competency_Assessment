@@ -1,24 +1,51 @@
   <div class="row" style = "background-color: #bbb; box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
   <div class="row col-xs-12">
+  <!-- x icon to remove -->
+  <%= f.link_to_remove(" (X)") %>
+
     <div class="form-group col-xs-12">
-      <%= f.label :resource_name %><br>
-      <%= f.text_field :resource_name, :class => "form-control" %>
+      <%= f.collection_select :indicator_description, @competency.indicators, :description, :description, {:prompt => "Select Indicator..."}, {:class => "form-control"} %>
     </div>
+
+  <a class="pointer pull-right btn btn-xs pds-color-font-light" onclick="showForm(this)">Add Existing Resource</a>
+  <div style="display: none;">
+  <div class="row col-xs-12">
+    <div class="form-group col-xs-12">
+      <%= f.collection_select :resource_id, Resource.active.all, :id, :name, {:prompt => "Select Resource..."}, {:class => "form-control"}  %>
+    </div>
+  </div>
+  </div>
+
+  <a class="pointer pull-right btn btn-xs pds-color-font-light" onclick="showForm(this)">Create New Resource</a>
+  <div style="display: none;">
+    <div class="form-group col-xs-12">
+      <%= f.text_field :resource_name, :placeholder => "Resource Name", :class => "form-control" %>
   </div>
     <div class="row col-xs-12">
     <div class="form-group col-xs-12">
-      <%= f.label :resource_description %><br>
-      <%= f.text_field :resource_description, :class => "form-control" %>
+      <%= f.text_field :resource_description, :placeholder => "Resource Description", :class => "form-control" %>
     </div>
   </div>
     <div class="row col-xs-12">
     <div class="form-group col-xs-6">
-      <%= f.label :resource_category %><br>
       <%= f.collection_select :resource_category, Resource.get_categories, :resource_category, :resource_category, {}, {:class => "form-control"} %>
     </div>
     <div class="form-group col-xs-4">
-      <%= f.label :resource_link %><br>
-      <%= f.text_field :resource_link, :class => "form-control" %>
+      <%= f.text_field :resource_link, :placeholder => "Resource Link", :class => "form-control" %>
     </div>
   </div>
   </div>
+  </div>
+
+  </div>
+
+<script type="text/javascript">
+var showForm = function(div) {
+  var form = div.nextSibling.nextSibling;
+  if(form.style.display == 'block') {
+      form.style.display = 'none';
+  } else {
+      form.style.display = 'block';
+  }
+}
+</script>
