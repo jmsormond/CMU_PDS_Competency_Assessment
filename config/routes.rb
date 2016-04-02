@@ -1,8 +1,6 @@
 PDSAssessment::Application.routes.draw do
   resources :indicator_questions
 
-  resources :questions
-
   resources :indicator_resources
   resources :resources
   resources :indicators
@@ -26,6 +24,7 @@ PDSAssessment::Application.routes.draw do
 
   # Routes for Assessment View
   get 'questions/choose_competency' => 'questions#choose_competency', as: :question_competency_step
+  get 'questions/view' => 'questions#view', as: :questions_view_step
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

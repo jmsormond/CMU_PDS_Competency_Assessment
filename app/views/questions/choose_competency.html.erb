@@ -1,0 +1,17 @@
+<h1 class="pds-color-font">Manage the Assessment</h1>
+<br>
+<h2 class="pds-color-font">Select a Competency</h2>
+
+<!-- Selection Dropdown menu for choosing a Competency -->
+<div class="inline">
+    <%= form_tag(questions_view_step_path, method: :get) do %>
+      <%= select_tag :competency_id, options_from_collection_for_select(@competencies, 'id', 'name'), {include_blank: 'None'} %>
+      <%= submit_tag "Next", :name => nil, :class => "btn btn-default btn-xs pds-color-background-light white-text" %>
+    <% end %>
+</div>
+
+<div class="inline">
+    <a href="#" data-toggle="tooltip" data-placement="right" title="Use the dropdown to select the competency for which you want to manage an assessment."><%= image_tag("tooltip.png", :alt => "Hint", class: "tool-tip-img") %></a>
+</div>
+
+<%= render 'partials/tooltip' %>

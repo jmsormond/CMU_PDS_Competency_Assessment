@@ -1,6 +1,10 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
+  def choose_competency
+    @competencies = Competency.all
+  end
+
   # GET /questions
   # GET /questions.json
   def index
@@ -59,9 +63,6 @@ class QuestionsController < ApplicationController
       format.html { redirect_to questions_url }
       format.json { head :no_content }
     end
-  end
-
-  def choose_competency
   end
 
   private
