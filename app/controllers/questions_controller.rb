@@ -5,6 +5,21 @@ class QuestionsController < ApplicationController
     @competencies = Competency.all
   end
 
+  def view
+    @competency = Competency.find(params[:competency_id])
+    # replace with questions model scope
+    @questions = Question.joins(:indicators).joins("INNER JOIN competencies ON indicators.competency_id = competencies.id").where('competencies.id = ?', @competency.id).paginate(page: params[:page], per_page: 5)
+    @indicators = Indicator.by_competency(@competency.name)
+    @indicator_question = IndicatorQuestion.new
+  end
+
+  def toggle_active
+    @question = Question.find(params[:id])
+    @question.toggle :active
+    @question.save
+    redirect_to :back
+  end
+
   # GET /questions
   # GET /questions.json
   def index

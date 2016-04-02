@@ -25,6 +25,9 @@ PDSAssessment::Application.routes.draw do
   # Routes for Assessment View
   get 'questions/choose_competency' => 'questions#choose_competency', as: :question_competency_step
   get 'questions/view' => 'questions#view', as: :questions_view_step
+  put 'questions/:id/toggle_active' => 'questions#toggle_active', as: :toggle_question_active
+  get 'questions/:id/edit' => 'questions#edit', as: :edit_question
+  put 'questions/create' => 'questions#create', as: :new_question
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
