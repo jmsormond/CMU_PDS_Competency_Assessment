@@ -24,6 +24,9 @@ PDSAssessment::Application.routes.draw do
   # Routes for downloading csv templates
   get 'template_downloader/:filename' => 'template_downloader#download', as: :template_downloader
 
+  # Routes for Assessment View
+  get 'questions/choose_competency' => 'questions#choose_competency', as: :question_competency_step
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -61,6 +61,9 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def choose_competency
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
