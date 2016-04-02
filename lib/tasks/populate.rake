@@ -914,5 +914,86 @@ namespace :db do
         ir.resource = pair[1]
         ir.save!
     end
+
+    # Step 5: add questions
+
+    q1 = Question.new
+    q1.question = "When I have something to say, I prepare by organizing my thoughts and outlinging my intention."
+    q1.save!
+
+    q2 = Question.new
+    q2.question = "I pay attention and focus when someone is talking to me."
+    q2.save!
+
+    q3 = Question.new
+    q3.question = "I can recognize non-verbal cues from others."
+    q3.save!
+
+    q4 = Question.new
+    q4.question = "When given direction by my supervisor, I understand what is being asked of me."
+    q4.save!
+
+    q5 = Question.new
+    q5.question = "I am able to present information to others in a clear and concise manner."
+    q5.save!
+
+    q6 = Question.new
+    q6.question = "When I don't understand something, I am able to resolve by asking clarifying questions."
+    q6.save!
+
+    q7 = Question.new
+    q7.question = "After interacting with an individual, I am able to tailor my communication style to meet his/her needs."
+    q7.save!
+
+    q8 = Question.new
+    q8.question = "My written communication is clear and concise."
+    q8.save!
+
+    q9 = Question.new
+    q9.question = "My written communication is free of grammatical errors."
+    q9.save!
+
+    q10 = Question.new
+    q10.question = "I am able to ggive direction that prompts the requested action."
+    q10.save!
+
+    q11 = Question.new
+    q11.question = "I am able to gauge my audience and know which communication method to use."
+    q11.save!
+
+    q12 = Question.new
+    q12.question = "I am able to paraphrase or restate a message I have received with accuracy."
+    q12.save!
+
+    q13 = Question.new
+    q13.question = "I am able to adjust my message in response to the non-verbal cues I receive."
+    q13.save!
+
+    q14 = Question.new
+    q14.question = "I encourage others to share their ideas and opinions."
+    q14.save!
+
+    q15 = Question.new
+    q15.question = "I can translate complex concepts into easy-to-understand ideas and information."
+    q15.save!
+
+    q16 = Question.new
+    q16.question = "I can inspire others by communicating a vision or plan."
+    q16.save!
+
+    # Step 6: add question - indicator relationship
+
+    relationships = [
+        [q1,i1],[q2,i2],[q3,i3],[q4,i5],[q5,i6],[q6,i10],[q7,i11],[q8,i12],[q9,i14],[q10,i15],
+        [q11,i16],[q12,i19],[q13,i20],[q14,i22],[q15,i24]
+    ]
+
+    relationships.sort.each do |pair|
+        iq = IndicatorQuestion.new
+        iq.question = pair[0]
+        iq.indicator = pair[1]
+        iq.save!
+    end
+
   end
 end

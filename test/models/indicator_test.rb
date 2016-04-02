@@ -65,6 +65,10 @@ class IndicatorTest < ActiveSupport::TestCase
     should "have all the indicators listed that are active" do
       assert_equal ["Able to identify common nonverbal cues.", "Able to outline a plan to gather data that will aid in the completion of a familiar task.", "Able to present written communication in an easy–to-read format.", "Engages in difficult conversations with others while maintaining respect."], Indicator.active.alphabetical.map { |i| i.description }
     end
+
+    should "have a method to get the options for sorting by level" do
+      assert_equal [["Champion", "Champion"], ["Companion", "Companion"]], Indicator.options_for_sort_by_level
+    end
     
 
   end
