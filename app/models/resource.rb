@@ -20,7 +20,7 @@ class Resource < ActiveRecord::Base
 	scope :active, -> { where(active: true) }
     scope :inactive, -> { where(active: false) }
 	scope :for_indicator, -> (indicator_id) { joins(:indicator_resources).where('indicator_id = ?', indicator_id) }
-	scope :search, ->(term) { where('name LIKE ?', "#{term}%", "#{term}%") }
+	scope :search, ->(term) { where('name LIKE ?', "#{term}%") }
     # scopes for filterrific
     scope :sort_active, -> (query) { where('resources.active = ?', query) }
     scope :sort_by_category, -> (query) { where('resources.resource_category = ?', query) }

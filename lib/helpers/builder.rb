@@ -25,10 +25,11 @@ module AssessmentHelpers
 
 			@competency.save!
 			construct_indicators(@competency.id)
-			construct_associations(@competency.id)
+			construct_resources
+			##construct_associations(@competency.id)
 		end
 
-		def construct_resources()
+		def construct_resources
 		  session[:competency]["indicator_resources_attributes"].each do |params|
 		  		
 		  		name = params[1]["resource_name"]
@@ -36,16 +37,20 @@ module AssessmentHelpers
 		  		description = params[1]["resource_description"]
 		  		category = params[1]["resource_category"]
 		  		
-		        info = {name: name, link: link, description: description, category: category}
+		        info = {name: name, link: link, description: description, resource_category: category}
 		        
 		        ##Find resource by name
-		        @resource = Resource.search(name)
-		        if @resource == nil
-			  		##if not exist, create new
-			        @resource = Resource.new(info)
-			        @resource.save!
-			    end
-			    resource_id = @resource.id
+		        if name != ""
+			        @resource = Resource.search(name).first
+			        if @resource == nil
+				  		##if not exist, create new
+				        @resource = Resource.new(info)
+				        @resource.save!
+				    end
+				    resource_id = @resource.id
+				else
+					resource_id = params[1]["resource_id"]
+				end 
 		        ##then create association
 		        indicator_description = params[1]["indicator_description"]
 		  		indicator_id = Indicator.by_description(indicator_description).first.id
