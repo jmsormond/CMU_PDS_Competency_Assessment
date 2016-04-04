@@ -43,14 +43,23 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
-    @question = Question.new(question_params)
+    @question = Question.new
+    @question.question = params[:indicator_question][:question]
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @question }
+        @indicator_question = IndicatorQuestion.new
+        @indicator_question.question = @question
+        @indicator_question.indicator = Indicator.find(params[:indicator_question][:indicator])
+        if @indicator_question.save
+          format.html { redirect_to :back, notice: 'Question was successfully created.' }
+          format.json { render action: 'view', status: :created, location: @question }
+        else
+          format.html { render action: 'view' }
+          format.json { render json: @indicator_question.errors, status: :unprocessable_entity }
+        end
       else
-        format.html { render action: 'new' }
+        format.html { render action: 'view' }
         format.json { render json: @question.errors, status: :unprocessable_entity }
       end
     end
