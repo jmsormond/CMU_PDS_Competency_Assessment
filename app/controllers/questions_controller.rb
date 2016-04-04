@@ -6,11 +6,26 @@ class QuestionsController < ApplicationController
   end
 
   def view
-    @competency = Competency.find(params[:competency_id])
+    @filterrific = initialize_filterrific(
+      Question,
+      params[:filterrific],
+      select_options: {
+        sort_active: Question.options_for_sort_active,
+        sort_by_level: Indicator.options_for_sort_by_level,
+      }
+    ) or return
+
+    @competency = Competency.find(get_competency_id(params[:competency_id]))
     # replace with questions model scope
-    @questions = Question.joins(:indicators).joins("INNER JOIN competencies ON indicators.competency_id = competencies.id").where('competencies.id = ?', @competency.id).paginate(page: params[:page], per_page: 5)
+    @questions = Question.filterrific_find(@filterrific).by_competency(@competency.id).paginate(page: params[:page], per_page: 5)
     @indicators = Indicator.by_competency(@competency.name)
     @indicator_question = IndicatorQuestion.new
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+    
   end
 
   def toggle_active
@@ -98,5 +113,17 @@ class QuestionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
       params.require(:question).permit(:question, :active)
+    end
+
+    # Used to store competency_id in session for filtering the questions
+    def get_competency_id(id)
+      puts "And the session is ........... " << session[:question_competency_id]
+      if id
+        puts "The id is ............ " << id
+        session[:question_competency_id] = id
+        return id
+      else
+        return session[:question_competency_id]
+      end
     end
 end
