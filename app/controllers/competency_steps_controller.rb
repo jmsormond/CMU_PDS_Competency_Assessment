@@ -13,22 +13,20 @@ class CompetencyStepsController < ApplicationController
   	#@competency = Competency.find(params[:competency_id])
   	#@competency.update_attributes(params[:competency])
   	#render_wizard @competency
+    puts "SDLKJHFDSIUHQWEJBFEWILUBFSDKJBFSKDJLFBSLDKF"
+    puts step
+    puts params[:competency]
     case step
     when :indicators
       session[:competency] = session[:competency].merge(params[:competency])
       @competency = Competency.new(session[:competency])
-      puts "SDLKJHFDSIUHQWEJBFEWILUBFSDKJBFSKDJLFBSLDKF"
-      puts session[:competency]
       redirect_to next_wizard_path
     when :resources
       session[:competency] = session[:competency].merge(params[:competency])
       @competency = Competency.new(session[:competency])
-      puts "SDLKJHFDSIUHQWEJBFEWILUBFSDKJBFSKDJLFBSLDKF"
-      puts session[:competency]
       redirect_to next_wizard_path
     when :verify
       @competency = Competency.new(session[:competency])
-      puts "SDLKJHFDSIUHQWEJBFEWILUBFSDKJBFSKDJLFBSLDKF"
       build_competency(@competency)
       #render json: @competency.errors, status: :unprocessable_entity
       redirect_to @competency
@@ -42,7 +40,10 @@ class CompetencyStepsController < ApplicationController
 
   def upload
     session[:competency] = nil
+    puts "SDGJKSHFJKDSHJKSDHFJKSDHFKJHSDLJKFHKSDFJKSDHFKJSHDFKJHSKJFHSDFKJHSJLDF"
+    puts params
     @competency = Competency.new(competency_params)
+    puts @competency.attributes
     session[:competency] = @competency.attributes
 
     indicator_info = Array.new
@@ -62,7 +63,8 @@ class CompetencyStepsController < ApplicationController
     session[:competency]["indicator_resources_attributes"] = resource_info
 
     @resource_options = session[:competency]["indicator_resources_attributes"]
-    redirect_to competency_step_path(:resources, upload: true)
+    # redirect_to competency_step_path(:resources, upload: true)
+    redirect_to wizard_path(:indicators, upload: true)
   end
 
   def competency_params
