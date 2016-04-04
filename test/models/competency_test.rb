@@ -47,6 +47,10 @@ class CompetencyTest < ActiveSupport::TestCase
             assert_equal ["Problem Solving"], Competency.inactive.alphabetical.map { |e| e.name }
         end
 
+        should "have a method to get all the options for sorting by competency" do
+            assert_equal [["Communication", "Communication"], ["Decision Making", "Decision Making"], ["Problem Solving", "Problem Solving"]], Competency.options_for_sort_by_competency
+        end
+
     end
 
 end

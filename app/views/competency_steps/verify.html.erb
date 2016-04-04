@@ -1,9 +1,35 @@
-Put pretty summary page in here:
+<table class="table table-hover table-expandable" >
+  <thead class="pds-color-background-light white-text">
+    <tr>
+      <th>Level</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% session[:competency]["indicators_attributes"].each do |params| %>
+	    <tr>
+	        <td><%= params[1]["level"] %></td>
+	        <td><%= params[1]["description"] %></td>
+	    </tr>
+	    <tr>
+	  		<td colspan="5">
+	  			<h4>Associated Resources</h4>
+				<%# @resources.for_indicator(0).each do |resource| %>
+				<ul>
+	    			<li><%#= resource.name %></li>
+	    		</ul>
+	    		<% end %>
+	    	</td>
+	    </tr>
+  </tbody>
+</table>
 <p>
 <p>
+
+
 <%= simple_nested_form_for @competency, url: wizard_path, method: :put do |competency_form| %>
   <div class="form-actions">
-      <%= competency_form.submit 'Done', :class => 'btn btn-primary' %>
+      <%= competency_form.submit 'Done', :class => 'btn btn-xs pds-color-background-light white-text' %>
     </div>
-  <% end %>
-
+<% end %>
