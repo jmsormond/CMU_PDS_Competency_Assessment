@@ -19,4 +19,11 @@ test:
   timeout: 5000
 
 production:
-  url: <%= ENV["DATABASE_URL"] %>
+  adapter: postgres
+  database: deiprdqqu77nsl
+  host: ec2-107-21-120-109.compute-1.amazonaws.com
+  user: rtrpnvxtnpkuqt
+  password: lADzCUXKMy7uiGoETXemGe57Qf
+  port: 5432
+  pool: 5
+  timeout: 5000
