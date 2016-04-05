@@ -63,11 +63,11 @@ class Resource < ActiveRecord::Base
     end
 
     def self.options_for_sort_by_category
-        group(:resource_category).map { |e| [e.resource_category, e.resource_category] }
+        group(:id, :resource_category).map { |e| [e.resource_category, e.resource_category] }
     end
 
     def self.get_categories
-        group(:resource_category)
+        group(:id, :resource_category)
     end
 
 end
