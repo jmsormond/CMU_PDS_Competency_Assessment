@@ -19,8 +19,7 @@ test:
   timeout: 5000
 
 production:
-  adapter: postgres
+  adapter: postgresql
+  host: localhost
+  username: rtrpnvxtnpkuqt
   database: deiprdqqu77nsl
-  url: postgres://rtrpnvxtnpkuqt:lADzCUXKMy7uiGoETXemGe57Qf@ec2-107-21-120-109.compute-1.amazonaws.com:5432/deiprdqqu77nsl
-  pool: 5
-  timeout: 5000
