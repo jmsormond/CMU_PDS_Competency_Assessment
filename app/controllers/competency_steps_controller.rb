@@ -6,6 +6,10 @@ class CompetencyStepsController < ApplicationController
 
 	def show
     @competency = Competency.new(session[:competency])
+    @resource_options = Resource.active.all
+    if session[:upload]
+      @resource_options = merge_uploaded_resources(@resource_options)
+    end
     render_wizard
   end
 
@@ -15,7 +19,7 @@ class CompetencyStepsController < ApplicationController
   	#render_wizard @competency
     puts "SDLKJHFDSIUHQWEJBFEWILUBFSDKJBFSKDJLFBSLDKF"
     puts step
-    puts params[:competency]
+    puts params
     case step
     when :indicators
       session[:competency] = session[:competency].merge(params[:competency])
@@ -40,6 +44,7 @@ class CompetencyStepsController < ApplicationController
 
   def upload
     session[:competency] = nil
+    session[:upload] = nil
     puts "SDGJKSHFJKDSHJKSDHFJKSDHFKJHSDLJKFHKSDFJKSDHFKJSHDFKJHSKJFHSDFKJHSJLDF"
     puts params
     @competency = Competency.new(competency_params)
@@ -60,15 +65,31 @@ class CompetencyStepsController < ApplicationController
     resources.each do |resource|
         resource_info.push({resource_category: resource[0], name: resource[1], description: resource[2], link: resource[3]})
     end
-    session[:competency]["indicator_resources_attributes"] = resource_info
+    session[:resources] = resource_info
 
-    @resource_options = session[:competency]["indicator_resources_attributes"]
-    # redirect_to competency_step_path(:resources, upload: true)
-    redirect_to wizard_path(:indicators, upload: true)
+    session[:upload] = true
+
+    redirect_to wizard_path(:indicators)
   end
 
   def competency_params
     params.require(:competency).permit(:name)
+  end
+
+  private
+  def merge_uploaded_resources(resources)
+    session[:resources].each do |resource|
+      resources.push(Resource.new(name: resource[:name], description: resource[:description], link: resource[:link], resource_category: resource[:resource_category]))
+    end
+    return resources
+    # options = Array.new
+    # resources.each do |resource|
+    #   options.push({id: resource.id, name: resource.name})
+    # end
+    # session[:resources].each do |resource|
+    #   options.push({id: nil, name: resource[:name]})
+    # end
+    # return options
   end
 
 end

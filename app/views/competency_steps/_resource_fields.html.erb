@@ -11,7 +11,7 @@
   <div style="display: none;">
   <div class="row col-xs-12">
     <div class="form-group col-xs-12">
-      <%= f.collection_select :resource_id, Resource.active.all, :id, :name, {:prompt => "Select Resource..."}, {:class => "form-control"}  %>
+      <%= f.collection_select :resource_id, @resource_options, :id, :name, {:prompt => "Select Resource..."}, {:class => "form-control"}  %>
     </div>
   </div>
   </div>
