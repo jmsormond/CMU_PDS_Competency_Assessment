@@ -32,6 +32,7 @@ module AssessmentHelpers
 		def construct_resources
 		  session[:competency]["indicator_resources_attributes"].each do |params|
 		  		
+		  		id = params[1]["resource_id"]
 		  		name = params[1]["resource_name"]
 		  		link = params[1]["resource_link"]
 		  		description = params[1]["resource_description"]
@@ -63,11 +64,15 @@ module AssessmentHelpers
 		end
 
 		def construct_indicators(competency_id)
-		  session[:competency]["indicators_attributes"].each do |params|
-		        info = {description: params[1]["description"], level: params[1]["level"]}
-		        @indicator = Indicator.new(info)
-		        @indicator.competency_id = competency_id
-		        @indicator.save!
+			seen_indicators = Array.new
+		  	session[:competency]["indicators_attributes"].each do |params|
+		  		if not seen_indicators.include?(params[1]["description"])
+			        info = {description: params[1]["description"], level: params[1]["level"]}
+			        @indicator = Indicator.new(info)
+			        @indicator.competency_id = competency_id
+			        @indicator.save!
+			        seen_indicators.push(params[1]["description"])
+			    end
 		  end
 		end
 

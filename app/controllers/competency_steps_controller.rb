@@ -14,9 +14,6 @@ class CompetencyStepsController < ApplicationController
   end
 
   def update
-  	#@competency = Competency.find(params[:competency_id])
-  	#@competency.update_attributes(params[:competency])
-  	#render_wizard @competency
     puts "SDLKJHFDSIUHQWEJBFEWILUBFSDKJBFSKDJLFBSLDKF"
     puts step
     puts params
@@ -28,17 +25,14 @@ class CompetencyStepsController < ApplicationController
     when :resources
       session[:competency] = session[:competency].merge(params[:competency])
       @competency = Competency.new(session[:competency])
+      session[:competency]["indicator_resources_attributes"].each do |indicator_resource|
+        puts indicator_resource
+      end
       redirect_to next_wizard_path
     when :verify
       @competency = Competency.new(session[:competency])
       build_competency(@competency)
-      #render json: @competency.errors, status: :unprocessable_entity
       redirect_to @competency
-        #if @competency.save
-        #  redirect_to @competency, notice: 'Indicator was successfully created.'
-        #else
-        #  render json: @competency.errors, status: :unprocessable_entity
-        #end
     end
   end
 
@@ -82,14 +76,6 @@ class CompetencyStepsController < ApplicationController
       resources.push(Resource.new(name: resource[:name], description: resource[:description], link: resource[:link], resource_category: resource[:resource_category]))
     end
     return resources
-    # options = Array.new
-    # resources.each do |resource|
-    #   options.push({id: resource.id, name: resource.name})
-    # end
-    # session[:resources].each do |resource|
-    #   options.push({id: nil, name: resource[:name]})
-    # end
-    # return options
   end
 
 end

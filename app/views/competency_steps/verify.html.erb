@@ -18,7 +18,14 @@
 				<% session[:competency]["indicator_resources_attributes"].each do |resource| %>
                     <% if resource[1]["indicator_description"] == params[1]["description"] %>
         				<ul>
-        	    			<li><%= resource[1] %></li>
+        	    			<li>
+                      <%= resource[1] %>
+                      <% if resource[1]["resource_id"] != "" %>
+                        <%= Resource.find(resource[1]["resource_id"]).name %>
+                      <% else %>
+                        <%= resource[1]["resource_name"] %>
+                      <% end %>
+                    </li>
         	    		</ul>
                     <% end %>
 	    		<% end %>
