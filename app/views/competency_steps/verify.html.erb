@@ -19,9 +19,10 @@
                     <% if resource[1]["indicator_description"] == params[1]["description"] %>
         				<ul>
         	    			<li>
-                      <%= resource[1] %>
-                      <% if resource[1]["resource_id"] != "" %>
+                      <% if !resource[1]["resource_id"].blank? %>
                         <%= Resource.find(resource[1]["resource_id"]).name %>
+                      <% elsif !resource[1]["uploaded_resource_name"].blank? %>
+                        <%= resource[1]["uploaded_resource_name"] %>
                       <% else %>
                         <%= resource[1]["resource_name"] %>
                       <% end %>

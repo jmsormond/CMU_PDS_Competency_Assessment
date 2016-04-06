@@ -8,15 +8,14 @@ class CompetencyStepsController < ApplicationController
     @competency = Competency.new(session[:competency])
     @resource_options = Resource.active.all
     if session[:upload]
-      @uploaded_resource_options = merge_uploaded_resources(@resource_options)
+      @uploaded_resource_options = get_uploaded_resources()
     end
+    puts @resource_options.size
+    puts @uploaded_resource_options.size unless @uploaded_resource_options.blank?
     render_wizard
   end
 
   def update
-    puts "SDLKJHFDSIUHQWEJBFEWILUBFSDKJBFSKDJLFBSLDKF"
-    puts step
-    puts params
     case step
     when :indicators
       session[:competency] = session[:competency].merge(params[:competency])
@@ -25,9 +24,6 @@ class CompetencyStepsController < ApplicationController
     when :resources
       session[:competency] = session[:competency].merge(params[:competency])
       @competency = Competency.new(session[:competency])
-      session[:competency]["indicator_resources_attributes"].each do |indicator_resource|
-        puts indicator_resource
-      end
       redirect_to next_wizard_path
     when :verify
       @competency = Competency.new(session[:competency])
@@ -39,10 +35,7 @@ class CompetencyStepsController < ApplicationController
   def upload
     session[:competency] = nil
     session[:upload] = nil
-    puts "SDGJKSHFJKDSHJKSDHFJKSDHFKJHSDLJKFHKSDFJKSDHFKJSHDFKJHSKJFHSDFKJHSJLDF"
-    puts params
     @competency = Competency.new(competency_params)
-    puts @competency.attributes
     session[:competency] = @competency.attributes
 
     indicator_info = Array.new
@@ -71,11 +64,12 @@ class CompetencyStepsController < ApplicationController
   end
 
   private
-  def merge_uploaded_resources(resources)
+  def get_uploaded_resources()
+    options = Array.new
     session[:resources].each do |resource|
-      resources.push(Resource.new(name: resource[:name], description: resource[:description], link: resource[:link], resource_category: resource[:resource_category]))
+      options.push(Resource.new(name: resource[:name], description: resource[:description], link: resource[:link], resource_category: resource[:resource_category]))
     end
-    return resources
+    return options
   end
 
 end
