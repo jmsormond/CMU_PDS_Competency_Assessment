@@ -1,16 +1,13 @@
+<h2 class="pds-color-font">Create a Competency: <%=session[:competency]["name"]%></h2>
+
 <%= simple_nested_form_for @competency, url: wizard_path, method: :put do |competency_form| %>
-    <div class="row">
-    <div class="span5">
-      <h2 class="pds-color-font">Create a Competency: <%=session[:competency]["name"]%></h2>
-        <div id="competency_indicators">
-          <%= competency_form.simple_fields_for :indicators do |indicator_form| %>
-            <%= render :partial => "indicator_fields", :locals => { :f => indicator_form } %>
-          <% end %> 
-          <p>
-            <br /><%= competency_form.link_to_add("Add indicator", :indicators, :class => 'button tiny') %>
-          </p>
-        </div> 
-      </div>
+    <div id="competency_indicators">
+      <%= competency_form.simple_fields_for :indicators, :wrapper_html => { :class => "form-inline"} do |indicator_form| %>
+        <%= render :partial => "indicator_fields", :locals => { :f => indicator_form } %>
+      <% end %> 
+      <p>
+        <br /><%= competency_form.link_to_add("Add indicator", :indicators, :class => 'button tiny') %>
+      </p>
     </div>
     <div class="form-actions">
       <%= competency_form.submit 'Next', :class => 'btn btn-xs pds-color-background-light white-text' %>
