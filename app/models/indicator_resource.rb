@@ -1,6 +1,7 @@
 class IndicatorResource < ActiveRecord::Base
 	attr_accessor :indicator_description
 	#Resource temp vars
+	attr_accessor :uploaded_resource_name
 	attr_accessor :resource_name
 	attr_accessor :resource_description
 	attr_accessor :resource_category

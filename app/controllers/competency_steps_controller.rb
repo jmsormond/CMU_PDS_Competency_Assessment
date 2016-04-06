@@ -8,7 +8,7 @@ class CompetencyStepsController < ApplicationController
     @competency = Competency.new(session[:competency])
     @resource_options = Resource.active.all
     if session[:upload]
-      @resource_options = merge_uploaded_resources(@resource_options)
+      @uploaded_resource_options = merge_uploaded_resources(@resource_options)
     end
     render_wizard
   end
