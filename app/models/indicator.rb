@@ -25,7 +25,7 @@ class Indicator < ActiveRecord::Base
 	# --------------------------------
 
 	def self.options_for_sort_by_level
-        group(:level).map { |e| [e.level, e.level] }
+        group(:id, :level).map { |e| [e.level, e.level] }
     end
 
 end
