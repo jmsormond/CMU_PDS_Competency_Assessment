@@ -1,10 +1,12 @@
   <div id="competency_indicator_resources">
   <div class="row" style = "background-color: #bbb; box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
     <div class="form-group col-xs-12">
+    <div class="col-sm-9">
       <!-- x icon to remove -->
-      <%= f.link_to_remove("x") %>
+      <%= f.link_to_remove("(X)") %>
       <!-- fields -->
       <%= f.collection_select :resource_id, Resource.active.all, :id, :name, {:prompt => "Select Resource..."}, {:class => "form-control"}  %>
+      </div>
     </div>
   </div>
   </div>
