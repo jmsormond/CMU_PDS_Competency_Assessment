@@ -1,6 +1,9 @@
-  <div class="fields">
-      <!-- x icon to remove -->
+  <div id="competency_indicator_resources">
+  <div class="row" style = "background-color: #bbb; box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+  	<div class="form-group col-xs-12">
       <!-- fields -->
-      <%= f.input :level, collection: Indicator::LEVELS_LIST, include_blank: false, input_html: {:class => "form-control"} %></div></br>
+      <%= f.input :level, collection: Indicator::LEVELS_LIST, include_blank: false, input_html: {:class => "form-control"} %></br>
       <%= f.input :description %></br></br>
+  	</div>
+  </div>
   </div>
