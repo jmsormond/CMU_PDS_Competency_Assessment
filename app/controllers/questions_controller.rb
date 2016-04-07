@@ -10,22 +10,20 @@ class QuestionsController < ApplicationController
       Question,
       params[:filterrific],
       select_options: {
-        sorted_by: Question.options_for_sorted_by,
         sort_active: Question.options_for_sort_active,
-        sort_by_level: Indicator.options_for_sort_by_level,
+        sort_by_level: Indicator.options_for_sort_by_level
       }
     ) or return
 
     @competency = Competency.find(get_competency_id(params[:competency_id]))
-    # replace with questions model scope
-    @questions = Question.filterrific_find(@filterrific).by_competency(@competency.id).paginate(page: params[:page], per_page: 5)
     @indicators = Indicator.by_competency(@competency.name)
     @indicator_question = IndicatorQuestion.new
+    @questions = Question.filterrific_find(@filterrific).by_competency(@competency.id).paginate(page: params[:page], per_page: 5)
 
-    # respond_to do |format|
-    #   format.html
-    #   format.js
-    # end
+    respond_to do |format|
+      format.html
+      format.js
+    end
     
   end
 
