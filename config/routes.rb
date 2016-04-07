@@ -29,6 +29,9 @@ PDSAssessment::Application.routes.draw do
   get 'questions/:id/edit' => 'questions#edit', as: :edit_question
   put 'questions/create' => 'questions#create', as: :new_question
 
+  # Routes for uploading csv files
+  put 'competency/upload' => 'competency_steps#upload', as: :competency_upload
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

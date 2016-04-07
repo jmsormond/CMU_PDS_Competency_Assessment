@@ -29,14 +29,20 @@ class Question < ActiveRecord::Base
       case sort_option.to_s
       when /^question/
         order("LOWER(questions.question) #{ direction }")
-      when /^number/
-        order("LOWER(questions.id) #{ direction }")
       else
         raise(ArgumentError, "Invalid sort option: #{ sort_option.inspect }")
       end
     }
 
     # Private Functions
+
+    def self.options_for_sorted_by
+        [
+          ['Question (a-z)', 'question asc'],
+          ['Question (z-a)', 'question desc']
+        ]
+    end
+
     def self.options_for_sort_active
         [
             ["True", 't'],

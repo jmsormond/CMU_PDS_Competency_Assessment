@@ -10,6 +10,7 @@ class QuestionsController < ApplicationController
       Question,
       params[:filterrific],
       select_options: {
+        sorted_by: Question.options_for_sorted_by,
         sort_active: Question.options_for_sort_active,
         sort_by_level: Indicator.options_for_sort_by_level,
       }
@@ -21,10 +22,10 @@ class QuestionsController < ApplicationController
     @indicators = Indicator.by_competency(@competency.name)
     @indicator_question = IndicatorQuestion.new
 
-    respond_to do |format|
-      format.html
-      format.js
-    end
+    # respond_to do |format|
+    #   format.html
+    #   format.js
+    # end
     
   end
 

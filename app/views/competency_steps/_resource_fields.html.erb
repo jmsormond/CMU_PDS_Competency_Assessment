@@ -6,12 +6,22 @@
     <div class="form-group col-xs-12">
       <%= f.collection_select :indicator_description, @competency.indicators, :description, :description, {:prompt => "Select Indicator..."}, {:class => "form-control"} %>
     </div>
+    <% if session[:upload] %>
+      <a class="pointer pull-right btn btn-xs pds-color-font-light" onclick="showForm(this)">Select Uploaded Resource</a>
+      <div style="display: none;">
+      <div class="row col-xs-12">
+        <div class="form-group col-xs-12">
+          <%= f.collection_select :uploaded_resource_name, @uploaded_resource_options, :name, :name, {:prompt => "Select Resource..."}, {:class => "form-control"}  %>
+        </div>
+      </div>
+      </div>
+    <% end %>
 
   <a class="pointer pull-right btn btn-xs pds-color-font-light" onclick="showForm(this)">Add Existing Resource</a>
   <div style="display: none;">
   <div class="row col-xs-12">
     <div class="form-group col-xs-12">
-      <%= f.collection_select :resource_id, Resource.active.all, :id, :name, {:prompt => "Select Resource..."}, {:class => "form-control"}  %>
+      <%= f.collection_select :resource_id, @resource_options, :id, :name, {:prompt => "Select Resource..."}, {:class => "form-control"}  %>
     </div>
   </div>
   </div>
