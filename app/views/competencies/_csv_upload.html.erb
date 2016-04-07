@@ -3,31 +3,25 @@
     <h2 class="pds-color-font">Upload CSV</h2>
   </div>
   <div class="col-xs-9">
-    <form class="form-horizontal" action="#">
+    <%= simple_form_for @competency, url: competency_upload_path, method: :put, :class => "form-horizontal", html: {multipart: true} do |competency_form| %>
       <div class="form-group">
-        <label class=" col-xs-3">Choose indicators file:</label>
-        <div class="col-xs-9">
-          <input type="file" class="btn btn-xs"></input>
-        </div>
+        <label class=" col-xs-4">Name:</label>
+        <%= competency_form.text_field :name %>
       </div>
       <div class="form-group">
-        <label class=" col-xs-3">Choose resources file:</label>
-        <div class="col-xs-9">
-          <input type="file" class="btn btn-xs"></input>
-        </div>
+        <label class=" col-xs-4">Choose indicators file:</label>
+        <%= file_field_tag :indicators %>
       </div>
       <div class="form-group">
-        <label class=" col-xs-3">Choose relationships file:</label>
-        <div class="col-xs-9">
-          <input type="file" class="btn btn-xs"></input>
-        </div>
+        <label class=" col-xs-4">Choose resources file:</label>
+        <%= file_field_tag :resources %>
       </div>
       <div class="form-group">
         <div class="col-xs-offset-3 col-xs-9">
-          <input type="submit" class="btn btn-xs pds-color-background-light white-text" value="Upload"></input>
+          <%= competency_form.submit 'Upload', :class => 'btn btn-xs pds-color-background-light white-text' %>
         </div>
       </div>
-    </form>
+    <% end %>
   </div>
 </div>
 <br/>
@@ -44,8 +38,7 @@
       <div class="panel-body">
         The CSV files you upload need to follow a certain format. If you need the templates, download them here:<br>
         <%= link_to "Indicators Template", template_downloader_path(filename: 'Indicators_Template'), :method => :get, :class => "btn btn-default" %>&nbsp;
-        <%= link_to "Resources Template", template_downloader_path(filename: 'Resource_Template'), :method => :get, :class => "btn btn-default" %>&nbsp;
-        <%= link_to "Relationships Template", template_downloader_path(filename: 'Relationships_Template'), :method => :get, :class => "btn btn-default" %>&nbsp;
+        <%= link_to "Resources Template", template_downloader_path(filename: 'Resource_Template'), :method => :get, :class => "btn btn-default" %>
       </div>
     </div>
   </div>
