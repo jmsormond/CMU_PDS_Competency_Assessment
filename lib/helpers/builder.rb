@@ -30,17 +30,31 @@ module AssessmentHelpers
 		end
 
 		def construct_resources
-		  session[:competency]["indicator_resources_attributes"].each do |params|
+
+		  	session[:competency]["indicator_resources_attributes"].each do |params|
 		  		
+		  		id = params[1]["resource_id"]
 		  		name = params[1]["resource_name"]
+		  		uploaded_name = params[1]["uploaded_resource_name"]
 		  		link = params[1]["resource_link"]
 		  		description = params[1]["resource_description"]
 		  		category = params[1]["resource_category"]
 		  		
 		        info = {name: name, link: link, description: description, resource_category: category}
-		        
-		        ##Find resource by name
-		        if name != ""
+
+		        resource_id = nil
+		        if !uploaded_name.blank?
+		        	# uploaded resource
+		        	session[:resources].each do |resource|
+		        		if resource[:name].eql?(uploaded_name)
+		        			new_resource = Resource.new({resource_category: resource[:resource_category], name: resource[:name], description: resource[:description], link: resource[:link]})
+		        			new_resource.save!
+		        			resource_id = new_resource.id
+		        		end
+		        	end
+
+		        elsif !name.blank?
+		        	##Find resource by name
 			        @resource = Resource.search(name).first
 			        if @resource == nil
 				  		##if not exist, create new
@@ -63,11 +77,15 @@ module AssessmentHelpers
 		end
 
 		def construct_indicators(competency_id)
-		  session[:competency]["indicators_attributes"].each do |params|
-		        info = {description: params[1]["description"], level: params[1]["level"]}
-		        @indicator = Indicator.new(info)
-		        @indicator.competency_id = competency_id
-		        @indicator.save!
+			seen_indicators = Array.new
+		  	session[:competency]["indicators_attributes"].each do |params|
+		  		if not seen_indicators.include?(params[1]["description"])
+			        info = {description: params[1]["description"], level: params[1]["level"]}
+			        @indicator = Indicator.new(info)
+			        @indicator.competency_id = competency_id
+			        @indicator.save!
+			        seen_indicators.push(params[1]["description"])
+			    end
 		  end
 		end
 
@@ -77,7 +95,6 @@ module AssessmentHelpers
 		  		indicator_id = Indicator.by_description(description).first.id
 		        info = {indicator_id: indicator_id, resource_id: params[1]["resource_id"]}
 		        @indicator_resource = IndicatorResource.new(info)
-		        #@indicator_resource.competency_id = competency_id
 		        @indicator_resource.save!
 		  end
 		end

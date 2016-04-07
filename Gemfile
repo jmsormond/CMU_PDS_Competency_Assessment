@@ -86,3 +86,6 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
+
+# gem for storing session in db
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'

@@ -16,6 +16,7 @@ class CompetenciesController < ApplicationController
 
   # GET /competencies/new
   def new
+    session[:upload] = nil
     @competency = Competency.new
   end
 

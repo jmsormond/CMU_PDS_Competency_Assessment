@@ -16,13 +16,24 @@
 	    <tr>
 	  		<td colspan="5">
 	  			<h4>Associated Resources</h4>
-				<%# @resources.for_indicator(0).each do |resource| %>
-				<ul>
-	    			<li><%#= resource.name %></li>
-	    		</ul>
+				<% session[:competency]["indicator_resources_attributes"].each do |resource| %>
+                    <% if resource[1]["indicator_description"] == params[1]["description"] %>
+        				<ul>
+        	    			<li>
+                      <% if !resource[1]["resource_id"].blank? %>
+                        <%= Resource.find(resource[1]["resource_id"]).name %>
+                      <% elsif !resource[1]["uploaded_resource_name"].blank? %>
+                        <%= resource[1]["uploaded_resource_name"] %>
+                      <% else %>
+                        <%= resource[1]["resource_name"] %>
+                      <% end %>
+                    </li>
+        	    		</ul>
+                    <% end %>
 	    		<% end %>
 	    	</td>
 	    </tr>
+    <% end %>
   </tbody>
 </table>
 <p>

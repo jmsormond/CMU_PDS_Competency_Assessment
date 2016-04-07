@@ -25,7 +25,14 @@ class Indicator < ActiveRecord::Base
 	# --------------------------------
 
 	def self.options_for_sort_by_level
-        group(:id, :level).map { |e| [e.level, e.level] }
+        levels = Indicator.all.group(:id, :level).map { |e| e.level }
+        options = Array.new
+        levels.each do |level|
+        	if !options.include?([level, level])
+        		options.push([level, level])
+        	end
+        end
+        return options
     end
 
 end

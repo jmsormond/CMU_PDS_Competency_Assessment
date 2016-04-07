@@ -1,0 +1,39 @@
+<div id="filterrific_results">
+  <table class="table table-bordered" id="question_table">
+    <thead class="pds-color-background-light white-text">
+      <tr class="row">
+        <th class="col-xs-1">No.</th>
+        <th class="col-xs-5"><%= filterrific_sorting_link(@filterrific, :question) %></th>
+        <th class="col-xs-4">Associated Indicator(s)</th>
+        <th class="col-xs-1">Active</th>
+        <th class="col-xs-1"></th>
+      </tr>
+    </thead>
+
+    <tbody id="resource_table_body">
+      <% @questions.each do |question| %>
+        <tr class="row">
+          <td class="col-xs-1" name="name">
+            <%= question.id %><br><br>
+          </td>
+          <td class="col-xs-5"><%= question.question %></td>
+          <td class="col-xs-4">Indicators go here</td>
+          <% if question.active %>
+            <td class="col-xs-1">
+              <%= link_to toggle_question_active_path(id: question.id), :method => :put do %>
+                <span class="glyphicon glyphicon-ok-circle btn-lg active-icon" aria-hidden="true"></span>
+              <% end %>
+            </td>
+          <% else %>
+            <td class="col-xs-1">
+              <%= link_to toggle_question_active_path(id: question.id), :method => :put do %>
+                <span class="glyphicon glyphicon-ban-circle btn-lg active-icon" aria-hidden="true"></span>
+              <% end %></td>
+          <% end %>
+          <td class="col-xs-1"><%= link_to 'Edit', edit_question_path(question) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @questions %>
+</div>

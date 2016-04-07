@@ -1,0 +1,35 @@
+<div>Filter by:</div>
+<%= form_for_filterrific @filterrific, :html => {:class => "form-inline"} do |f| %>
+  <div class="form-group">
+    <label>Level</label>
+    <%= f.select(
+      :sort_by_level,
+      @filterrific.select_options[:sort_by_level],
+      { include_blank: '- Any -' },
+      :html => {:class => "form-control"}
+    ) %>
+  </div>
+  <div class="form-group">
+    <label>Active</label>
+    <%= f.select(
+      :sort_active,
+      @filterrific.select_options[:sort_active],
+      { include_blank: '- Any -' },
+      :html => {:class => "form-control"}
+    ) %>
+  </div>
+
+  <div class="form-group inline">
+    <%= link_to(
+      'Reset filters',
+      reset_filterrific_url,
+    ) %>
+  </div>
+  <div class="inline">
+    <a href="#" data-toggle="tooltip" data-placement="right" title="Use the Filters on the left to be able to view the saved questions with more ease."><%= image_tag("tooltip.png", :alt => "Hint", class: "tool-tip-img") %></a>
+  </div>
+
+  <%= render_filterrific_spinner %>
+<% end %>
+
+<%= render( partial: 'questions/list', locals: { questions: @questions } ) %>
