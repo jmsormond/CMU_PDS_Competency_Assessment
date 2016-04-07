@@ -42,25 +42,14 @@ module AssessmentHelpers
 		  		
 		        info = {name: name, link: link, description: description, resource_category: category}
 
-		        puts "CREATING THE RESOURCE AND/OR ASSOCIATION"
-		        puts params[1]
-		        puts uploaded_name
-		        puts !uploaded_name.blank?
-
 		        resource_id = nil
 		        if !uploaded_name.blank?
 		        	# uploaded resource
 		        	session[:resources].each do |resource|
-		        		puts "Checking resource"
-		        		puts resource[:name]
 		        		if resource[:name].eql?(uploaded_name)
-		        			puts "FOUND A MATCH"
-		        			puts resource
 		        			new_resource = Resource.new({resource_category: resource[:resource_category], name: resource[:name], description: resource[:description], link: resource[:link]})
 		        			new_resource.save!
 		        			resource_id = new_resource.id
-		        			puts "NEWLY CREATED RESOURCE"
-		        			puts new_resource.id
 		        		end
 		        	end
 
@@ -79,8 +68,6 @@ module AssessmentHelpers
 		        ##then create association
 		        indicator_description = params[1]["indicator_description"]
 		  		indicator_id = Indicator.by_description(indicator_description).first.id
-		  		puts "CREATING A NEW ASSOCIATION"
-		        puts indicator_id, resource_id
 		        info = {indicator_id: indicator_id, resource_id: resource_id}
 		        @indicator_resource = IndicatorResource.new(info)
 		        #@indicator_resource.competency_id = competency_id
@@ -108,7 +95,6 @@ module AssessmentHelpers
 		  		indicator_id = Indicator.by_description(description).first.id
 		        info = {indicator_id: indicator_id, resource_id: params[1]["resource_id"]}
 		        @indicator_resource = IndicatorResource.new(info)
-		        #@indicator_resource.competency_id = competency_id
 		        @indicator_resource.save!
 		  end
 		end
