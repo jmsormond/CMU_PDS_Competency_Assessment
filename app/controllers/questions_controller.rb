@@ -117,7 +117,7 @@ class QuestionsController < ApplicationController
 
     # Used to store competency_id in session for filtering the questions
     def get_competency_id(id)
-      puts "And the session is ........... " << session[:question_competency_id]
+      puts "And the session is ........... ", session[:question_competency_id]
       if id
         puts "The id is ............ " << id
         session[:question_competency_id] = id
