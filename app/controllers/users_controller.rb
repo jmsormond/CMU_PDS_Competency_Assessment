@@ -22,12 +22,21 @@ class UsersController < ApplicationController
   end
 
   def login
-    @user = User.find(params[:user])
+    username = params[:user][:username]
+    password = params[:user][:password]
+    @user = User.find_by_username(username).first
     if @user.blank?
-      login_user(@user)
-      redirect_to login_path
+      @user = User.new
+      flash[:notice] = "Invalid username"
+      render 'signin'
     else
-      redirect_to dashboard_path
+      if confirm_user(@user, password)
+        login_user(@user)
+        redirect_to dashboard_path
+      else
+        flash[:notice] = "The username and password do not match"
+        render 'signin'
+      end
     end
   end
 

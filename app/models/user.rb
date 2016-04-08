@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
     validates :password, :confirmation => true #password_confirmation attr
     validates_length_of :password, :in => 6..20, :on => :create
 
+    scope :find_by_username, -> (username) { where("username LIKE ?", username) }
+
     private
     def encrypt_password
       if password.present?
