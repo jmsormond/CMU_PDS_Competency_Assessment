@@ -13,10 +13,10 @@ PDSAssessment::Application.routes.draw do
   get 'view_all/choose_level' => 'view_all#choose_level', as: :view_all_level_step
   get 'view_all/view_indicator_and_resources' => 'view_all#view_indicators_and_resources', as: :view_all_ind_res_step
 
-  # Route for resources
+  # Route for Resources
   put 'resource/:id/toggle_active' => 'resources#toggle_active', as: :toggle_active
 
-  # Routes for home
+  # Routes for Home
   get '/' => 'home#home', as: :home
 
   # Routes for downloading csv templates
