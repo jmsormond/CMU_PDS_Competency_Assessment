@@ -3,11 +3,4 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  private
-  def authenticate_user
-    if session[:user].blank?
-      redirect_to home_path
-    end
-  end
-
 end

@@ -1,4 +1,5 @@
 PDSAssessment::Application.routes.draw do
+  get "users/new"
   resources :indicator_questions
 
   resources :indicator_resources
