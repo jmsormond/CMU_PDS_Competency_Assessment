@@ -17,6 +17,7 @@ PDSAssessment::Application.routes.draw do
   put 'resource/:id/toggle_active' => 'resources#toggle_active', as: :toggle_active
 
   # Routes for Home
+  get '/dashboard' => 'home#dashboard', as: :dashboard
   get '/' => 'home#home', as: :home
 
   # Routes for downloading csv templates
