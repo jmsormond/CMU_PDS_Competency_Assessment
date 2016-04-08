@@ -89,3 +89,6 @@ end
 
 # gem for storing session in db
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
+
+# gem for encryption
+gem 'bcrypt-ruby', :require => 'bcrypt'

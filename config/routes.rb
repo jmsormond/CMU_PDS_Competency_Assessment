@@ -1,5 +1,4 @@
 PDSAssessment::Application.routes.draw do
-  get "users/new"
   resources :indicator_questions
 
   resources :indicator_resources
@@ -33,6 +32,14 @@ PDSAssessment::Application.routes.draw do
 
   # Routes for uploading csv files
   put 'competency/upload' => 'competency_steps#upload', as: :competency_upload
+
+  # Routes for user authentication
+  get "users/new" => 'users#new', as: :new_user
+  get "users/signin" => 'users#signin', as: :sign_in
+  get "users/login" => 'users#login', as: :login
+  get "users/logout" => 'users#logout', as: :logout
+  get "users/edit" => 'users#edit', as: :edit_user
+  put "users/update" => 'users#update', as: :update_user
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
