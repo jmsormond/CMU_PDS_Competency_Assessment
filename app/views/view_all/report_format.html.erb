@@ -1,1 +1,51 @@
 <p>Report Format here</p>
+
+
+
+<h1 class="pds-color-font">Resources and Indicators</h1>
+
+<div id="right-tooltip">
+  <a href="#" data-toggle="tooltip" data-placement="right" title="Each level nested within a competency has a set of unique indicators. Each indicator can be mapped to one or many resources."><%= image_tag("tooltip.png", :alt => "Hint", class: "tool-tip-img") %></a>
+</div>
+
+
+<% @competencies.each do |competency| %>
+<h4><%= competency.name %>
+<table class="table table-hover table-expandable" >
+  <thead class="pds-color-background-light white-text">
+    <tr>
+      <th>Competency</th>
+      <th>Level</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @indicators.by_competency(competency.name).each do |indicator| %>
+	    <tr>
+	        <td><%= indicator.competency_id %></td>
+	        <td><%= indicator.level %></td>
+	        <td><%= indicator.description %></td>
+	        <td><%= link_to 'Edit', edit_indicator_path(indicator) %></td>
+	        <td><%= link_to 'Delete', indicator, method: :delete, data: { confirm: 'Are you sure you want to delete this indicator?' } %></td>
+	    </tr>
+	    <tr>
+	  		<td colspan="5">
+	  			<h4>Associated Resources</h4>
+				<% @resources.for_indicator(indicator.id).each do |resource| %>
+				<ul>
+	    			<li><%= resource.name %></li>
+	    		</ul>
+	    		<% end %>
+	    	</td>
+	    </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+
+<%= render 'partials/tooltip' %>

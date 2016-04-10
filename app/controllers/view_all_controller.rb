@@ -15,6 +15,9 @@ class ViewAllController < ApplicationController
 
 	#Report Format
 	def report_format
+		@competencies = Competency.all
+		@indicators = Indicator.all
+		@resources = Resource.all
 	end
 
 	# Choose Level step
