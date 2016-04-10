@@ -995,5 +995,13 @@ namespace :db do
         iq.save!
     end
 
+    # Step 7: create a superadmin
+    user = User.new
+    user.username = "superadmin"
+    user.email = "test@mail.com"
+    user.password = "password"
+    user.password_confirmation = "password"
+    user.save!
+
   end
 end
