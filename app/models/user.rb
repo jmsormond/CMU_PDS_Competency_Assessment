@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
     before_save :encrypt_password
     after_save :clear_password
 
-    attr_accessor :username, :email, :password, :password_confirmation
+    attr_accessor :password, :password_confirmation
 
     EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
     validates :username, :presence => true, :uniqueness => true, :length => { :in => 3..20 }
@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
     validates :password, :confirmation => true #password_confirmation attr
     validates_length_of :password, :in => 6..20, :on => :create
 
-    scope :find_by_username, -> (username) { where("username LIKE ?", username) }
+    scope :find_by_username, -> (username) { where("username = ?", username) }
 
     private
     def encrypt_password
