@@ -1,8 +1,4 @@
-<p>Report Format here</p>
-
-
-
-<h1 class="pds-color-font">Resources and Indicators</h1>
+<h1 class="pds-color-font">All Stored Data</h1>
 
 <div id="right-tooltip">
   <a href="#" data-toggle="tooltip" data-placement="right" title="Each level nested within a competency has a set of unique indicators. Each indicator can be mapped to one or many resources."><%= image_tag("tooltip.png", :alt => "Hint", class: "tool-tip-img") %></a>
@@ -10,11 +6,10 @@
 
 
 <% @competencies.each do |competency| %>
-<h4><%= competency.name %>
+<h2>Competency: <%= competency.name %></h2>
 <table class="table table-hover table-expandable" >
   <thead class="pds-color-background-light white-text">
     <tr>
-      <th>Competency</th>
       <th>Level</th>
       <th>Description</th>
       <th></th>
@@ -26,7 +21,6 @@
   <tbody>
     <% @indicators.by_competency(competency.name).each do |indicator| %>
 	    <tr>
-	        <td><%= indicator.competency_id %></td>
 	        <td><%= indicator.level %></td>
 	        <td><%= indicator.description %></td>
 	        <td><%= link_to 'Edit', edit_indicator_path(indicator) %></td>
