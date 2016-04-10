@@ -35,6 +35,7 @@ PDSAssessment::Application.routes.draw do
 
   # Routes for user authentication
   get "users/new" => 'users#new', as: :new_user
+  post "users/signup" => 'users#signup', as: :sign_up
   get "users/signin" => 'users#signin', as: :sign_in
   post "users/login" => 'users#login', as: :login
   get "users/logout" => 'users#logout', as: :logout

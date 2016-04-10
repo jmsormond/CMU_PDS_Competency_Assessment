@@ -1,0 +1,25 @@
+
+<div class="row">
+  <%= form_for @user, method: :post, url: sign_up_path, :html => { :class => '' } do |f| %>
+    <div class="form-group col-xs-4 col-xs-offset-4">
+      <%= f.label :email %>
+      <%= f.text_field :email, :class => "form-control" %>
+    </div>
+    <div class="form-group col-xs-4 col-xs-offset-4">
+      <%= f.label :username %>
+      <%= f.text_field :username, :class => "form-control" %>
+    </div>
+    <div class="form-group col-xs-4 col-xs-offset-4">
+      <%= f.label :password %>
+      <%= f.text_field :password, :class => "form-control" %>
+    </div>
+    <div class="form-group col-xs-4 col-xs-offset-4">
+      <%= f.label :password_confirmation %>
+      <%= f.text_field :password_confirmation, :class => "form-control" %>
+    </div>
+    <div class="form-group inline col-xs-4 col-xs-offset-4">
+      <%= f.submit nil, :class => 'btn btn-xs pds-color-background-light white-text' %>
+    </div>
+
+  <% end %>
+  </div>

@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   end
 
   def signin
+    flash[:notice] = nil
     @user = User.new
   end
 
