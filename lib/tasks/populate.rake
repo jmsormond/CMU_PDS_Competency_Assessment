@@ -13,7 +13,7 @@ namespace :db do
     require 'faker'
 
     # Step 1: clear any old data in the db
-    [IndicatorResource, Indicator, Resource, Competency].each(&:delete_all)
+    [IndicatorResource, Indicator, Resource, Competency, IndicatorQuestion, Question, User].each(&:delete_all)
 
     # Step 2: create the competency
     c1 = Competency.new
