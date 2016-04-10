@@ -9,6 +9,14 @@ class ViewAllController < ApplicationController
 		@competencies = Competency.all
 	end
 
+	#Process Flow
+	def process_flow
+	end
+
+	#Report Format
+	def report_format
+	end
+
 	# Choose Level step
 	def choose_level
 		@competency = Competency.find(params[:competency_id])
