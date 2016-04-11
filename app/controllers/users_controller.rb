@@ -51,7 +51,8 @@ class UsersController < ApplicationController
   end
 
   def logout
-    logout_user()
+    logout_user
+    redirect_to sign_in_path
   end
 
   def edit
