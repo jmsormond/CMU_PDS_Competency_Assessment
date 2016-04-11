@@ -1,0 +1,27 @@
+<!-- Logo Splash Image --> 
+<div>
+  <%= image_tag("web_banner_red.jpg", :alt => "Banner", class: "img-responsive banner") %>
+</div>
+
+
+<!-- Navigation Bar --> 
+<nav class="navbar navbar-inverse pds-color-background">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/questions/choose_competency">Take an Assessment</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/users/signin">Admin Login</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
