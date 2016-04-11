@@ -1,0 +1,34 @@
+<div>
+<h2 class="pds-blue-color-light text-center"><%= "Question " << position.to_s %></h2>
+<br/>
+<p class="text-center question-content"><%= question.question %></p>
+<hr class="question-divider pds-blue-color-background-light">
+
+<div class="row">
+    <div class="col-xs-2">
+        <%= radio_button "always" << position.to_s, 'always', :checked => true %> 
+        <%= label "always" << position.to_s, 'Always' %>
+    </div>
+    <div class="col-xs-2">
+        <%= radio_button "often" << position.to_s, 'often', :checked => true %> 
+        <%= label "often" << position.to_s, 'Often' %>
+    </div>
+    <div class="col-xs-2">
+        <%= radio_button "sometimes" << position.to_s, 'sometimes', :checked => true %> 
+        <%= label "sometimes" << position.to_s, 'Sometimes' %>
+    </div>
+    <div class="col-xs-2">
+        <%= radio_button "rarely" << position.to_s, 'rarely', :checked => true %> 
+        <%= label "rarely" << position.to_s, 'Rarely' %>
+    </div>
+    <div class="col-xs-2">
+        <%= radio_button "never" << position.to_s, 'never', :checked => true %> 
+        <%= label "never" << position.to_s, 'Never' %>
+    </div>
+    <div class="col-xs-2">
+        <%= radio_button "does_not_apply" << position.to_s, 'does not apply', :checked => true %> 
+        <%= label "does_not_apply" << position.to_s, 'Does Not Apply' %>
+    </div>
+</div>
+<a href="" onclick="nextPage(); return false;" class="btn -btn-default pds-blue-color-background-light white-text">Next</a>
+</div>

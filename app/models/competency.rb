@@ -20,8 +20,4 @@ class Competency < ActiveRecord::Base
         all.map { |e| [e.name, e.name] }
     end
 
-    def self.options_for_choose_assessment
-        all.map { |e| {name: e.name, id: e.id} }
-    end
-
 end
