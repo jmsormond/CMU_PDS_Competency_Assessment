@@ -1,5 +1,6 @@
 class IndicatorQuestionsController < ApplicationController
   before_action :set_indicator_question, only: [:show, :edit, :update, :destroy]
+  before_action :check_authentication
 
   # GET /indicator_questions
   # GET /indicator_questions.json
