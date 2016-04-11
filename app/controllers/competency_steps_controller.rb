@@ -1,6 +1,8 @@
 class CompetencyStepsController < ApplicationController
 	include Wicked::Wizard
   include AssessmentHelpers::Builder
+
+  before_action :check_authentication
   
   steps :indicators, :resources, :verify
 

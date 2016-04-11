@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   include AssessmentHelpers::Authentication
 
+  before_action :check_authentication, only: [:logout, :edit, :update]
+
   def new
     flash[:notice] = nil
     @user = User.new 
