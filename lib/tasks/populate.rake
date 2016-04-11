@@ -13,7 +13,7 @@ namespace :db do
     require 'faker'
 
     # Step 1: clear any old data in the db
-    [IndicatorResource, Indicator, Resource, Competency].each(&:delete_all)
+    [IndicatorResource, Indicator, Resource, Competency, IndicatorQuestion, Question, User].each(&:delete_all)
 
     # Step 2: create the competency
     c1 = Competency.new
@@ -994,6 +994,14 @@ namespace :db do
         iq.indicator = pair[1]
         iq.save!
     end
+
+    # Step 7: create a superadmin
+    user = User.new
+    user.username = "superadmin"
+    user.email = "test@mail.com"
+    user.password = "password"
+    user.password_confirmation = "password"
+    user.save!
 
   end
 end

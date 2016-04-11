@@ -1,4 +1,5 @@
 class TemplateDownloaderController < ApplicationController
+    before_action :check_authentication
 
     def download
         filename = params[:filename]

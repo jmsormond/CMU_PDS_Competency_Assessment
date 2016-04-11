@@ -1,5 +1,7 @@
 class CompetenciesController < ApplicationController
+
   before_action :set_competency, only: [:show, :edit, :update, :destroy]
+  before_action :check_authentication
 
   # GET /competencies
   # GET /competencies.json

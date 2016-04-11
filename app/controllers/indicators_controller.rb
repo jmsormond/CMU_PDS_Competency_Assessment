@@ -1,5 +1,6 @@
 class IndicatorsController < ApplicationController
   before_action :set_indicator, only: [:show, :edit, :update, :destroy]
+  before_action :check_authentication
 
   # GET /indicators
   # GET /indicators.json
@@ -19,6 +20,7 @@ class IndicatorsController < ApplicationController
 
   # GET /indicators/1/edit
   def edit
+    @resources = @indicator.indicator_resources
   end
 
   # POST /indicators

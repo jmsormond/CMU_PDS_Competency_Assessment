@@ -1,4 +1,5 @@
 class ViewAllController < ApplicationController
+	before_action :check_authentication
 
 	# The first view when you begin the nested view all process
 	def index

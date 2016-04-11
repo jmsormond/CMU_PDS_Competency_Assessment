@@ -1,5 +1,6 @@
 class IndicatorResourcesController < ApplicationController
   before_action :set_indicator_resource, only: [:show, :edit, :update, :destroy]
+  before_action :check_authentication
 
   # GET /indicator_resources
   # GET /indicator_resources.json
