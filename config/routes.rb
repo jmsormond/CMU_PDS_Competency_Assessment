@@ -14,6 +14,7 @@ PDSAssessment::Application.routes.draw do
   get 'view_all/view_indicator_and_resources' => 'view_all#view_indicators_and_resources', as: :view_all_ind_res_step
   get 'view_all/process_flow' => 'view_all#process_flow', as: :view_all_process_flow
   get 'view_all/report_format' => 'view_all#report_format', as: :view_all_report_format
+  get 'view_all/download_pdf' => 'view_all#download_pdf', as: :download_pdf
 
 
   # Route for resources

@@ -20,6 +20,15 @@ class ViewAllController < ApplicationController
 		@resources = Resource.all
 	end
 
+	def download_pdf
+		@competencies = Competency.all
+		@indicators = Indicator.all
+		@resources = Resource.all
+	  	html = render_to_string(:action => '/report_format.html', :layout => false)
+	  	pdf = PDFKit.new(html)
+	  	send_data(pdf.to_pdf)
+	end
+
 	# Choose Level step
 	def choose_level
 		@competency = Competency.find(params[:competency_id])
@@ -31,5 +40,6 @@ class ViewAllController < ApplicationController
 		@indicators = Indicator.by_level(params[:level]).by_competency(@competency.name)
 		@resources = Resource.all
 	end
-
 end
+
+

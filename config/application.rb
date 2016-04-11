@@ -1,6 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require 'pdfkit'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -21,6 +22,10 @@ module PDSAssessment
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.i18n.enforce_available_locales = true
+
+    # For pdf export functionality with pdfkit gem
+    config.middleware.use PDFKit::Middleware, :print_media_type => true
+    
 
 
   end
