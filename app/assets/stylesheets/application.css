@@ -69,8 +69,12 @@
 }
 
 /* Nav Bar */ 
-.active a {
+#admin-navbar .active a {
   background-color: rgb(108, 0, 0)!important
+}
+
+#user-navbar .active a {
+  background-color: rgb(7, 35, 110)!important
 }
 
 
