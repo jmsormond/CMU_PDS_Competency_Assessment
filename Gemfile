@@ -84,6 +84,7 @@ gem 'smarter_csv'
 
 # gem for export to pdf
 gem 'pdfkit'
+gem 'wkhtmltopdf-binary'
 
 group :production do
   gem 'pg'
