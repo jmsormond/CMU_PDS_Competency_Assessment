@@ -52,6 +52,12 @@
   width: 100%;
 }
 
+.plaid-banner {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 100%;
+}
+
 
 /* Container for all page content */ 
 .page-container {
@@ -69,6 +75,9 @@
 
 
 /* Color palette custom for PDS and CMU web standards */ 
+
+/* REDS */
+
 .pds-color-font {
   color: rgb(108, 0, 0) !important
 }
@@ -87,6 +96,16 @@
 
 .white-text {
   color: #FFF !important
+}
+
+/* BLUES */
+
+.pds-blue-color {
+  color: rgb(7, 35, 110) !important
+}
+
+.pds-blue-color-background {
+  background-color: rgb(7, 35, 110) !important
 }
 
 
