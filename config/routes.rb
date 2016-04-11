@@ -50,7 +50,7 @@ PDSAssessment::Application.routes.draw do
   get 'assessments/welcome' => 'assessments#welcome', as: :assessment_welcome
   get 'assessments/choose' => 'assessments#choose', as: :assessment_choose
   get 'assessments/take_assessment' => 'assessments#take_assessment', as: :take_assessment
-  get 'assessments/:id/report' => 'assessments#report', as: :assessment_report
+  get 'assessments/report' => 'assessments#report', as: :assessment_report
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

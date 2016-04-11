@@ -1,15 +1,14 @@
 <h1 class="pds-blue-color">Take the assessment</h1>
-<%= form_tag(take_assessment_path, method: :get) do %>
+<%= form_tag(assessment_report_path, method: :get) do %>
     <% position = 1 %>
     <% @questions.each do |question| %>
         <div class="row" style="display: none;" id=<%= "question" << position.to_s %>>
             <div class="col-xs-12">
-                <%= render 'question_form', {question: question, position: position} %>
+                <%= render 'question_form', {question: question, position: position, count: @questions.size} %>
             </div>
         </div>
         <% position = position + 1 %>
     <% end %>
-    <%= submit_tag "Next", :name => nil, :class => "btn btn-default btn-xs pds-color-background-light white-text" %>
 <% end %>
 
 <script type="text/javascript">
