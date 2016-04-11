@@ -46,6 +46,12 @@ PDSAssessment::Application.routes.draw do
   get "users/edit" => 'users#edit', as: :edit_user
   put "users/update" => 'users#update', as: :update_user
 
+  # Routes for taking an assessment
+  get 'assessments/welcome' => 'assessments#welcome', as: :assessment_welcome
+  get 'assessments/choose' => 'assessments#choose', as: :assessment_choose
+  get 'assessments/:id' => 'assessments#take_assessment', as: :take_assessment
+  get 'assessments/:id/report' => 'assessments#report', as: :assessment_report
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
