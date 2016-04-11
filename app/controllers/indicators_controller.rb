@@ -20,6 +20,7 @@ class IndicatorsController < ApplicationController
 
   # GET /indicators/1/edit
   def edit
+    @resources = @indicator.indicator_resources
   end
 
   # POST /indicators
