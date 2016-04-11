@@ -91,6 +91,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.11.2)
     nested_form (0.3.2)
+    pdfkit (0.8.2)
     pg (0.18.4)
     populator3 (0.2.7)
     quiet_assets (1.1.0)
@@ -195,6 +196,7 @@ DEPENDENCIES
   jquery-rails
   meta_request
   nested_form
+  pdfkit
   pg
   populator3
   quiet_assets

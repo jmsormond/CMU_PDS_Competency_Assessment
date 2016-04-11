@@ -82,6 +82,9 @@ gem 'will_paginate', '~> 3.0.6'
 # gem for csv import
 gem 'smarter_csv'
 
+# gem for export to pdf
+gem 'pdfkit'
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
