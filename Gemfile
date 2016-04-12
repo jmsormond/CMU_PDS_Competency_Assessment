@@ -89,6 +89,8 @@ gem 'wkhtmltopdf-binary'
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem 'faker'
+  gem 'populator3'
 end
 
 # gem for storing session in db
