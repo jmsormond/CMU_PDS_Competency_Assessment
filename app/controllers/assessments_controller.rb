@@ -20,18 +20,13 @@ class AssessmentsController < ApplicationController
 
     def generate_report
         puts params
-        # @competency = Competency.find(params[:competency])
-        # @questions = Question.all.by_competency(@competency.id)
-        # size = @questions.size
-        # position = 1
-        # answers = Hash.new
-        # while position <= size
-        #     # answer = get_answer(params, position)
-        #     # @questions[position - 1].answer = answer
-        #     @questions[position - 1].answer = "test answer goes here !!!!!"
-        #     puts @questions[position - 1].attributes
-        #     position = position + 1
-        # end
+        qs = params["questions"]
+        @questions = Array.new
+        qs.each do |q|
+            question = Question.find(q[0])
+            question.answer = q[1]["answer"]
+            @questions.push(question)
+        end
 
         render 'present_report'
 

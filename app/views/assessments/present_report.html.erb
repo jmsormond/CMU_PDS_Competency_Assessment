@@ -1,2 +1,4 @@
 <h1 class="pds-blue-color">Assessment Report</h1>
-<%= @questions.each do |question| debug question end %>
+<% @questions.each do |question| %>
+<%= question.answer %>
+<% end %>
