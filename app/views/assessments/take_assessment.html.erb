@@ -1,3 +1,15 @@
+
+<!-- Custom Breadcrumbs -->
+<div id="custom-breadcrumb">
+    <ul class="crumbs">
+        <li class="first finished-step"><a class="visited" href="#" style="z-index:9;">Select Competency</a></li>
+        <li class="finished-step"><a href="#" style="z-index:8;">Assessment Questions</a></li>
+        <li><a href="#" style="z-index:7;">View Results</a></li>
+    </ul>
+</div>
+<br>
+
+
 <h1 class="pds-blue-color">Take the assessment</h1>
 <%= form_tag(generate_assessment_report_path(competency: @competency), method: :post) do %>
     <% position = 1 %>
