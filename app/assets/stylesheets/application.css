@@ -112,6 +112,14 @@
   background-color: rgb(7, 35, 110) !important
 }
 
+.pds-blue-color-light {
+  color: rgb(47, 104, 197) !important
+}
+
+.pds-blue-color-background-light {
+  background-color: rgb(47, 104, 197) !important
+}
+
 
 
 /* Override to change table header text color */
@@ -188,6 +196,18 @@
 
 #right-tooltip {
   float: right;
+}
+
+/* Question styling */
+.question-content {
+  font-size: 150%;
+}
+
+.question-divider {
+  width: 100%;
+  height: 1px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 

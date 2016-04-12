@@ -1,4 +1,6 @@
 class Question < ActiveRecord::Base
+    attr_accessor :answer
+    
     # Gem for filtering
     filterrific(
         default_filter_params: { sorted_by: 'question asc' },

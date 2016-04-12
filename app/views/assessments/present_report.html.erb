@@ -1,0 +1,42 @@
+<h1 class="pds-blue-color">Assessment Report</h1>
+<h2 class="pds-blue-color-light">Competency: <%= @competency.name %></h2>
+<h3 class="pds-blue-color-light">Based on your repsonses to the assessment, you demonstrate competence by your:</h3>
+<ul style="list-style-type: circle;">
+    <% @competent.each do |question| %>
+        <% question.indicators.each do |indicator| %>
+            <li><h4><%= indicator.description %></h4></li>
+        <% end %>
+    <% end %>
+</ul>
+<h3 class="pds-blue-color-light">Based on your repsonses to the assessment, you are developing competence with:</h3>
+<ul style="list-style-type: circle;">
+<% @developing.each do |question| %>
+    <% question.indicators.each do |indicator| %>
+        <li>
+            <h4><%= indicator.description %></h4>
+            <ul style="list-style-type: none;">
+                <li><h5>Ways to further develop this competency area:</h5></li>
+                <% indicator.resources.each do |resource| %>
+                    <li><strong><%= resource.resource_category %>: </strong><%= resource.name %></li>
+                <% end %>
+            </ul>
+        </li>
+    <% end %>
+<% end %>
+</ul>
+<h3 class="pds-blue-color-light">Based on your repsonses to the assessment, these competency areas are emerging:</h3>
+<ul style="list-style-type: circle;">
+<% @emerging.each do |question| %>
+    <% question.indicators.each do |indicator| %>
+        <li>
+            <h4><%= indicator.description %></h4>
+            <ul style="list-style-type: none;">
+                <li><h5>Ways to further develop this competency area:</h5></li>
+                <% indicator.resources.each do |resource| %>
+                    <li><strong><%= resource.resource_category %>: </strong><%= resource.name %></li>
+                <% end %>
+            </ul>
+        </li>
+    <% end %>
+<% end %>
+</ul>
