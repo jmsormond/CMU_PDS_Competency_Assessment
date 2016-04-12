@@ -19,13 +19,25 @@ class AssessmentsController < ApplicationController
     end
 
     def generate_report
-        puts params
+        @competency = Competency.find(params[:competency])
         qs = params["questions"]
-        @questions = Array.new
+        @competent = Array.new
+        @developing = Array.new
+        @emerging = Array.new
+        @does_not_apply = Array.new
         qs.each do |q|
             question = Question.find(q[0])
-            question.answer = q[1]["answer"]
-            @questions.push(question)
+            answer = q[1]["answer"]
+            question.answer = answer
+            if answer.eql?("always") or answer.eql?("often")
+                @competent.push(question)
+            elsif answer.eql?("sometimes")
+                @developing.push(question)
+            elsif answer.eql?("rarely") or answer.eql?("never")
+                @emerging.push(question)
+            else
+                @does_not_apply.push(question)
+            end
         end
 
         render 'present_report'
