@@ -787,7 +787,7 @@ namespace :db do
     r84.save!
 
     r85 = Resource.new
-    r85.name = "Think about a time when you chose to communicate in person, rather than by phone. Or, recall a time when you chose to communicate by e-mail rather than in person. Why did you make those choices? What were the outcomes? How would the outcomes have been different if you had chosen another mode of communication?"
+    r85.name = "Think about a time when you chose to communicate in person, rather than by phone. Why did you make those choices? What were the outcomes? How would the outcomes have been different if you had chosen another mode of communication?"
     r85.resource_category = "Reflect On It"
     r85.description = ""
     r85.link = ""
