@@ -1,0 +1,28 @@
+<h1 class="pds-blue-color">Take the assessment</h1>
+<%= form_tag(generate_assessment_report_path(competency: @competency), method: :post) do %>
+    <% position = 1 %>
+    <% @questions.each do |question| %>
+        <%= fields_for "questions[]", question do |qf| %>
+            <div class="row" style="display: none;" id=<%= "question" << position.to_s %>>
+                <div class="col-xs-12">
+                    <%= render 'question_form', {question: question, position: position, count: @questions.size, qf: qf} %>
+                </div>
+            </div>
+        <% end %>
+        <% position = position + 1 %>
+    <% end %>
+<% end %>
+
+<script type="text/javascript">
+    position = 1;
+    var nextPage = function() {
+        old_q = "question" + position;
+        position++;
+        new_q = "question" + position;
+        $("#" + old_q).hide();
+        $("#" + new_q).show();
+    }
+    $(function() {
+        $("#question1").show();
+    })
+</script>
