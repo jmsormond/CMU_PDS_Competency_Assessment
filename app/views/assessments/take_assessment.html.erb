@@ -29,10 +29,21 @@
     position = 1;
     var nextPage = function() {
         old_q = "question" + position;
-        position++;
-        new_q = "question" + position;
-        $("#" + old_q).hide();
-        $("#" + new_q).show();
+        var inputs = $("#" + old_q + " input");
+        var checked = false;
+        for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].checked) {
+                checked = true;
+            }
+        };
+        if (checked) {
+            position++;
+            new_q = "question" + position;
+            $("#" + old_q).hide();
+            $("#" + new_q).show();
+        } else {
+            $("#question_error" + position).html("Please select an option");
+        }
     }
     $(function() {
         $("#question1").show();
