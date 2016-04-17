@@ -14,5 +14,5 @@
 Insert some directions here before they choose their assessment
 <%= form_tag(take_assessment_path, method: :get) do %>
   <%= select_tag :competency_id, options_from_collection_for_select(@competencies, 'id', 'name'), {include_blank: 'None'} %>
-  <%= submit_tag "Next", :name => nil, :class => "btn btn-default btn-xs pds-color-background-light white-text" %>
+  <%= submit_tag "Next", :name => nil, :class => "btn btn-xs pds-blue-color-background-light white-text" %>
 <% end %>
