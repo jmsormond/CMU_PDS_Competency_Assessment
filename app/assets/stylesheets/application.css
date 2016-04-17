@@ -78,6 +78,11 @@
 }
 
 
+.navbar-inverse .navbar-nav>li>a {
+  color: #FFF !important
+}
+
+
 /* Color palette custom for PDS and CMU web standards */ 
 
 /* REDS */
