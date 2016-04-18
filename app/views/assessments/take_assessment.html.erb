@@ -1,3 +1,12 @@
+<!--
+This view is for taking an assessment. The whole assessment is a form the
+competency with fields_for forms for each question. Each question renders the
+progress_bar and question_form partial. Local ruby variables:
+- @competency: the competency being assessed
+- @questions: the set of questions
+- @count: the number of questions
+- position: the current question number
+-->
 
 <!-- Custom Breadcrumbs -->
 <div id="custom-breadcrumb">
@@ -26,6 +35,13 @@
         <% position = position + 1 %>
     <% end %>
 <% end %>
+
+<!--
+This javascript is used to move to the next question. Each question has a unique
+id in the form of "question1", "question2", etc. When the user presses next,
+this function is called. It asserts that an option was selected, and if so,
+hides that question and shows the next.
+-->
 
 <script type="text/javascript">
     position = 1;
