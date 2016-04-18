@@ -1,5 +1,8 @@
 class Indicator < ActiveRecord::Base
+    # The leves are hard coded because the client has confirmed that there
+    # are only these three levels.
 	LEVELS_LIST = ["Companion", "Contributor", "Champion"]
+
 	# Relationships
 	# --------------------------------
 	belongs_to :competency
@@ -24,6 +27,7 @@ class Indicator < ActiveRecord::Base
 	# Private Methods
 	# --------------------------------
 
+    # This method is used by Filterrific for resources and questions
 	def self.options_for_sort_by_level
         levels = Indicator.all.group(:id, :level).map { |e| e.level }
         options = Array.new
