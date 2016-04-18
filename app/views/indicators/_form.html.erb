@@ -1,27 +1,20 @@
-  <%= simple_nested_form_for @indicator, :html => { :class => 'form-horizontal' } do |indicator_form| %>
-    <div class="row">
-      <div class="form-group col-xs-6">
-        <fieldset>
-          <h2 class="pds-color-font"><%= controller.action_name.capitalize %> Indicator</h2>
-
-          <%= render :partial => "indicator_fields", :locals => { :f => indicator_form } %>
-        </fieldset>
-      </div>
-
-    <div class="form-group col-xs-12">
-      <h2 class="pds-color-font">Associated Resources</h2>
-        <div id="indicator_indicator_resources">
-          <%= indicator_form.simple_fields_for :indicator_resources do |indicator_resource_form| %>
-            <%= render :partial => "indicator_resource_fields", :locals => { :f => indicator_resource_form } %>
-          <% end %> 
-          <p>
-            <br /><%= indicator_form.link_to_add("Add Resource", :indicator_resources, :class => 'btn btn-xs pds-color-background-light white-text') %>
-          </p>
-        </div> 
-      </div>
+<h2 class="pds-color-font"><%= controller.action_name.capitalize %> Indicator</h2>
+<%= simple_nested_form_for @indicator, :html => { :class => 'form-inline' } do |indicator_form| %>
+  <%= render :partial => "indicator_fields", :locals => { :f => indicator_form } %>
+  <div class="row">
+  <div class="form-group col-xs-12">
+    <h2 class="pds-color-font">Associated Resources</h2>
+      <div id="indicator_indicator_resources">
+        <%= indicator_form.simple_fields_for :indicator_resources do |indicator_resource_form| %>
+          <%= render :partial => "indicator_resource_fields", :locals => { :f => indicator_resource_form } %>
+        <% end %> 
+        <p>
+          <br /><%= indicator_form.link_to_add("Add Resource", :indicator_resources, :class => 'btn btn-xs pds-color-background-light white-text') %>
+        </p>
+      </div> 
     </div>
-    <div class="right">
-      <%= indicator_form.submit nil, :class => 'btn btn-s pds-color-background-light white-text' %>
-      <%#= link_to 'Cancel', indicators_path, :class => 'button secondary' %>
-    </div>
-  <% end %>
+  </div>
+  <div class="right">
+    <%= indicator_form.submit nil, :class => 'btn btn-s pds-color-background-light white-text' %>
+  </div>
+<% end %>

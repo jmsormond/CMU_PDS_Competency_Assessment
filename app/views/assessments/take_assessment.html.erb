@@ -11,13 +11,15 @@
 
 
 <h1 class="pds-blue-color">Take the assessment</h1>
+
 <%= form_tag(generate_assessment_report_path(competency: @competency), method: :post) do %>
     <% position = 1 %>
     <% @questions.each do |question| %>
         <%= fields_for "questions[]", question do |qf| %>
             <div class="row" style="display: none;" id=<%= "question" << position.to_s %>>
                 <div class="col-xs-12">
-                    <%= render 'question_form', {question: question, position: position, count: @questions.size, qf: qf} %>
+                    <%= render 'progress_bar', {position: position, count: @count} %>
+                    <%= render 'question_form', {question: question, position: position, count: @count, qf: qf} %>
                 </div>
             </div>
         <% end %>
@@ -29,10 +31,21 @@
     position = 1;
     var nextPage = function() {
         old_q = "question" + position;
-        position++;
-        new_q = "question" + position;
-        $("#" + old_q).hide();
-        $("#" + new_q).show();
+        var inputs = $("#" + old_q + " input");
+        var checked = false;
+        for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].checked) {
+                checked = true;
+            }
+        };
+        if (checked) {
+            position++;
+            new_q = "question" + position;
+            $("#" + old_q).hide();
+            $("#" + new_q).show();
+        } else {
+            $("#question_error" + position).html("Please select an option");
+        }
     }
     $(function() {
         $("#question1").show();

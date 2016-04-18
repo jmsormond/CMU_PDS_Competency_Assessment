@@ -78,6 +78,11 @@
 }
 
 
+.navbar-inverse .navbar-nav>li>a {
+  color: #FFF !important
+}
+
+
 /* Color palette custom for PDS and CMU web standards */ 
 
 /* REDS */
@@ -208,6 +213,11 @@
   height: 1px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+/* Progress Bar */
+.progress-bar {
+  background-color: rgb(47, 104, 197) !important
 }
 
 

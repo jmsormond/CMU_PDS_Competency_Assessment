@@ -15,6 +15,7 @@ class AssessmentsController < ApplicationController
         end
         @competency = Competency.find(params[:competency_id])
         @questions = Question.by_competency(@competency.id)
+        @count = @questions.size
 
         respond_to do |format|
           format.html

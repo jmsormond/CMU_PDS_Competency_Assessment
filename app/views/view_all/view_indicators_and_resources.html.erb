@@ -18,7 +18,6 @@
 <table class="table table-hover table-expandable" >
   <thead class="pds-color-background-light white-text">
     <tr>
-      <th>Competency</th>
       <th>Level</th>
       <th>Description</th>
       <th></th>
@@ -30,7 +29,6 @@
   <tbody>
     <% @indicators.each do |indicator| %>
 	    <tr>
-	        <td><%= indicator.competency_id %></td>
 	        <td><%= indicator.level %></td>
 	        <td><%= indicator.description %></td>
 	        <td><%= link_to 'Edit', edit_indicator_path(indicator) %></td>

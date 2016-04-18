@@ -1,0 +1,31 @@
+<table class="table table-hover table-expandable" >
+  <thead class="pds-blue-color-background-light white-text">
+    <tr>
+      <th><%= table_header %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% questions.each do |question| %>
+      <% question.indicators.each do |indicator| %>
+        <tr>
+            <td>
+              <%= indicator.description %><br/>
+              <small>Click to view resources</small>
+            </td>
+        </tr>
+        <tr>
+          <td>
+            <% if indicator.resources.size == 0 %>
+              <i>There are no resources currently available for this area of competence...</i>
+            <% else %>
+              <% indicator.resources.each do |resource| %>
+                  <strong><%= resource.resource_category %>: </strong><%= resource.name %><br/>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

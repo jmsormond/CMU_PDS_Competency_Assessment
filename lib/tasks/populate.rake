@@ -954,7 +954,7 @@ namespace :db do
     q9.save!
 
     q10 = Question.new
-    q10.question = "I am able to ggive direction that prompts the requested action."
+    q10.question = "I am able to give direction that prompts the requested action."
     q10.save!
 
     q11 = Question.new
