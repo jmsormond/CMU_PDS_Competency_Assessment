@@ -28,6 +28,13 @@ class Indicator < ActiveRecord::Base
 	# --------------------------------
 
     # This method is used by Filterrific for resources and questions
+    # IMPORTANT NOTE: This method is a hack. This method can be solved in one
+    # line: group(:level).map { |e| [e.level, e.level] }
+    # This line only works when the database is sqlite3 (i.e., test and
+    # development). However, when the database is postgresql (i.e., production),
+    # there is an error stating that you must first group by id before you can
+    # group by level. This does not produce the same results unfortunately. The
+    # solution below is a hack, but it works.
 	def self.options_for_sort_by_level
         levels = Indicator.all.group(:id, :level).map { |e| e.level }
         options = Array.new
