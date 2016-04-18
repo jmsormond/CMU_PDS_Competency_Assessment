@@ -63,11 +63,31 @@ class Resource < ActiveRecord::Base
     end
 
     def self.options_for_sort_by_category
-        group(:id, :resource_category).map { |e| [e.resource_category, e.resource_category] }
+        categories = Resource.all.group(:id, :resource_category).map { |e| e.resource_category }
+        options = Array.new
+        categories.each do |cat|
+            if !options.include?([cat, cat])
+                options.push([cat, cat])
+            end
+        end
+        return options
     end
 
     def self.get_categories
-        group(:id, :resource_category)
+        resources = Resource.all.group(:id, :resource_category)
+        options = Array.new
+        resources.each do |resource|
+            included = false
+            options.each do |option|
+                if option.resource_category.eql?(resource.resource_category)
+                    included = true
+                end
+            end
+            if !included
+                options.push(resource)
+            end
+        end
+        return options
     end
 
 end
