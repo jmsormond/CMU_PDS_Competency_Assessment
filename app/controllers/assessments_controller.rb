@@ -9,6 +9,10 @@ class AssessmentsController < ApplicationController
     end
 
     def take_assessment
+        if params[:competency_id].blank? or params[:competency_id].nil? or params[:competency_id].empty?
+            redirect_to assessment_choose_path
+            return
+        end
         @competency = Competency.find(params[:competency_id])
         @questions = Question.by_competency(@competency.id)
         @count = @questions.size
