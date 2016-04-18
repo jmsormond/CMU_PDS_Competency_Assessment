@@ -6,6 +6,9 @@ class QuestionsController < ApplicationController
     @competencies = Competency.all
   end
 
+  # The view for questions uses the Filteriffic gem. Refer to the questions
+  # model for details.
+
   def view
     @filterrific = initialize_filterrific(
       Question,
@@ -27,6 +30,9 @@ class QuestionsController < ApplicationController
     end
     
   end
+
+  # This method is called when a user toggles the active state of a question.
+  # It redirects to the smae page (i.e., reloads) when complete.
 
   def toggle_active
     @question = Question.find(params[:id])
@@ -117,9 +123,7 @@ class QuestionsController < ApplicationController
 
     # Used to store competency_id in session for filtering the questions
     def get_competency_id(id)
-      puts "And the session is ........... ", session[:question_competency_id]
       if id
-        puts "The id is ............ " << id
         session[:question_competency_id] = id
         return id
       else
