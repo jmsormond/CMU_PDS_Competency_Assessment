@@ -6,3 +6,12 @@
 <p>To manage the resources in the system, click on the "Manage a Resource" button in the navigation bar. There, you can view and edit all the resources in the system, as well as create new resources.</p>
 <h2 class="pds-color-font">Manage Assessments</h2>
 <p>To manage the assessments in the system, click on the "Manage the Assessment" button in the navigation bar. There, you can view and edit all the current assessments in the system, as well as create a new assessment.</p>
+<h3 class="pds-color-font">Resetting Test Data</h3>
+Need to repopulate the database with the initial data? Click here
+<%= link_to "Reset data", populate_rake_path, :onclick => "populate_rake(this)" %>
+
+<script type="text/javascript">
+var populate_rake = function(item) {
+    item.text = "Resetting database...";
+}
+</script>
