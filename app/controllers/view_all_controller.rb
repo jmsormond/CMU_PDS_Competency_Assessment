@@ -19,15 +19,14 @@ class ViewAllController < ApplicationController
 		@competencies = Competency.all
 		@indicators = Indicator.all
 		@resources = Resource.all
-	end
 
-	def download_pdf
-		@competencies = Competency.all
-		@indicators = Indicator.all
-		@resources = Resource.all
-	  	html = render_to_string(:action => '/report_format.html', :layout => false)
-	  	pdf = PDFKit.new(html)
-	  	send_data(pdf.to_pdf)
+		respond_to do |format|
+	      format.html
+	      format.pdf do
+	        pdf = Prawn::Document.new
+	        send_data pdf.render, filename: 'report.pdf', type: 'application/pdf'
+	      end
+	    end
 	end
 
 	# Choose Level step
