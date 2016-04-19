@@ -3,13 +3,14 @@ class ReportPdf < Prawn::Document
 	def initialize(competencies, indicators)
 		super(top_margin: 70)
 		@competencies = competencies
+		@indicators = indicators
 
 		title
 		style
 		logo
 		competency_table
 		indicator_table
-		resource_table
+		
 		page_numbers
 	end
 
@@ -34,6 +35,7 @@ class ReportPdf < Prawn::Document
 
     def competency_table
     	move_down 15
+    	text "All Competencies", size: 16, style: :bold
     	table competency_rows do 
     		row(0).font_style = :bold
     		columns(1..2).align = :center
@@ -43,10 +45,29 @@ class ReportPdf < Prawn::Document
     end
 
     def competency_rows
-    	[["  #  ", "  Name "]] + 
+    	[["  #  ", "  Competency Name "]] + 
 	    @competencies.map do |c|
 	    
 	      [c.id, c.name.to_s ]
+	    end
+    end
+
+    def indicator_table
+    	move_down 15
+    	text "All Indicators", size: 16, style: :bold
+    	table indicator_rows do 
+    		row(0).font_style = :bold
+    		columns(1..4).align = :center
+    		self.row_colors = ["D3D3D3","FFFFFF"]
+    		self.header = true
+    	end
+    end
+
+    def indicator_rows
+    	[["  #  ", "  Indicator Name  ", "  Associated Competency  ", "  Level  "]] + 
+	    @indicators.map do |i|
+	    
+	      [i.id, i.description.to_s, i.competency_id.to_s, i.level ]
 	    end
     end
 
