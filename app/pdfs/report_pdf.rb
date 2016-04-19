@@ -1,6 +1,6 @@
 class ReportPdf < Prawn::Document
 
-	def initialize(competencies)
+	def initialize(competencies, indicators)
 		super(top_margin: 70)
 		@competencies = competencies
 
@@ -8,6 +8,8 @@ class ReportPdf < Prawn::Document
 		style
 		logo
 		competency_table
+		indicator_table
+		resource_table
 		page_numbers
 	end
 
@@ -47,8 +49,6 @@ class ReportPdf < Prawn::Document
 	      [c.id, c.name.to_s ]
 	    end
     end
-
-
 
     def page_numbers
     	string = "page <page> of <total>"
