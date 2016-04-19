@@ -62,12 +62,48 @@ class Resource < ActiveRecord::Base
         ]
     end
 
+    # This method is used by Filterrific for resources and questions
+    # IMPORTANT NOTE: This method is a hack. This method can be solved in one
+    # line: group(:resource_category).map { |e| [e.level, e.level] }
+    # This line only works when the database is sqlite3 (i.e., test and
+    # development). However, when the database is postgresql (i.e., production),
+    # there is an error stating that you must first group by id before you can
+    # group by resource_category. This does not produce the same results unfortunately. The
+    # solution below is a hack, but it works.
     def self.options_for_sort_by_category
-        group(:id, :resource_category).map { |e| [e.resource_category, e.resource_category] }
+        categories = Resource.all.group(:id, :resource_category).map { |e| e.resource_category }
+        options = Array.new
+        categories.each do |cat|
+            if !options.include?([cat, cat])
+                options.push([cat, cat])
+            end
+        end
+        return options
     end
 
+    # This method is used by Filterrific for resources and questions
+    # IMPORTANT NOTE: This method is a hack. This method can be solved in one
+    # line: group(:resource_category).map { |e| [e.level, e.level] }
+    # This line only works when the database is sqlite3 (i.e., test and
+    # development). However, when the database is postgresql (i.e., production),
+    # there is an error stating that you must first group by id before you can
+    # group by resource_category. This does not produce the same results unfortunately. The
+    # solution below is a hack, but it works.
     def self.get_categories
-        group(:id, :resource_category)
+        resources = Resource.all.group(:id, :resource_category)
+        options = Array.new
+        resources.each do |resource|
+            included = false
+            options.each do |option|
+                if option.resource_category.eql?(resource.resource_category)
+                    included = true
+                end
+            end
+            if !included
+                options.push(resource)
+            end
+        end
+        return options
     end
 
 end

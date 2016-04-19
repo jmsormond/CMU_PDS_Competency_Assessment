@@ -1,3 +1,12 @@
+<!--
+This form is for each question in the assessment. Each radio button corresponds
+to the answer, so the default behavior is that only one can be choosen at a
+time. Local ruby varialbles:
+- position: question number
+- question: the question being assessed
+- qf: the fields for this specific question
+-->
+
 <p id=<%= "question_error" << position.to_s %>></p>
 <h2 class="pds-blue-color-light text-center"><%= "Question " << position.to_s %></h2>
 <br/>
@@ -34,7 +43,7 @@
 </div>
 <br/>
 <% if position == count %>
-    <%= submit_tag "Next", :name => nil, :class => "btn btn-default btn-default pds-blue-color-background-light white-text pull-right" %>
+    <%= submit_tag "Finish", :name => nil, :class => "btn btn-default btn-default pds-blue-color-background-light white-text pull-right" %>
 <% else %>
     <a href="" onclick="nextPage(); return false;" class="btn btn-default pds-blue-color-background-light white-text pull-right">Next</a>
 <% end %>

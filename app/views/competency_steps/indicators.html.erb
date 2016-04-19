@@ -1,3 +1,8 @@
+<!--
+This view handles the creation of indicators to the competency. It relies on
+the indicator_fields partial to render the form fields.
+-->
+
 <h2 class="pds-color-font">Create a Competency: <%=session[:competency]["name"]%></h2>
 
 <%= simple_nested_form_for @competency, url: wizard_path, method: :put do |competency_form| %>

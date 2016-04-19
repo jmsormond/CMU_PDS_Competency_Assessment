@@ -19,8 +19,10 @@
 
   <body>
   	<% if logged_in_user? %>
+      <!-- If there is a logged in admin, render the admin partial. -->
       <%= render 'layouts/admin' %>
     <% else %>
+      <!-- If there is not a logged in admin, render the user partial. -->
       <%= render 'layouts/user' %>
     <% end %>
     <script>

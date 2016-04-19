@@ -2,6 +2,7 @@ class Competency < ActiveRecord::Base
     # relationshis
     has_many :indicators
     has_many :indicator_resources, through: :indicators
+    # nnested attributes are 
     accepts_nested_attributes_for :indicators
     accepts_nested_attributes_for :indicator_resources
 
@@ -16,6 +17,7 @@ class Competency < ActiveRecord::Base
     # Private Methods
     # ---------------------------
 
+    # This method is called by the Filterrific gem for the resources view.
     def self.options_for_sort_by_competency
         all.map { |e| [e.name, e.name] }
     end

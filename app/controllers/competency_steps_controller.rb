@@ -1,4 +1,31 @@
 class CompetencyStepsController < ApplicationController
+
+  # Because of the number of steps and amount of information being entered, the
+  # process of creating a competency relies on session.
+  #
+  # IMPORTANT NOTE: because so much data is being stored in the session at one
+  # time, our system uses a session table in the databse to store session info.
+  # This change was made in the /config/initializers/session_store.rb file;
+  # Google search hwo to handle changing this if need be.
+  #
+  # This controller uses the Wicked gem, which allows the creation process to be
+  # broken up into multiple steps. Each step calls the 'update' controller
+  # method, and the Wicked gem keeps track of the 'step' variable (defined
+  # below) to determine which step in the process the user is in. Each step
+  # has an associated view with the same name as the step.
+  #
+  # Two important things to know:
+  # 1) The upload controller function is called everytime a submit action is
+  # executed on the front end.
+  # 2) The show controller function is called before each view is rendered.
+  #
+  # Example for understanding:
+  # If you are on the 'indicators' page and you click the 'submit' (or
+  # equivalent) button, the update controller function will be called with the
+  # step variable equal to 'indicators'. When 'redirect_to next_wizard_path' is
+  # executed, the step variable advances to the next step: 'resources'. Before
+  # the resources page is rendered, the 'show' controller function is executed.
+
 	include Wicked::Wizard
   include AssessmentHelpers::Builder
 
@@ -10,10 +37,10 @@ class CompetencyStepsController < ApplicationController
     @competency = Competency.new(session[:competency])
     @resource_options = Resource.active.all
     if session[:upload]
+      # If the user is doing the upload methodology, then the resources they
+      # uploaded will be in their own array for easy access.
       @uploaded_resource_options = get_uploaded_resources()
     end
-    puts @resource_options.size
-    puts @uploaded_resource_options.size unless @uploaded_resource_options.blank?
     render_wizard
   end
 
@@ -33,6 +60,24 @@ class CompetencyStepsController < ApplicationController
       redirect_to @competency
     end
   end
+
+  # The upload controller function is called when a user decides to use the 
+  # upload method rather than the manual method. When this function is called,
+  # it does three things:
+  # 1) stores the competency name under session[:competency]["name"]
+  # 2) gathers the indicator information from the provided indicators file, and
+  # stores it under session[:competency]["indicators_attributes"]
+  # 3) gathers the resrouces information from the provided resrouces file, and
+  # stores it under session[:resources]
+  #
+  # Finally, it redirects to the :indicators step in the Wicked gem. All the
+  # data from the files will be presented and the user can double check all
+  # indiators were created correctly. When the user goes to the resources step,
+  # they will have to map all indicator-resource relationships manually; the
+  # uploaded resources will be presented. The mapping is done manually for two
+  # reasons:
+  # 1) error prevention
+  # 2) it is too complicated to develop an algorithm that will do this
 
   def upload
     session[:competency] = nil

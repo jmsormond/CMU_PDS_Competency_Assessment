@@ -1,3 +1,8 @@
+<!--
+This view handles the form for associating resources with indicators. It relies
+on the resource_fields partail.
+-->
+
 <h2 class="pds-color-font">Create a Competency: <%=session[:competency]["name"]%></h2>
 <%= simple_nested_form_for @competency, url: wizard_path, method: :put do |competency_form| %>
 

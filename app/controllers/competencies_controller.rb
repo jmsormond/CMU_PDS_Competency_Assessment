@@ -13,11 +13,16 @@ class CompetenciesController < ApplicationController
   # GET /competencies/1.json
   def show
     @indicators = @competency.indicators.alphabetical.to_a
+    # The system uses the view_all flow to look at competencies in depth. When
+    # 'showing' a competency, we redirect to the view_all flow of the chossen
+    # competency.
     redirect_to view_all_level_step_path(competency_id: @competency.id)
   end
 
   # GET /competencies/new
   def new
+    # session[:upload] is set to nil in case the user decides to use the upload
+    # method.
     session[:upload] = nil
     @competency = Competency.new
   end
@@ -29,19 +34,12 @@ class CompetenciesController < ApplicationController
   # POST /competencies
   # POST /competencies.json
   def create
+    # When creating a comptency, everything is saved in the session. Refer to
+    # the competency_steps controller for more detailed information.
     session[:competency] = nil
     @competency = Competency.new(competency_params)
     session[:competency] = @competency.attributes
     redirect_to competency_steps_path
-      # if @competency.save
-      #   format.html { redirect_to competency_steps_path }
-      #   #format.html { redirect_to competency_steps_path(competency_id: @competency.id) }
-      #   #format.json { render action: 'show', status: :created, location: @competency }
-      # else
-      #   format.html { render action: 'new' }
-      #   format.json { render json: @competency.errors, status: :unprocessable_entity }
-      # end
-    #end
   end
 
   # PATCH/PUT /competencies/1
