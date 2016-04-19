@@ -83,8 +83,7 @@ gem 'will_paginate', '~> 3.0.6'
 gem 'smarter_csv'
 
 # gem for export to pdf
-gem 'pdfkit'
-gem 'wkhtmltopdf-binary'
+gem 'prawn'
 
 group :production do
   gem 'pg'
