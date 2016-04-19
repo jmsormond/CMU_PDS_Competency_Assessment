@@ -23,7 +23,7 @@ class ViewAllController < ApplicationController
 		respond_to do |format|
 	      format.html
 	      format.pdf do
-	        pdf = ReportPdf.new(@competencies, @indicators)
+	        pdf = ReportPdf.new(@competencies, @indicators, @resources)
 	        send_data pdf.render, filename: 'report.pdf', type: 'application/pdf'
 	      end
 	    end
