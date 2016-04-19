@@ -9,7 +9,7 @@ competency information in the system on one page.
   <a href="#" data-toggle="tooltip" data-placement="right" title="This page displays all of the stored data in the system: all competencies, the indicators nested within each, and the resources associated with each indicator. Click Export to PDF to download a pdf file with anything displayed on the screen."><%= image_tag("tooltip.png", :alt => "Hint", class: "tool-tip-img") %></a>
 </div>
 
-<%= link_to 'Export to PDF', download_pdf_path, :class => "btn btn-default btn-large pds-color-background-light white-text pull-right"%>
+<%= link_to 'Generate PDF', view_all_report_format_path(format: "pdf"), :class => "btn btn-default btn-large pds-color-background-light white-text pull-right"%>
 
 
 <% @competencies.each do |competency| %>
