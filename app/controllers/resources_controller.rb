@@ -2,6 +2,9 @@ class ResourcesController < ApplicationController
   before_action :set_resource, only: [:show, :edit, :update, :destroy]
   before_action :check_authentication
 
+  # The view for resources uses the Filteriffic gem. Refer to the resources
+  # model for details.
+
   # GET /resources
   # GET /resources.json
   def index
@@ -80,6 +83,9 @@ class ResourcesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # This method is called when a user toggles the active state of a resource.
+  # It redirects to the smae page (i.e., reloads) when complete.
 
   def toggle_active
     @resource = Resource.find(params[:id])

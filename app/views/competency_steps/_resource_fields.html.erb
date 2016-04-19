@@ -1,3 +1,8 @@
+<!--
+This partial represents the form fields for associating a resource to an
+indicator.
+-->
+
   <div class="row" style = "background-color: #bbb; box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
   <div class="row col-xs-12">
   <!-- x icon to remove -->
@@ -7,6 +12,11 @@
       <%= f.collection_select :indicator_description, @competency.indicators, :description, :description, {:prompt => "Select Indicator..."}, {:class => "form-control"} %>
     </div>
     <% if session[:upload] %>
+      <!--
+      If the user originally used the CSV upload method, then this will display
+      all the resources the the system pulled from the uploaded resource file.
+      They are saved in an indicator attr_accessor called uploaded_resource_name.
+      -->
       <a class="pointer pull-right btn btn-xs pds-color-font-light" onclick="showForm(this)">Select Uploaded Resource</a>
       <div style="display: none;">
       <div class="row col-xs-12">
@@ -18,6 +28,10 @@
     <% end %>
 
   <a class="pointer pull-right btn btn-xs pds-color-font-light" onclick="showForm(this)">Add Existing Resource</a>
+  <!--
+  This will show the div that allows a user to add to the indicator a resource
+  that already exists in the system.
+  -->
   <div style="display: none;">
   <div class="row col-xs-12">
     <div class="form-group col-xs-12">
@@ -28,6 +42,10 @@
   </div>
 
   <a class="pointer pull-right btn btn-xs pds-color-font-light" onclick="showForm(this)">Create New Resource</a>
+  <!--
+  This will show the div that allows a user to create a new resource to add
+  to the indicator.
+  -->
   <div style="display: none;">
     <div class="form-group col-xs-12">
       <%= f.label "Name" %>

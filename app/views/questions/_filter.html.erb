@@ -1,3 +1,10 @@
+<!--
+This partial uses the Filterrific gem to display the questions for a given
+competency. Documentation for how the filterrifc gem works can be found online:
+http://filterrific.clearcove.ca/
+https://github.com/jhund/filterrific
+-->
+
 <div>Filter by:</div>
 <%= form_for_filterrific @filterrific, :html => {:class => "form-inline"} do |f| %>
   <div class="form-group">

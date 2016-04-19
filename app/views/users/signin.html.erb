@@ -1,3 +1,5 @@
+<!-- This is the signin page for an admin. -->
+
 <h1 class="pds-color-font">Administrator Sign In</h1>
 <%= form_for @user, method: :post, url: login_path do |f| %>
   <% if !flash[:notice].blank? %>

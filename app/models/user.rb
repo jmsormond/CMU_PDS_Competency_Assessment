@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
     scope :find_by_username, -> (username) { where("username = ?", username) }
 
     private
+    # Since the actual password is never saved in the database,
+    # these functions are called before/after saving to save the
+    # encrypted version of the password.
     def encrypt_password
       if password.present?
         self.salt = BCrypt::Engine.generate_salt

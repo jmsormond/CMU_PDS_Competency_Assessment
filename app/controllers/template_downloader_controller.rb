@@ -1,6 +1,9 @@
 class TemplateDownloaderController < ApplicationController
     before_action :check_authentication
 
+    # This controller is used for downloading the excel templates used in the
+    # csv uploader. The files are stored in the /public folder.
+
     def download
         filename = params[:filename]
         send_file(
