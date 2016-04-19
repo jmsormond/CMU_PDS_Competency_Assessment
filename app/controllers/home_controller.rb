@@ -13,9 +13,24 @@ class HomeController < ApplicationController
     end
 
     def populate_rake
-        Rake::Task['db:populate'].reenable # in case you're going to invoke the same task second time.
-        Rake::Task['db:populate'].invoke
-        redirect_to :back
+        username = params[:username]
+        password = params[:password]
+        @user = User.find_by_username(username).first
+        if @user.blank?
+          flash[:notice] = "Invalid username"
+          render 'dashboard'
+        else
+          # These methods are in the helper file.
+          if confirm_user(@user, password)
+            Rake::Task['db:populate'].reenable # in case you're going to invoke the same task second time.
+            Rake::Task['db:populate'].invoke
+            flash[:notice] = "Database reset!"
+            render 'dashboard'
+          else
+            flash[:notice] = "The username and password do not match"
+            render 'dashboard'
+          end
+        end
     end
 
 end

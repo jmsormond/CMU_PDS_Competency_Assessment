@@ -54,7 +54,7 @@ PDSAssessment::Application.routes.draw do
   get 'assessments/report' => 'assessments#present_report', as: :assessment_report
 
   # Route for populating test database from browser
-  get 'populate_rake' => 'home#populate_rake', as: :populate_rake
+  post 'populate_rake' => 'home#populate_rake', as: :populate_rake
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

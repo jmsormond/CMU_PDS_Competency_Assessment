@@ -1,3 +1,12 @@
+<% if !flash[:notice].blank? %>
+    <% if flash[:notice].eql?("Database reset!") %>
+        <div class="alert alert-success">
+    <% else %>
+        <div class="alert alert-danger">
+    <% end %>
+        <strong>Notice: </strong><%= flash[:notice] %>
+    </div>
+<% end %>
 <h1 class="pds-color-font">Administrator Dashboard</h1>
 <p>Welcome to Professional Development Services' administrator dashboard.</p>
 <h2 class="pds-color-font">Manage Competencies</h2>
@@ -7,11 +16,21 @@
 <h2 class="pds-color-font">Manage Assessments</h2>
 <p>To manage the assessments in the system, click on the "Manage the Assessment" button in the navigation bar. There, you can view and edit all the current assessments in the system, as well as create a new assessment.</p>
 <h3 class="pds-color-font">Resetting Test Data</h3>
-Need to repopulate the database with the initial data? Click here
-<%= link_to "Reset data", populate_rake_path, :onclick => "populate_rake(this)" %>
+<p>Need to repopulate the database with the initial data? Click here <button class="btn btn-xs pds-color-background-light white-text" onclick="populate_confirm()">Reset Database</button></p>
+<br/>
+<div id="resetdb" style="display:none;" class="alert alert-danger">
+    <strong>Warning!</strong> You are about to reset the database. Please enter your administrator credentials to proceede.
+    <%= form_tag(populate_rake_path, method: :post) do %>
+        <%= label_tag :username %>
+        <%= text_field_tag :username %>
+        <%= label_tag :password %>
+        <%= text_field_tag :password %>
+        <%= submit_tag "Submit", :name => nil, :class => "btn btn-default btn-xs pds-color-background-light white-text", :data => {confirm: "Are you sure you want to reset the database? This action cannot be undone once submitted."} %>
+    <% end %>
+</div>
 
 <script type="text/javascript">
-var populate_rake = function(item) {
-    item.text = "Resetting database...";
+var populate_confirm = function(item) {
+    $("#resetdb").show();
 }
 </script>
