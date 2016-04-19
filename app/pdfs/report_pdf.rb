@@ -7,7 +7,7 @@ class ReportPdf < Prawn::Document
 		title
 		style
 		logo
-		tables
+		competency_table
 		page_numbers
 	end
 
@@ -30,8 +30,24 @@ class ReportPdf < Prawn::Document
     	text "All Stored Data", size: 18, style: :bold
     end
 
-    def tables
+    def competency_table
+    	move_down 15
+    	table competency_rows do 
+    		row(0).font_style = :bold
+    		columns(1..2).align = :center
+    		self.row_colors = ["D3D3D3","FFFFFF"]
+    		self.header = true
+    	end
     end
+
+    def competency_rows
+    	[["  #  ", "  Name "]] + 
+	    @competencies.map do |c|
+	    
+	      [c.id, c.name.to_s ]
+	    end
+    end
+
 
 
     def page_numbers

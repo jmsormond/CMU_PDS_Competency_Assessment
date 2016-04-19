@@ -84,6 +84,7 @@ gem 'smarter_csv'
 
 # gem for export to pdf
 gem 'prawn'
+gem 'prawn-table'
 
 group :production do
   gem 'pg'
