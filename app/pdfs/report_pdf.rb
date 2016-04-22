@@ -42,7 +42,7 @@ class ReportPdf < Prawn::Document
     end
 
     def competency_table
-    	move_down 15
+    	move_down 30
     	text "All Competencies", size: 16, style: :bold
     	table competency_rows do 
     		row(0).font_style = :bold
@@ -61,7 +61,7 @@ class ReportPdf < Prawn::Document
     end
 
     def indicator_table
-    	move_down 15
+    	move_down 75
     	text "All Indicators", size: 16, style: :bold
     	table indicator_rows do 
     		row(0).font_style = :bold
@@ -81,7 +81,7 @@ class ReportPdf < Prawn::Document
 
 
     def resource_table
-    	move_down 15
+    	move_down 75
     	text "All Resources", size: 16, style: :bold
     	table resource_rows do 
     		row(0).font_style = :bold
@@ -101,7 +101,7 @@ class ReportPdf < Prawn::Document
 
 
     def indicator_resource_table
-    	move_down 15
+    	move_down 75
     	text "All Indicator-Resource Relationships", size: 16, style: :bold
     	table indicator_resource_rows do 
     		row(0).font_style = :bold
@@ -121,7 +121,7 @@ class ReportPdf < Prawn::Document
 
 
     def question_table
-    	move_down 15
+    	move_down 75
     	text "All Assessment Questions", size: 16, style: :bold
     	table question_rows do 
     		row(0).font_style = :bold
@@ -142,9 +142,9 @@ class ReportPdf < Prawn::Document
 
 
     def indicator_question_table
-    	move_down 15
+    	move_down 75
     	text "All Indicator-Question Relationships", size: 16, style: :bold
-    	table question_rows do 
+    	table indicator_question_rows do 
     		row(0).font_style = :bold
     		columns(1..3).align = :center
     		self.row_colors = ["D3D3D3","FFFFFF"]
@@ -152,7 +152,7 @@ class ReportPdf < Prawn::Document
     	end
     end
 
-    def question_rows
+    def indicator_question_rows
     	[["  #  ", "  Indicator ID  ", "  Question ID  "]] + 
 	    @indicator_questions.map do |iq|
 	    
