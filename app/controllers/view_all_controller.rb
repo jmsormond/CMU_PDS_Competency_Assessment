@@ -19,11 +19,14 @@ class ViewAllController < ApplicationController
 		@competencies = Competency.all
 		@indicators = Indicator.all
 		@resources = Resource.all
+		@indicator_resources = IndicatorResource.all
+		@questions = Question.all
+		@indicator_questions = IndicatorQuestion.all
 
 		respond_to do |format|
 	      format.html
 	      format.pdf do
-	        pdf = ReportPdf.new(@competencies, @indicators, @resources)
+	        pdf = ReportPdf.new(@competencies, @indicators, @resources, @indicator_resources, @questions)
 	        send_data pdf.render, filename: 'report.pdf', type: 'application/pdf'
 	      end
 	    end

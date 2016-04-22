@@ -1,10 +1,12 @@
 class ReportPdf < Prawn::Document
 
-	def initialize(competencies, indicators, resources)
+	def initialize(competencies, indicators, resources, indicator_resources, questions)
 		super(top_margin: 70)
 		@competencies = competencies
 		@indicators = indicators
 		@resources = resources 
+		@indicator_resources = indicator_resources
+		@questions = questions
 
 		title
 		style
@@ -12,6 +14,8 @@ class ReportPdf < Prawn::Document
 		competency_table
 		indicator_table
 		resource_table
+		indicator_resource_table
+		question_table
 		
 		page_numbers
 	end
@@ -92,6 +96,48 @@ class ReportPdf < Prawn::Document
 	      [r.id, r.name, r.resource_category, r.description, r.link ]
 	    end
     end
+
+
+    def indicator_resource_table
+    	move_down 15
+    	text "All Indicator-Resource Relationships", size: 16, style: :bold
+    	table indicator_resource_rows do 
+    		row(0).font_style = :bold
+    		columns(1..3).align = :center
+    		self.row_colors = ["D3D3D3","FFFFFF"]
+    		self.header = true
+    	end
+    end
+
+    def indicator_resource_rows
+    	[["  #  ", "  Indicator ID  ", "  Resource ID  "]] + 
+	    @indicator_resources.map do |ir|
+	    
+	      [ir.id, ir.indicator_id, ir.resource_id ]
+	    end
+    end
+
+
+    def question_table
+    	move_down 15
+    	text "All Assessment Questions", size: 16, style: :bold
+    	table question_rows do 
+    		row(0).font_style = :bold
+    		columns(1..2).align = :center
+    		self.row_colors = ["D3D3D3","FFFFFF"]
+    		self.header = true
+    	end
+    end
+
+    def question_rows
+    	[["  #  ", "  Question  "]] + 
+	    @questions.map do |q|
+	    
+	      [q.id, q.question ]
+	    end
+    end
+
+
 
     def page_numbers
     	string = "page <page> of <total>"
