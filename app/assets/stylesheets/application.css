@@ -69,6 +69,7 @@
 }
 
 /* Nav Bar */ 
+
 #admin-navbar .active a {
   background-color: rgb(108, 0, 0)!important
 }
@@ -77,9 +78,17 @@
   background-color: rgb(7, 35, 110)!important
 }
 
-
 .navbar-inverse .navbar-nav>li>a {
   color: #FFF !important
+}
+
+.dropdown-menu>li>a {
+  color: rgb(108, 0, 0) !important;
+  background-color: white !important;
+}
+
+#admin-navbar .dropdown-menu .active a {
+  background-color: white !important;
 }
 
 
