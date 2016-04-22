@@ -15,25 +15,7 @@ This view allows the user to read directions and select a competency to assess.
 
 
 <h1 class="pds-blue-color">Choose an Assessment</h1>
-<p>To complete the assessment, read each statement and identify the extent to which you believe you 
-
-exhibit the given behavior: Always, Often, Sometimes, Rarely, Never, or Not Applicable.  Once you have 
-
-selected your response click “Submit” to move on to the next question.  Please note: once you have 
-
-submitted your response to a question you cannot go back and change your answer for a previous 
-
-question.</p>
-
-<p>Once you have completed all of the questions in the self-assessment you will be taken to your 
-
-personalized results page where you can view areas of mastery and opportunities for continued 
-
-development.  The results page will also provide you with a list of resources that will help you develop in 
-
-each of the areas identified.  To save your results and personalized plan you MUST export the report to a 
-
-PDF file.  Please note: the system will NOT save your results to be viewed at a later time.</p>
+<p>From the dropdown menu below please select the competency you wish to explore.  Once you have selected the competency, click “Next” to begin the assessment.</p>
 <br/>
 <%= form_tag(take_assessment_path, method: :get) do %>
   <%= select_tag :competency_id, options_from_collection_for_select(@competencies, 'id', 'name'), {include_blank: 'None'} %>
@@ -41,12 +23,3 @@ PDF file.  Please note: the system will NOT save your results to be viewed at a 
 <% end %>
 <br/>
 
-<p><small>This self-assessment was developed by Professional Development Services at Carnegie Mellon University and is 
-
-intended only for the use and professional development of the individual completing the assessment.  Results are 
-
-based on the Professional Development Services Competency Model and are reflective of the individual’s self-
-
-reported behaviors in a given competency area.  This self-assessment should not be used for formal evaluation 
-
-purposes and is not a definitive determination of an individual’s performance in any given competency area.</small></p>
