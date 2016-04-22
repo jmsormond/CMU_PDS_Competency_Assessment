@@ -30,6 +30,16 @@ $(".nav li").on("click", function(){
   $(".nav .nabar-nav").find(".active").removeClass("active");
   $(this).parent().addClass("active");
 });
+
+// the following code logs the admin out when they close the window
+window.onbeforeunload = confirmExit;
+function confirmExit()
+{
+    $.ajax({
+      url: '/users/logout',
+      method: 'get'
+    });
+}
 </script>
 
 
