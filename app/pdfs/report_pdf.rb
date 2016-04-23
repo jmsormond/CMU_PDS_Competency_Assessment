@@ -1,10 +1,13 @@
 class ReportPdf < Prawn::Document
 
-	def initialize(competencies, indicators, resources)
+	def initialize(competencies, indicators, resources, indicator_resources, questions, indicator_questions)
 		super(top_margin: 70)
 		@competencies = competencies
 		@indicators = indicators
 		@resources = resources 
+		@indicator_resources = indicator_resources
+		@questions = questions
+		@indicator_questions = indicator_questions
 
 		title
 		style
@@ -12,6 +15,9 @@ class ReportPdf < Prawn::Document
 		competency_table
 		indicator_table
 		resource_table
+		indicator_resource_table
+		question_table
+		indicator_question_table
 		
 		page_numbers
 	end
@@ -36,7 +42,7 @@ class ReportPdf < Prawn::Document
     end
 
     def competency_table
-    	move_down 15
+    	move_down 30
     	text "All Competencies", size: 16, style: :bold
     	table competency_rows do 
     		row(0).font_style = :bold
@@ -55,7 +61,7 @@ class ReportPdf < Prawn::Document
     end
 
     def indicator_table
-    	move_down 15
+    	move_down 75
     	text "All Indicators", size: 16, style: :bold
     	table indicator_rows do 
     		row(0).font_style = :bold
@@ -75,7 +81,7 @@ class ReportPdf < Prawn::Document
 
 
     def resource_table
-    	move_down 15
+    	move_down 75
     	text "All Resources", size: 16, style: :bold
     	table resource_rows do 
     		row(0).font_style = :bold
@@ -93,13 +99,75 @@ class ReportPdf < Prawn::Document
 	    end
     end
 
+
+    def indicator_resource_table
+    	move_down 75
+    	text "All Indicator-Resource Relationships", size: 16, style: :bold
+    	table indicator_resource_rows do 
+    		row(0).font_style = :bold
+    		columns(1..3).align = :center
+    		self.row_colors = ["D3D3D3","FFFFFF"]
+    		self.header = true
+    	end
+    end
+
+    def indicator_resource_rows
+    	[["  #  ", "  Indicator ID  ", "  Resource ID  "]] + 
+	    @indicator_resources.map do |ir|
+	    
+	      [ir.id, ir.indicator_id, ir.resource_id ]
+	    end
+    end
+
+
+    def question_table
+    	move_down 75
+    	text "All Assessment Questions", size: 16, style: :bold
+    	table question_rows do 
+    		row(0).font_style = :bold
+    		columns(1..2).align = :center
+    		self.row_colors = ["D3D3D3","FFFFFF"]
+    		self.header = true
+    	end
+    end
+
+    def question_rows
+    	[["  #  ", "  Question  "]] + 
+	    @questions.map do |q|
+	    
+	      [q.id, q.question ]
+	    end
+    end
+
+
+
+    def indicator_question_table
+    	move_down 75
+    	text "All Indicator-Question Relationships", size: 16, style: :bold
+    	table indicator_question_rows do 
+    		row(0).font_style = :bold
+    		columns(1..3).align = :center
+    		self.row_colors = ["D3D3D3","FFFFFF"]
+    		self.header = true
+    	end
+    end
+
+    def indicator_question_rows
+    	[["  #  ", "  Indicator ID  ", "  Question ID  "]] + 
+	    @indicator_questions.map do |iq|
+	    
+	      [iq.id, iq.indicator_id, iq.question_id ]
+	    end
+    end
+
+
     def page_numbers
     	string = "page <page> of <total>"
 	    # Green page numbers 1 to 7
 	    options = { :at => [bounds.right - 150, 0],
 	                 :width => 150,
 	                 :align => :right,
-	                 :page_filter => (1..7),
+	                 :page_filter => (1..100),
 	                 :start_count_at => 1,
 	                 :color => "000000" }
 	    number_pages string, options
