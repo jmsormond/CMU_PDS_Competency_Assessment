@@ -1,5 +1,7 @@
+/* Breadcrumbs */
+
 #custom-breadcrumb {
-	list-style: none;
+  list-style: none;
 }
 
 .crumbs { display: block; }
@@ -41,9 +43,14 @@
     left: 0px;
 }
 
-.crumbs li.finished-step a {
+.crumbs li.finished-step-red a {
     background-image: image-url("redbreadcrumbs.png");
-    color: #000;
+    color: #FFF;
+}
+
+.crumbs li.finished-step-blue a {
+    background-image: image-url("bluebreadcrumbs.png");
+    color: #FFF;
 }
 
 
