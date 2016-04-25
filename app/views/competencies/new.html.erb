@@ -23,6 +23,11 @@ creating a competency via CSV upload.
 <br>
 <div class="row">
     <div class="col-xs-12">
+        <% if @notice %>
+            <div class="alert alert-danger">
+                <%= @notice %>
+            </div>
+        <% end %>
         <%= render 'csv_upload' %>
     </div>
 </div>
