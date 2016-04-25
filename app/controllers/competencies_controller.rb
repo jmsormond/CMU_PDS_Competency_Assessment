@@ -25,6 +25,9 @@ class CompetenciesController < ApplicationController
     # method.
     session[:upload] = nil
     @competency = Competency.new
+    if !notice.blank?
+      @notice = notice
+    end
   end
 
   # GET /competencies/1/edit

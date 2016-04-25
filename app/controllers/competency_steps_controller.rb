@@ -87,17 +87,49 @@ class CompetencyStepsController < ApplicationController
 
     indicator_info = Array.new
     indicator_file = params[:indicators]
+    if indicator_file.blank?
+      return redirect_to new_competency_path, notice: "Please select an apropriate Indicators file"
+    elsif !indicator_file.content_type.eql?("text/csv");
+      return redirect_to new_competency_path, notice: "Please select an apropriate Indicators file"
+    end
     indicators = CSV.read(indicator_file.path, {:headers => true, :encoding => 'windows-1251:utf-8'})
     indicators.each do |indicator|
-        indicator_info.push({level: indicator[0], description: indicator[1]})
+      level = indicator[0]
+      description = indicator[1]
+      possible_levels = Indicator::LEVELS_LIST
+      if (possible_levels.include?(level) or possible_levels.map { |l| l.downcase }.include?(level))
+        if (!description.blank?)
+          indicator_info.push({level: level, description: description})
+        else
+          return redirect_to new_competency_path, notice: "Incorrect Indicators file upload; please assert your selected file follows the Indicators Template"
+        end
+      else
+        return redirect_to new_competency_path, notice: "Incorrect Indicators file upload; please assert your selected file follows the Indicators Template"
+      end
+      indicator_info.push({level: level, description: description})
+    end
+    if indicator_info.size == 0
+      return redirect_to new_competency_path, notice: "No data found in Indicators file"
     end
     session[:competency]["indicators_attributes"] = indicator_info
 
     resource_info = Array.new
     resources_file = params[:resources]
+    if resources_file.blank?
+      return redirect_to new_competency_path, notice: "Please select an apropriate Resources file"
+    elsif !resources_file.content_type.eql?("text/csv");
+      return redirect_to new_competency_path, notice: "Please select an apropriate Resources file"
+    end
     resources = CSV.read(resources_file.path, {:headers => true, :encoding => 'windows-1251:utf-8'})
     resources.each do |resource|
-        resource_info.push({resource_category: resource[0], name: resource[1], description: resource[2], link: resource[3]})
+      resource_category = resource[0]
+      name = resource[1]
+      description = [2]
+      link = resource[3]
+      resource_info.push({resource_category: resource_category, name: name, description: description, link: link})
+    end
+    if resource_info.size == 0
+      return redirect_to new_competency_path, notice: "No data found in Resources file"
     end
     session[:resources] = resource_info
 
