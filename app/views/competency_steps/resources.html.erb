@@ -18,10 +18,10 @@ on the resource_fields partail.
             <%= render :partial => "resource_fields", :locals => { :f => indicator_resource_form } %>
           <% end %> 
           <p>
-            <%= competency_form.link_to_add("Add New Resource", :indicator_resources, :class => 'btn btn-xs pds-color-background-light white-text') %>
+            <%= competency_form.link_to_add("Add Additional Resource", :indicator_resources, :class => 'btn btn-xs pds-color-background-light white-text') %>
           </p>
         </div>
     <div class="form-actions">
-      <%= competency_form.submit 'Next', :class => 'btn btn-xs pds-color-background-light white-text' %>
+      <%= competency_form.submit 'Next Page', :class => 'btn btn-xs pds-color-background-light white-text pull-right' %>
     </div>
   <% end %>
