@@ -40,13 +40,14 @@ class AssessmentResultsPdf < Prawn::Document
 
     def title
     	move_down 0
-    	text "Assessment Results for #{@competency_name}", size: 18, style: :bold
+    	text "Competency Assessment Results For: #{@competency_name}", size: 18, style: :bold
     end
 
 
     def competent_indicator_table
         move_down 30
         text "Your Competent Areas", size: 16, style: :bold
+        text "Based on your repsonses to the assessment, you demonstrate competence in the following areas:", size: 14, style: :italic
         table competent_indicator_rows do 
             row(0).font_style = :bold
             columns(1..1).align = :center
@@ -66,6 +67,7 @@ class AssessmentResultsPdf < Prawn::Document
     def competent_resource_table
         move_down 30
         text "Improve Your Competent Areas More", size: 16, style: :bold
+
         table competent_resource_rows do 
             row(0).font_style = :bold
             columns(1..4).align = :center
@@ -85,8 +87,9 @@ class AssessmentResultsPdf < Prawn::Document
 
 
     def developing_indicator_table
-        move_down 30
+        move_down 40
         text "Your Developing Areas", size: 16, style: :bold
+        text "Based on your repsonses to the assessment, you are developing competence in the following areas:", size: 14, style: :italic
         table developing_indicator_rows do 
             row(0).font_style = :bold
             columns(1..1).align = :center
@@ -127,8 +130,10 @@ class AssessmentResultsPdf < Prawn::Document
 
 
     def emerging_indicator_table
-        move_down 30
+        move_down 40
         text "Your Emerging Indicators", size: 16, style: :bold
+        text "Based on your repsonses to the assessment, your competence is emerging in the following areas:", size: 14, style: :italic
+
         table emerging_indicator_rows do 
             row(0).font_style = :bold
             columns(1..1).align = :center
