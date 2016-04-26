@@ -56,12 +56,40 @@ class AssessmentsController < ApplicationController
             end
         end
 
-        render 'present_report'
+        render :action => 'present_report'
+
 
     end
 
     def present_report
-        
+        @emergingstring = params[:emerging]
+        @emergingids = @emergingstring.map do |es| 
+            es.to_i 
+        end
+        @emerging_questions = Array.new
+        @emergingids.each do |e|
+            @emerging_questions.push(Question.find(e))
+        end
+
+        @emerging_indicators = Array.new
+        @emerging_resources = Array.new
+        @emerging_questions.each do |question|
+            question.indicators.each do |indicator|
+                @emerging_indicators.push(indicator.description)
+                indicator.resources.each do |resource|
+                    @emerging_resources.push(resource)
+                end
+            end
+        end
+
+
+        respond_to do |format|
+          format.html
+          format.pdf do
+            pdf = AssessmentResultsPdf.new(@emerging_indicators, @emerging_resources)
+            send_data pdf.render, filename: 'assessment_results.pdf', type: 'application/pdf'
+          end
+        end
     end
 
 end
