@@ -48,7 +48,9 @@
       <% end %>
     </tbody>
   </table>
-  <%= will_paginate @resources %>
+  <div class="digg_pagination pull-right">
+    <%= will_paginate @posts, :container => false %>
+  </div>
 </div>
 
 <script type="text/javascript">

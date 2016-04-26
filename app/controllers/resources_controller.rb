@@ -19,7 +19,7 @@ class ResourcesController < ApplicationController
       }
     ) or return
 
-    @resources = Resource.filterrific_find(@filterrific).paginate(page: params[:page], per_page: 10)
+    @resources = Resource.filterrific_find(@filterrific).paginate(page: params[:page], per_page: 5)
 
     respond_to do |format|
       format.html

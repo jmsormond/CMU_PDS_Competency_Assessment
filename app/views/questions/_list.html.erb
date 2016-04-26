@@ -35,5 +35,8 @@
       <% end %>
     </tbody>
   </table>
-  <%= will_paginate @questions %>
+  <div class="digg_pagination pull-right">
+    <%= will_paginate @posts, :container => false %>
+  </div>
+  <br/>
 </div>
