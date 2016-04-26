@@ -15,6 +15,13 @@
  *= require jquery-ui-1.10.0.custom.css
  */
 
+html {
+  max-width:1200px;
+  margin-right: auto;
+  margin-left: auto;
+  min-width: 900px;
+}
+
    .min_indicator {
       background-color: #e1e1e1;
       padding: 2px 2px 2px 5px;
@@ -69,6 +76,10 @@
 }
 
 /* Nav Bar */ 
+
+#admin-navbar {
+  width: 100%;
+}
 
 #admin-navbar .active a {
   background-color: rgb(108, 0, 0)!important
