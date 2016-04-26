@@ -1,8 +1,12 @@
 class AssessmentResultsPdf < Prawn::Document
 
-	def initialize(emerging_indicators, emerging_resources)
+	def initialize(competent_indicators, competent_resources, developing_indicators, developing_resources, emerging_indicators, emerging_resources)
 		super(top_margin: 70)
- 
+    
+        @competent_indicators = competent_indicators
+        @competent_resources = competent_resources
+        @developing_indicators = developing_indicators
+        @developing_resources = developing_resources
         @emerging_indicators = emerging_indicators
         @emerging_resources = emerging_resources
 		
@@ -10,9 +14,12 @@ class AssessmentResultsPdf < Prawn::Document
 		title
 		style
 		logo
+        competent_indicator_table
+        competent_resource_table
+        developing_indicator_table
+        developing_resource_table
         emerging_indicator_table
         emerging_resource_table
-		
 		page_numbers
 	end
 
@@ -34,6 +41,89 @@ class AssessmentResultsPdf < Prawn::Document
     	move_down 0
     	text "Assessment Results for $(@competency)", size: 18, style: :bold
     end
+
+
+    def competent_indicator_table
+        move_down 30
+        text "Your Competent Areas", size: 16, style: :bold
+        table competent_indicator_rows do 
+            row(0).font_style = :bold
+            columns(1..1).align = :center
+            self.row_colors = ["D3D3D3","FFFFFF"]
+            self.header = true
+        end
+    end
+
+    def competent_indicator_rows
+        [["  Indicator Name "]] + 
+        @competent_indicators.map do |c|
+          [ c ]
+        end
+    end
+
+
+    def competent_resource_table
+        move_down 30
+        text "Improve Your Competent Areas More", size: 16, style: :bold
+        table competent_resource_rows do 
+            row(0).font_style = :bold
+            columns(1..4).align = :center
+            self.row_colors = ["D3D3D3","FFFFFF"]
+            self.header = true
+        end
+    end
+
+    def competent_resource_rows
+        [["  Resource Name  ", "  Category  ", "  Description  ", "  Link  "]] +         
+
+        @competent_resources.map do |cr|
+        
+          [cr.name, cr.resource_category, cr.description, cr.link ]
+        end
+    end
+
+
+    def developing_indicator_table
+        move_down 30
+        text "Your Developing Areas", size: 16, style: :bold
+        table developing_indicator_rows do 
+            row(0).font_style = :bold
+            columns(1..1).align = :center
+            self.row_colors = ["D3D3D3","FFFFFF"]
+            self.header = true
+        end
+    end
+
+    def developing_indicator_rows
+        [["  Indicator Name "]] + 
+        @developing_indicators.map do |d|
+          [ d ]
+        end
+    end
+
+
+    def developing_resource_table
+        move_down 30
+        text "Improve Your Developing Areas", size: 16, style: :bold
+        table developing_resource_rows do 
+            row(0).font_style = :bold
+            columns(1..4).align = :center
+            self.row_colors = ["D3D3D3","FFFFFF"]
+            self.header = true
+        end
+    end
+
+    def developing_resource_rows
+        [["  Resource Name  ", "  Category  ", "  Description  ", "  Link  "]] +         
+
+        @developing_resources.map do |dr|
+        
+          [dr.name, dr.resource_category, dr.description, dr.link ]
+        end
+    end
+
+
+
 
     def emerging_indicator_table
         move_down 30
@@ -73,9 +163,6 @@ class AssessmentResultsPdf < Prawn::Document
           [er.name, er.resource_category, er.description, er.link ]
         end
     end
-
-
-
 
 
     def page_numbers
