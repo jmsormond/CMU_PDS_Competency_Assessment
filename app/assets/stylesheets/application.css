@@ -15,6 +15,13 @@
  *= require jquery-ui-1.10.0.custom.css
  */
 
+html {
+  max-width:1200px;
+  margin-right: auto;
+  margin-left: auto;
+  min-width: 900px;
+}
+
    .min_indicator {
       background-color: #e1e1e1;
       padding: 2px 2px 2px 5px;
@@ -69,6 +76,10 @@
 }
 
 /* Nav Bar */ 
+
+#admin-navbar {
+  width: 100%;
+}
 
 #admin-navbar .active a {
   background-color: rgb(108, 0, 0)!important
@@ -227,5 +238,69 @@
 .progress-bar {
   background-color: rgb(47, 104, 197) !important
 }
+
+
+/* Dashboard header links */
+.dashboard-link a {
+  color: rgb(108, 0, 0) !important
+}
+
+.dashboard-link a:link {
+  text-decoration: none;
+}
+
+/* Digg paginiation styling */
+.digg_pagination {
+  /*background: white;*/
+  background-color: #F0EDE3;
+  cursor: default;
+  /* self-clearing method: */ }
+  .digg_pagination a, .digg_pagination span, .digg_pagination em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 1px; }
+  .digg_pagination .disabled {
+    color: #999999;
+    border: 1px solid #dddddd; }
+  .digg_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    /*background: #2e6ab1;*/
+    background: rgb(179, 58, 58);
+    color: white;
+    /*border: 1px solid #2e6ab1;*/
+    border: 1px solid rgb(179, 58, 58); }
+  .digg_pagination a {
+    text-decoration: none;
+    color: rgb(108, 0, 0);
+    /*color: #105cb6;*/
+    /*border: 1px solid #9aafe5;*/
+    border: 1px solid rgb(179, 58, 58); }
+    .digg_pagination a:hover, .digg_pagination a:focus {
+      color: #000033;
+      border-color: #000033; }
+  .digg_pagination .page_info {
+    background: #2e6ab1;
+    color: white;
+    padding: 0.4em 0.6em;
+    width: 22em;
+    margin-bottom: 0.3em;
+    text-align: center; }
+    .digg_pagination .page_info b {
+      color: #000033;
+      background: #6aa6ed;
+      padding: 0.1em 0.25em; }
+  .digg_pagination:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  * html .digg_pagination {
+    height: 1%; }
+  *:first-child + html .digg_pagination {
+    overflow: hidden; }
+
 
 

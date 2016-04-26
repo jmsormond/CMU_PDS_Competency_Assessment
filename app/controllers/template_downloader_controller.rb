@@ -12,4 +12,12 @@ class TemplateDownloaderController < ApplicationController
         )
     end
 
+    def training_manual
+        filename = "TrainingManual.docx"
+        send_file(
+            "#{Rails.root}/public/" << filename,
+            filename: filename
+        )
+    end
+
 end
