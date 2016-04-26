@@ -62,6 +62,8 @@ class AssessmentsController < ApplicationController
     end
 
     def present_report
+        @competency_name = params[:competency_name]
+
         @competentstring = params[:competent]
         @competentids = @competentstring.map do |cs| 
             cs.to_i 
@@ -127,7 +129,7 @@ class AssessmentsController < ApplicationController
         respond_to do |format|
           format.html
           format.pdf do
-            pdf = AssessmentResultsPdf.new(@competent_indicators, @competent_resources, @developing_indicators, @developing_resources, @emerging_indicators, @emerging_resources)
+            pdf = AssessmentResultsPdf.new(@competency_name, @competent_indicators, @competent_resources, @developing_indicators, @developing_resources, @emerging_indicators, @emerging_resources)
             send_data pdf.render, filename: 'assessment_results.pdf', type: 'application/pdf'
           end
         end

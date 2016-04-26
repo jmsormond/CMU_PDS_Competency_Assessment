@@ -1,8 +1,9 @@
 class AssessmentResultsPdf < Prawn::Document
 
-	def initialize(competent_indicators, competent_resources, developing_indicators, developing_resources, emerging_indicators, emerging_resources)
+	def initialize(competency_name, competent_indicators, competent_resources, developing_indicators, developing_resources, emerging_indicators, emerging_resources)
 		super(top_margin: 70)
     
+        @competency_name = competency_name
         @competent_indicators = competent_indicators
         @competent_resources = competent_resources
         @developing_indicators = developing_indicators
@@ -39,7 +40,7 @@ class AssessmentResultsPdf < Prawn::Document
 
     def title
     	move_down 0
-    	text "Assessment Results for $(@competency)", size: 18, style: :bold
+    	text "Assessment Results for #{@competency_name}", size: 18, style: :bold
     end
 
 

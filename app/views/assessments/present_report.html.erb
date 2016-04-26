@@ -20,7 +20,7 @@ partial. Local ruby variables:
 
 
 
-<%= link_to 'Generate PDF', assessment_report_path(competent: @competent, developing: @developing, emerging: @emerging, format: "pdf"), :class => "btn btn-default btn-large pds-blue-color-background-light white-text pull-right"%>
+<%= link_to 'Generate PDF', assessment_report_path(competency_name: @competency.name, competent: @competent, developing: @developing, emerging: @emerging, format: "pdf"), :class => "btn btn-default btn-large pds-blue-color-background-light white-text pull-right"%>
 
 
 <h1 class="pds-blue-color">Assessment Report: <%= @competency.name %></h1>
