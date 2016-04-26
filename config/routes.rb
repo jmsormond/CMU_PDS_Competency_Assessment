@@ -23,8 +23,9 @@ PDSAssessment::Application.routes.draw do
   get '/dashboard' => 'home#dashboard', as: :dashboard
   get '/' => 'home#home', as: :home
 
-  # Routes for downloading csv templates
-  get 'template_downloader/:filename' => 'template_downloader#download', as: :template_downloader
+  # Routes for downloading csv templates and training manual
+  get 'template_downloader/template/:filename' => 'template_downloader#download', as: :template_downloader
+  get 'template_downloader/training' => 'template_downloader#training_manual', as: :training_downloader
 
   # Routes for Assessment View
   get 'questions/choose_competency' => 'questions#choose_competency', as: :question_competency_step
