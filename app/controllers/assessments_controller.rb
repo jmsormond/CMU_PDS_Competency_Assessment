@@ -56,12 +56,83 @@ class AssessmentsController < ApplicationController
             end
         end
 
-        render 'present_report'
+        render :action => 'present_report'
+
 
     end
 
     def present_report
-        
+        @competency_name = params[:competency_name]
+
+        @competentstring = params[:competent]
+        @competentids = @competentstring.map do |cs| 
+            cs.to_i 
+        end
+        @competent_questions = Array.new
+        @competentids.each do |c|
+            @competent_questions.push(Question.find(c))
+        end
+
+        @competent_indicators = Array.new
+        @competent_resources = Array.new
+        @competent_questions.each do |question|
+            question.indicators.each do |indicator|
+                @competent_indicators.push(indicator.description)
+                indicator.resources.each do |resource|
+                    @competent_resources.push(resource)
+                end
+            end
+        end
+
+
+        @developingstring = params[:developing]
+        @developingids = @developingstring.map do |ds| 
+            ds.to_i 
+        end
+        @developing_questions = Array.new
+        @developingids.each do |d|
+            @developing_questions.push(Question.find(d))
+        end
+
+        @developing_indicators = Array.new
+        @developing_resources = Array.new
+        @developing_questions.each do |question|
+            question.indicators.each do |indicator|
+                @developing_indicators.push(indicator.description)
+                indicator.resources.each do |resource|
+                    @developing_resources.push(resource)
+                end
+            end
+        end
+
+
+        @emergingstring = params[:emerging]
+        @emergingids = @emergingstring.map do |es| 
+            es.to_i 
+        end
+        @emerging_questions = Array.new
+        @emergingids.each do |e|
+            @emerging_questions.push(Question.find(e))
+        end
+
+        @emerging_indicators = Array.new
+        @emerging_resources = Array.new
+        @emerging_questions.each do |question|
+            question.indicators.each do |indicator|
+                @emerging_indicators.push(indicator.description)
+                indicator.resources.each do |resource|
+                    @emerging_resources.push(resource)
+                end
+            end
+        end
+
+        respond_to do |format|
+          format.html
+          format.pdf do
+            pdf = AssessmentResultsPdf.new(@competency_name, @competent_indicators, @competent_resources, @developing_indicators, @developing_resources, @emerging_indicators, @emerging_resources)
+            send_data pdf.render, filename: 'assessment_results.pdf', type: 'application/pdf'
+          end
+        end
     end
 
 end
