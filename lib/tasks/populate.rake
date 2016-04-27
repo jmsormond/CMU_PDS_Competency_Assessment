@@ -997,10 +997,10 @@ namespace :db do
 
     # Step 7: create a superadmin
     user = User.new
-    user.username = "superadmin"
+    user.username = "CMUpdscomp"
     user.email = "test@mail.com"
-    user.password = "password"
-    user.password_confirmation = "password"
+    user.password = "PD5$ervices"
+    user.password_confirmation = "PD5$ervices"
     user.save!
 
   end
