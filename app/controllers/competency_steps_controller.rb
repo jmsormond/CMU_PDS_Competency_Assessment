@@ -106,7 +106,6 @@ class CompetencyStepsController < ApplicationController
       else
         return redirect_to new_competency_path, notice: "Incorrect Indicators file upload; please assert your selected file follows the Indicators Template"
       end
-      indicator_info.push({level: level, description: description})
     end
     if indicator_info.size == 0
       return redirect_to new_competency_path, notice: "No data found in Indicators file"
