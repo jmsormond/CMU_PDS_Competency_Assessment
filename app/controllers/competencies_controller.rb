@@ -24,6 +24,7 @@ class CompetenciesController < ApplicationController
     # session[:upload] is set to nil in case the user decides to use the upload
     # method.
     session[:upload] = nil
+    session[:competency] = nil
     @competency = Competency.new
     if !notice.blank?
       @notice = notice

@@ -47,7 +47,12 @@ module AssessmentHelpers
 		        	# uploaded resource
 		        	session[:resources].each do |resource|
 		        		if resource[:name].eql?(uploaded_name)
-		        			new_resource = Resource.new({resource_category: resource[:resource_category], name: resource[:name], description: resource[:description], link: resource[:link]})
+		        			# new_resource = Resource.new({resource_category: resource[:resource_category], name: resource[:name], description: resource[:description], link: resource[:link]})
+		        			new_resource = Resource.new
+		        			new_resource.resource_category = resource[:resource_category].to_s
+		        			new_resource.name = resource[:name].to_s
+		        			new_resource.description = resource[:description].to_s
+		        			new_resource.link = resource[:link].to_s
 		        			new_resource.save!
 		        			resource_id = new_resource.id
 		        		end
