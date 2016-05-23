@@ -13,7 +13,7 @@ class TemplateDownloaderController < ApplicationController
     end
 
     def training_manual
-        filename = "Training_Manual.pdf"
+        filename = "Training_Document.pdf"
         send_file(
             "#{Rails.root}/public/" << filename,
             filename: filename
